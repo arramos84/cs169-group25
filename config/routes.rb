@@ -1,4 +1,8 @@
 CS169Group31::Application.routes.draw do
+  get "users/new"
+  
+  match '/signup',  to: 'users#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
