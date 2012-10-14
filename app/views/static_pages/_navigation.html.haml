@@ -1,0 +1,14 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .navbar-inner
+    .container
+      %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand{:href => "./index.html"} LeaderMatch
+      .nav-collapse.collapse
+        %ul.nav
+          %li.active
+            %a{:href => "./"} Home
+          %li
+            %a{:href => "./login"} Sign In
