@@ -51,8 +51,12 @@ Given /the following movies exist/ do |movies_table|
   end
 end
 
-Given /^that there is a user with the following email: (\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z)$/ do |user_email|
-  assert User.find(:all, :conditions => {:email => user_email}) != nil
+Given /^that there is a user with the following email: "(.*?)"$/ do |user_email|
+  if User.find_by_email(user_email)
+    User.create(:first_name => "john",
+                :last_name => "johnson",
+                :email => user_email)
+  end
 end
 
 When /^(?:|I )go to (.+)$/ do |page_name|
