@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 = render 'navigation.html.haml'
 
 .jumbotron.masthead
@@ -21,5 +19,3 @@
         %p All recommendations stem from Dan Mulhern, Professor at the Haas School of Business at UC Berkeley. 
       .span4
         %h2 Free
-        %p This service is offered free to all students.
->>>>>>> e1fc109f17fe75ce264304eeaf5c049b9523ef01
