@@ -5,7 +5,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.brand{:href => "./index.html"} Bootstrap
+      %a.brand{:href => "./index.html"} LeaderMatch
       .nav-collapse.collapse
         %ul.nav
           %li.active
