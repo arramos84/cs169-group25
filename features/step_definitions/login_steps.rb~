@@ -1,0 +1,4 @@
+Given /that there is a user with the following email: (.*)/ do |email|
+  User.find(:all, :conditions=>{:email=>#{email}}) != nil
+end
+

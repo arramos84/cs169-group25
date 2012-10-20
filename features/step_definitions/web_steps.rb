@@ -51,6 +51,10 @@ Given /the following movies exist/ do |movies_table|
   end
 end
 
+Given /^that there is a user with the following email: (\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z)$/ do |user_email|
+  assert User.find(:all, :conditions => {:email => user_email}) != nil
+end
+
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
