@@ -20,10 +20,10 @@ module NavigationHelpers
       '/home'
 
     when /^the sign up page$/
-      '/signup/'
+      '/signup'
 
     when /^the login page$/
-      '/login/'
+      '/login'
 
     when /^the survey page$/
       '/survey'
