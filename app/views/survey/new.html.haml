@@ -1,639 +1,639 @@
 = render("static_pages/navigation.html.haml")
 .container
-.marketing
-%h2{:style=>'text-align: center'} Let's learn more about your personality
-%h4 To get your four character personality "types", we need you to answer the following questions:
-
-= form_for :survey, :url => {:action => "new"} do |f|
-
-  %questions 1. At a party do you:
-  %br
-  = f.radio_button 'E1-1', 'a'
-  interact with many, including strangers
-  %br
-  = f.radio_button 'E1-1', 'b'
-  interact with a few, known to you
-  %br
-
-  2. Are you more:
-  %br
-  = f.radio_button 'SN-1', 'a'
-  realistic
-  %br
-  = f.radio_button 'SN-1', 'b'
-  philosophically inclined
-  %br
-
-  3. Are you more intrigued by
-  %br
-  = f.radio_button 'SN-2', 'a'
-  facts
-  %br
-  = f.radio_button 'SN-2', 'b'
-  similes
-  %br
-
-  4. Are you usually more:
-  %br
-  = f.radio_button 'TF-1', 'a'
-  fair minded
-  %br
-  = f.radio_button 'TF-1', 'b'
-  kind hearted
-  %br
-
-  5. Do you tend to be more:
-  %br
-  = f.radio_button 'TF-2', 'a'
-  dispassionate
-  %br
-  = f.radio_button 'TF-2', 'b'
-  sympathetic
-  %br
-
-  6. Do you prefer to work:
-  %br
-  = f.radio_button 'JP-1', 'a'
-  to deadlines
-  %br
-  = f.radio_button 'JP-1', 'b'
-  just "whenever"
-  %br
-
-  7. Do you tend to choose:
-  %br
-  = f.radio_button 'JP-2', 'a'
-  rather carefully
-  %br
-  = f.radio_button 'JP-2', 'b'
-  somewhat impulsively
-  %br
-
-  8. At parties do you:
-  %br
-  = f.radio_button 'E1-2', 'a'
-  stay late, with increasing energy
-  %br
-  = f.radio_button 'E1-2', 'b'
-  leave early, with decreased energy
-  %br
-
-  9. Are you more:
-  %br
-  = f.radio_button 'SN-3', 'a'
-  sensible person
-  %br
-  = f.radio_button 'SN-3', 'b'
-  reflective person
-  %br
-
-  10. Are you more drawn to:
-  %br
-  = f.radio_button 'SN-4', 'a'
-  hard data
-  %br
-  = f.radio_button 'SN-4', 'b'
-  abstruse ideas
-  %br
-
-  11. Is it more natural for you to be:
-  %br
-  = f.radio_button 'TF-3', 'a'
-  fair to others
-  %br
-  = f.radio_button 'TF-3', 'b'
-  nice to others
-  %br
-
-  12. In first approaching others are you more:
-  %br
-  = f.radio_button 'TF-4', 'a'
-  impersonal and detached
-  %br
-  = f.radio_button 'TF-4', 'b'
-  personal and engaging
-  %br
-
-  13. Are you usually more:
-  %br
-  = f.radio_button 'JP-3', 'a'
-  punctual
-  %br
-  = f.radio_button 'JP-3', 'b'
-  leisurely
-  %br
-
-  14. Does it bother you more having things:
-  %br
-  = f.radio_button 'JP-4', 'a'
-  incomplete
-  %br
-  = f.radio_button 'JP-4', 'b'
-  completed
-  %br
-
-  15. In your social groups do you:
-  %br
-  = f.radio_button 'E1-3', 'a'
-  keep abreast of others' happenings
-  %br
-  = f.radio_button 'E1-3', 'b'
-  get behind on the news
-  %br
-
-  16. Are you usually more interested in:
-  %br
-  = f.radio_button 'SN-5', 'a'
-  specifics
-  %br
-  = f.radio_button 'SN-5', 'b'
-  concepts
-  %br
-
-  17. Do you prefer writers who:
-  %br
-  = f.radio_button 'SN-6', 'a'
-  say what they mean
-  %br
-  = f.radio_button 'SN-6', 'b'
-  use lots of analogies
-  %br
-
-  18. Are you more naturally:
-  %br
-  = f.radio_button 'TF-5', 'a'
-  impartial
-  %br
-  = f.radio_button 'TF-5', 'b'
-  compassionate
-  %br
-
-  19. In judging are you more likely to be:
-  %br
-  = f.radio_button 'TF-6', 'a'
-  impersonal
-  %br
-  = f.radio_button 'TF-6', 'b'
-  sentimental
-  %br
-
-  20. Do you usually:
-  %br
-  = f.radio_button 'JP-5', 'a'
-  settle things
-  %br
-  = f.radio_button 'JP-5', 'b'
-  keep options open
-  %br
-
-  21. Are you usually rather:
-  %br
-  = f.radio_button 'JP-6', 'a'
-  quick to agree to a time
-  %br
-  = f.radio_button 'JP-6', 'b'
-  reluctant to agree to a time
-  %br
-
-  22. In phoning do you:
-  %br
-  = f.radio_button 'E1-4', 'a'
-  just start talking
-  %br
-  = f.radio_button 'E1-4', 'b'
-  rehearse what you'll say
-  %br
-
-  23. Facts:
-  %br
-  = f.radio_button 'SN-7', 'a'
-  speak for themselves
-  %br
-  = f.radio_button 'SN-7', 'b'
-  usually require interpretation
-  %br
-
-  24. Do you prefer to work with:
-  %br
-  = f.radio_button 'SN-8', 'a'
-  practical information
-  %br
-  = f.radio_button 'SN-8', 'b'
-  abstract ideas
-  %br
-
-  25. Are you inclined to be more:
-  %br
-  = f.radio_button 'TF-7', 'a'
-  cool headed
-  %br
-  = f.radio_button 'TF-7', 'b'
-  warm hearted
-  %br
-
-  26. Would you rather be:
-  %br
-  = f.radio_button 'TF-8', 'a'
-  more just than merciful
-  %br
-  = f.radio_button 'TF-8', 'b'
-  more merciful than just
-  %br
-
-  27. Are you more comfortable:
-  %br
-  = f.radio_button 'JP-7', 'a'
-  setting a schedule
-  %br
-  = f.radio_button 'JP-7', 'b'
-  putting things off
-  %br
-
-  28. Are youmore comfortable with:
-  %br
-  = f.radio_button 'JP-8', 'a'
-  written agreements
-  %br
-  = f.radio_button 'JP-8', 'b'
-  handshake agreements
-  %br
-
-  29. In company do you:
-  %br
-  = f.radio_button 'E1-5', 'a'
-  start conversations
-  %br
-  = f.radio_button 'E1-5', 'b'
-  wait to be approached
-  %br
-
-  30. Traditionally common sense is:
-  %br
-  = f.radio_button 'SN-9', 'a'
-  usually trustworthy
-  %br
-  = f.radio_button 'SN-9', 'b'
-  often misleading
-  %br
-
-  31. Children often do not:
-  %br
-  = f.radio_button 'SN-10', 'a'
-  make themselves useful enough
-  %br
-  = f.radio_button 'SN-10', 'b'
-  daydream enough
-  %br
-
-  32. Are you usually more:
-  %br
-  = f.radio_button 'TF-9', 'a'
-  tough minded
-  %br
-  = f.radio_button 'TF-9', 'b'
-  tender hearted
-  %br
-
-  33. Are you more:
-  %br
-  = f.radio_button 'TF-10', 'a'
-  firm than gentle
-  %br
-  = f.radio_button 'TF-10', 'b'
-  gentle than firm
-  %br
-
-  34. Are you more prone to keep things:
-  %br
-  = f.radio_button 'JP-9', 'a'
-  well organized
-  %br
-  = f.radio_button 'JP-9', 'b'
-  open-ended
-  %br
-
-  35. Do you put more value on the:
-  %br
-  = f.radio_button 'JP-10', 'a'
-  definite
-  %br
-  = f.radio_button 'JP-10', 'b'
-  variable
-  %br
-
-  36. Does new interaction with others:
-  %br
-  = f.radio_button 'E1-6', 'a'
-  stimulate and energize you
-  %br
-  = f.radio_button 'E1-6', 'b'
-  tax your reserves
-  %br
-
-  37. Are you more frequently:
-  %br
-  = f.radio_button 'SN-11', 'a'
-  a practical sort of person
-  %br
-  = f.radio_button 'SN-11', 'b'
-  an abstract sort of person
-  %br
-
-  38. Which are you drawn to:
-  %br
-  = f.radio_button 'SN-12', 'a'
-  accurate perception
-  %br
-  = f.radio_button 'SN-12', 'b'
-  concept formation
-  %br
-
-  39. Which is more satisfying:
-  %br
-  = f.radio_button 'TF-11', 'a'
-  to discuss an issue thoroughly
-  %br
-  = f.radio_button 'TF-11', 'b'
-  to arrive at agreement on an issue
-  %br
-
-  40. Which rules you more:
-  %br
-  = f.radio_button 'TF-12', 'a'
-  your head
-  %br
-  = f.radio_button 'TF-12', 'b'
-  your heart
-  %br
-
-  41. Are you more comfortable with work:
-  %br
-  = f.radio_button 'JP-11', 'a'
-  contracted
-  %br
-  = f.radio_button 'JP-11', 'b'
-  done on a casual basis
-  %br
-
-  42. Do you prefer things to be:
-  %br
-  = f.radio_button 'JP-12', 'a'
-  neat and orderly
-  %br
-  = f.radio_button 'JP-12', 'b'
-  optional
-  %br
-
-  43. Do you prefer:
-  %br
-  = f.radio_button 'E1-7', 'a'
-  many friends with brief contact
-  %br
-  = f.radio_button 'E1-7', 'b'
-  a few friends with longer contact
-  %br
-
-  44. Are you more drawn to:
-  %br
-  = f.radio_button 'SN-13', 'a'
-  substantial information
-  %br
-  = f.radio_button 'SN-13', 'b'
-  credible assumptions
-  %br
-
-  45. Are you more interseted in:
-  %br
-  = f.radio_button 'SN-14', 'a'
-  production
-  %br
-  = f.radio_button 'SN-14', 'b'
-  research
-  %br
-
-  46. Are you more comfortable when you are:
-  %br
-  = f.radio_button 'TF-13', 'a'
-  objective
-  %br
-  = f.radio_button 'TF-13', 'b'
-  personal
-  %br
-
-  47. Do you value in yourself more that you are:
-  %br
-  = f.radio_button 'TF-14', 'a'
-  unwavering
-  %br
-  = f.radio_button 'TF-14', 'b'
-  devoted
-  %br
-
-  48. Are you more comfortable with:
-  %br
-  = f.radio_button 'JP-13', 'a'
-  final statements
-  %br
-  = f.radio_button 'JP-13', 'b'
-  tentative statements
-  %br
-
-  49. Are you more comfortable:
-  %br
-  = f.radio_button 'JP-14', 'a'
-  after a decision
-  %br
-  = f.radio_button 'JP-14', 'b'
-  before a decision
-  %br
-
-  50. Do you:
-  %br
-  = f.radio_button 'E1-8', 'a'
-  speak easily and at length with strangers
-  %br
-  = f.radio_button 'E1-8', 'b'
-  find little to say to strangers
-  %br
-
-  51. Are you usually more interested in the:
-  %br
-  = f.radio_button 'SN-15', 'a'
-  particular instance
-  %br
-  = f.radio_button 'SN-15', 'b'
-  general case
-  %br
-
-  52. Do you feel:
-  %br
-  = f.radio_button 'SN-16', 'a'
-  more practical than ingenious
-  %br
-  = f.radio_button 'SN-16', 'b'
-  more ingenious than practical
-  %br
-
-  53. Are you typically more a person of:
-  %br
-  = f.radio_button 'TF-15', 'a'
-  clear reason
-  %br
-  = f.radio_button 'TF-15', 'b'
-  strong feeling
-  %br
-
-  54. Are you inclined more to be:
-  %br
-  = f.radio_button 'TF-16', 'a'
-  fair-minded
-  %br
-  = f.radio_button 'TF-16', 'b'
-  sympathetic
-  %br
-
-  55. Is it preferable mostly to:
-  %br
-  = f.radio_button 'JP-15', 'a'
-  make sure things are arranged
-  %br
-  = f.radio_button 'JP-15', 'b'
-  just let things happen
-  %br
-
-  56. Is it you way more to:
-  %br
-  = f.radio_button 'JP-16', 'a'
-  get things settled
-  %br
-  = f.radio_button 'JP-16', 'b'
-  put off settlement
-  %br
-
-  57. When the phone rings do you:
-  %br
-  = f.radio_button 'E1-9', 'a'
-  hasten to get it first
-  %br
-  = f.radio_button 'E1-9', 'b'
-  hope someone else will answer
-  %br
-
-  58. Do you prize more in yourself a:
-  %br
-  = f.radio_button 'SN-17', 'a'
-  good sense of reality
-  %br
-  = f.radio_button 'SN-17', 'b'
-  good imagination
-  %br
-
-  59. Are you more drawn to:
-  %br
-  = f.radio_button 'SN-18', 'a'
-  fundamentals
-  %br
-  = f.radio_button 'SN-18', 'b'
-  overtones
-  %br
-
-  60. In judging are you usually more:
-  %br
-  = f.radio_button 'TF-17', 'a'
-  neutral
-  %br
-  = f.radio_button 'TF-17', 'b'
-  charitable
-  %br
-
-  61. Do you consider yourself more:
-  %br
-  = f.radio_button 'TF-18', 'a'
-  clear headed
-  %br
-  = f.radio_button 'TF-18', 'b'
-  good willed
-  %br
-
-  62. Are you more prone to:
-  %br
-  = f.radio_button 'JP-17', 'a'
-  schedule events
-  %br
-  = f.radio_button 'JP-17', 'b'
-  take things as they come
-  %br
-
-  63. Are you the person that is more:
-  %br
-  = f.radio_button 'JP-18', 'a'
-  routinized
-  %br
-  = f.radio_button 'JP-18', 'b'
-  whimsical
-  %br
-
-  64. Are you more inclined to be:
-  %br
-  = f.radio_button 'E1-10', 'a'
-  easy to approach
-  %br
-  = f.radio_button 'E1-10', 'b'
-  somewhat reserved
-  %br
-
-  65. Do you have more fun with:
-  %br
-  = f.radio_button 'SN-19', 'a'
-  hand-on experience
-  %br
-  = f.radio_button 'SN-19', 'b'
-  blue-sky fantasy
-  %br
-
-  66. In writings do you prefer:
-  %br
-  = f.radio_button 'SN-20', 'a'
-  the more literal
-  %br
-  = f.radio_button 'SN-20', 'b'
-  the more figurative
-  %br
-
-  67. Are you usually more:
-  %br
-  = f.radio_button 'TF-19', 'a'
-  unbiased
-  %br
-  = f.radio_button 'TF-19', 'b'
-  compassionate
-  %br
-
-  68. Are you typically more:
-  %br
-  = f.radio_button 'TF-20', 'a'
-  just than lenient
-  %br
-  = f.radio_button 'TF-20', 'b'
-  lenient than just
-  %br
-
-  69. Is it more like you to:
-  %br
-  = f.radio_button 'JP-19', 'a'
-  make snap judgments
-  %br
-  = f.radio_button 'JP-19', 'b'
-  delay making judgments
-  %br
-
-  70. Do you tend to be more:
-  %br
-  = f.radio_button 'JP-20', 'a'
-  deliberate than spontaneous
-  %br
-  = f.radio_button 'JP-20', 'b'
-  spontaneous than deliberate
-  %br
-  %br
-  %input.button{:name => "commit", :type => "submit", :value => "Submit"}/
+  .marketing
+    %h2{:style=>'text-align: center'} Let's learn more about your personality
+    %h4 To get your four character personality "type", we need you to answer the following questions:
+
+    = form_for :survey, :url => {:action => "new"} do |f|
+
+      1. At a party do you:
+      %br
+      = f.radio_button 'E1-1', 'a'
+      interact with many, including strangers
+      %br
+      = f.radio_button 'E1-1', 'b'
+      interact with a few, known to you
+      %br
+
+      2. Are you more:
+      %br
+      = f.radio_button 'SN-1', 'a'
+      realistic
+      %br
+      = f.radio_button 'SN-1', 'b'
+      philosophically inclined
+      %br
+
+      3. Are you more intrigued by
+      %br
+      = f.radio_button 'SN-2', 'a'
+      facts
+      %br
+      = f.radio_button 'SN-2', 'b'
+      similes
+      %br
+
+      4. Are you usually more:
+      %br
+      = f.radio_button 'TF-1', 'a'
+      fair minded
+      %br
+      = f.radio_button 'TF-1', 'b'
+      kind hearted
+      %br
+
+      5. Do you tend to be more:
+      %br
+      = f.radio_button 'TF-2', 'a'
+      dispassionate
+      %br
+      = f.radio_button 'TF-2', 'b'
+      sympathetic
+      %br
+
+      6. Do you prefer to work:
+      %br
+      = f.radio_button 'JP-1', 'a'
+      to deadlines
+      %br
+      = f.radio_button 'JP-1', 'b'
+      just "whenever"
+      %br
+
+      7. Do you tend to choose:
+      %br
+      = f.radio_button 'JP-2', 'a'
+      rather carefully
+      %br
+      = f.radio_button 'JP-2', 'b'
+      somewhat impulsively
+      %br
+
+      8. At parties do you:
+      %br
+      = f.radio_button 'E1-2', 'a'
+      stay late, with increasing energy
+      %br
+      = f.radio_button 'E1-2', 'b'
+      leave early, with decreased energy
+      %br
+
+      9. Are you more:
+      %br
+      = f.radio_button 'SN-3', 'a'
+      sensible person
+      %br
+      = f.radio_button 'SN-3', 'b'
+      reflective person
+      %br
+
+      10. Are you more drawn to:
+      %br
+      = f.radio_button 'SN-4', 'a'
+      hard data
+      %br
+      = f.radio_button 'SN-4', 'b'
+      abstruse ideas
+      %br
+
+      11. Is it more natural for you to be:
+      %br
+      = f.radio_button 'TF-3', 'a'
+      fair to others
+      %br
+      = f.radio_button 'TF-3', 'b'
+      nice to others
+      %br
+
+      12. In first approaching others are you more:
+      %br
+      = f.radio_button 'TF-4', 'a'
+      impersonal and detached
+      %br
+      = f.radio_button 'TF-4', 'b'
+      personal and engaging
+      %br
+
+      13. Are you usually more:
+      %br
+      = f.radio_button 'JP-3', 'a'
+      punctual
+      %br
+      = f.radio_button 'JP-3', 'b'
+      leisurely
+      %br
+
+      14. Does it bother you more having things:
+      %br
+      = f.radio_button 'JP-4', 'a'
+      incomplete
+      %br
+      = f.radio_button 'JP-4', 'b'
+      completed
+      %br
+
+      15. In your social groups do you:
+      %br
+      = f.radio_button 'E1-3', 'a'
+      keep abreast of others' happenings
+      %br
+      = f.radio_button 'E1-3', 'b'
+      get behind on the news
+      %br
+
+      16. Are you usually more interested in:
+      %br
+      = f.radio_button 'SN-5', 'a'
+      specifics
+      %br
+      = f.radio_button 'SN-5', 'b'
+      concepts
+      %br
+
+      17. Do you prefer writers who:
+      %br
+      = f.radio_button 'SN-6', 'a'
+      say what they mean
+      %br
+      = f.radio_button 'SN-6', 'b'
+      use lots of analogies
+      %br
+
+      18. Are you more naturally:
+      %br
+      = f.radio_button 'TF-5', 'a'
+      impartial
+      %br
+      = f.radio_button 'TF-5', 'b'
+      compassionate
+      %br
+
+      19. In judging are you more likely to be:
+      %br
+      = f.radio_button 'TF-6', 'a'
+      impersonal
+      %br
+      = f.radio_button 'TF-6', 'b'
+      sentimental
+      %br
+
+      20. Do you usually:
+      %br
+      = f.radio_button 'JP-5', 'a'
+      settle things
+      %br
+      = f.radio_button 'JP-5', 'b'
+      keep options open
+      %br
+
+      21. Are you usually rather:
+      %br
+      = f.radio_button 'JP-6', 'a'
+      quick to agree to a time
+      %br
+      = f.radio_button 'JP-6', 'b'
+      reluctant to agree to a time
+      %br
+
+      22. In phoning do you:
+      %br
+      = f.radio_button 'E1-4', 'a'
+      just start talking
+      %br
+      = f.radio_button 'E1-4', 'b'
+      rehearse what you'll say
+      %br
+
+      23. Facts:
+      %br
+      = f.radio_button 'SN-7', 'a'
+      speak for themselves
+      %br
+      = f.radio_button 'SN-7', 'b'
+      usually require interpretation
+      %br
+
+      24. Do you prefer to work with:
+      %br
+      = f.radio_button 'SN-8', 'a'
+      practical information
+      %br
+      = f.radio_button 'SN-8', 'b'
+      abstract ideas
+      %br
+
+      25. Are you inclined to be more:
+      %br
+      = f.radio_button 'TF-7', 'a'
+      cool headed
+      %br
+      = f.radio_button 'TF-7', 'b'
+      warm hearted
+      %br
+
+      26. Would you rather be:
+      %br
+      = f.radio_button 'TF-8', 'a'
+      more just than merciful
+      %br
+      = f.radio_button 'TF-8', 'b'
+      more merciful than just
+      %br
+
+      27. Are you more comfortable:
+      %br
+      = f.radio_button 'JP-7', 'a'
+      setting a schedule
+      %br
+      = f.radio_button 'JP-7', 'b'
+      putting things off
+      %br
+
+      28. Are youmore comfortable with:
+      %br
+      = f.radio_button 'JP-8', 'a'
+      written agreements
+      %br
+      = f.radio_button 'JP-8', 'b'
+      handshake agreements
+      %br
+
+      29. In company do you:
+      %br
+      = f.radio_button 'E1-5', 'a'
+      start conversations
+      %br
+      = f.radio_button 'E1-5', 'b'
+      wait to be approached
+      %br
+
+      30. Traditionally common sense is:
+      %br
+      = f.radio_button 'SN-9', 'a'
+      usually trustworthy
+      %br
+      = f.radio_button 'SN-9', 'b'
+      often misleading
+      %br
+
+      31. Children often do not:
+      %br
+      = f.radio_button 'SN-10', 'a'
+      make themselves useful enough
+      %br
+      = f.radio_button 'SN-10', 'b'
+      daydream enough
+      %br
+
+      32. Are you usually more:
+      %br
+      = f.radio_button 'TF-9', 'a'
+      tough minded
+      %br
+      = f.radio_button 'TF-9', 'b'
+      tender hearted
+      %br
+
+      33. Are you more:
+      %br
+      = f.radio_button 'TF-10', 'a'
+      firm than gentle
+      %br
+      = f.radio_button 'TF-10', 'b'
+      gentle than firm
+      %br
+
+      34. Are you more prone to keep things:
+      %br
+      = f.radio_button 'JP-9', 'a'
+      well organized
+      %br
+      = f.radio_button 'JP-9', 'b'
+      open-ended
+      %br
+
+      35. Do you put more value on the:
+      %br
+      = f.radio_button 'JP-10', 'a'
+      definite
+      %br
+      = f.radio_button 'JP-10', 'b'
+      variable
+      %br
+
+      36. Does new interaction with others:
+      %br
+      = f.radio_button 'E1-6', 'a'
+      stimulate and energize you
+      %br
+      = f.radio_button 'E1-6', 'b'
+      tax your reserves
+      %br
+
+      37. Are you more frequently:
+      %br
+      = f.radio_button 'SN-11', 'a'
+      a practical sort of person
+      %br
+      = f.radio_button 'SN-11', 'b'
+      an abstract sort of person
+      %br
+
+      38. Which are you drawn to:
+      %br
+      = f.radio_button 'SN-12', 'a'
+      accurate perception
+      %br
+      = f.radio_button 'SN-12', 'b'
+      concept formation
+      %br
+
+      39. Which is more satisfying:
+      %br
+      = f.radio_button 'TF-11', 'a'
+      to discuss an issue thoroughly
+      %br
+      = f.radio_button 'TF-11', 'b'
+      to arrive at agreement on an issue
+      %br
+
+      40. Which rules you more:
+      %br
+      = f.radio_button 'TF-12', 'a'
+      your head
+      %br
+      = f.radio_button 'TF-12', 'b'
+      your heart
+      %br
+
+      41. Are you more comfortable with work:
+      %br
+      = f.radio_button 'JP-11', 'a'
+      contracted
+      %br
+      = f.radio_button 'JP-11', 'b'
+      done on a casual basis
+      %br
+
+      42. Do you prefer things to be:
+      %br
+      = f.radio_button 'JP-12', 'a'
+      neat and orderly
+      %br
+      = f.radio_button 'JP-12', 'b'
+      optional
+      %br
+
+      43. Do you prefer:
+      %br
+      = f.radio_button 'E1-7', 'a'
+      many friends with brief contact
+      %br
+      = f.radio_button 'E1-7', 'b'
+      a few friends with longer contact
+      %br
+
+      44. Are you more drawn to:
+      %br
+      = f.radio_button 'SN-13', 'a'
+      substantial information
+      %br
+      = f.radio_button 'SN-13', 'b'
+      credible assumptions
+      %br
+
+      45. Are you more interseted in:
+      %br
+      = f.radio_button 'SN-14', 'a'
+      production
+      %br
+      = f.radio_button 'SN-14', 'b'
+      research
+      %br
+
+      46. Are you more comfortable when you are:
+      %br
+      = f.radio_button 'TF-13', 'a'
+      objective
+      %br
+      = f.radio_button 'TF-13', 'b'
+      personal
+      %br
+
+      47. Do you value in yourself more that you are:
+      %br
+      = f.radio_button 'TF-14', 'a'
+      unwavering
+      %br
+      = f.radio_button 'TF-14', 'b'
+      devoted
+      %br
+
+      48. Are you more comfortable with:
+      %br
+      = f.radio_button 'JP-13', 'a'
+      final statements
+      %br
+      = f.radio_button 'JP-13', 'b'
+      tentative statements
+      %br
+
+      49. Are you more comfortable:
+      %br
+      = f.radio_button 'JP-14', 'a'
+      after a decision
+      %br
+      = f.radio_button 'JP-14', 'b'
+      before a decision
+      %br
+
+      50. Do you:
+      %br
+      = f.radio_button 'E1-8', 'a'
+      speak easily and at length with strangers
+      %br
+      = f.radio_button 'E1-8', 'b'
+      find little to say to strangers
+      %br
+
+      51. Are you usually more interested in the:
+      %br
+      = f.radio_button 'SN-15', 'a'
+      particular instance
+      %br
+      = f.radio_button 'SN-15', 'b'
+      general case
+      %br
+
+      52. Do you feel:
+      %br
+      = f.radio_button 'SN-16', 'a'
+      more practical than ingenious
+      %br
+      = f.radio_button 'SN-16', 'b'
+      more ingenious than practical
+      %br
+
+      53. Are you typically more a person of:
+      %br
+      = f.radio_button 'TF-15', 'a'
+      clear reason
+      %br
+      = f.radio_button 'TF-15', 'b'
+      strong feeling
+      %br
+
+      54. Are you inclined more to be:
+      %br
+      = f.radio_button 'TF-16', 'a'
+      fair-minded
+      %br
+      = f.radio_button 'TF-16', 'b'
+      sympathetic
+      %br
+
+      55. Is it preferable mostly to:
+      %br
+      = f.radio_button 'JP-15', 'a'
+      make sure things are arranged
+      %br
+      = f.radio_button 'JP-15', 'b'
+      just let things happen
+      %br
+
+      56. Is it you way more to:
+      %br
+      = f.radio_button 'JP-16', 'a'
+      get things settled
+      %br
+      = f.radio_button 'JP-16', 'b'
+      put off settlement
+      %br
+
+      57. When the phone rings do you:
+      %br
+      = f.radio_button 'E1-9', 'a'
+      hasten to get it first
+      %br
+      = f.radio_button 'E1-9', 'b'
+      hope someone else will answer
+      %br
+
+      58. Do you prize more in yourself a:
+      %br
+      = f.radio_button 'SN-17', 'a'
+      good sense of reality
+      %br
+      = f.radio_button 'SN-17', 'b'
+      good imagination
+      %br
+
+      59. Are you more drawn to:
+      %br
+      = f.radio_button 'SN-18', 'a'
+      fundamentals
+      %br
+      = f.radio_button 'SN-18', 'b'
+      overtones
+      %br
+
+      60. In judging are you usually more:
+      %br
+      = f.radio_button 'TF-17', 'a'
+      neutral
+      %br
+      = f.radio_button 'TF-17', 'b'
+      charitable
+      %br
+
+      61. Do you consider yourself more:
+      %br
+      = f.radio_button 'TF-18', 'a'
+      clear headed
+      %br
+      = f.radio_button 'TF-18', 'b'
+      good willed
+      %br
+
+      62. Are you more prone to:
+      %br
+      = f.radio_button 'JP-17', 'a'
+      schedule events
+      %br
+      = f.radio_button 'JP-17', 'b'
+      take things as they come
+      %br
+
+      63. Are you the person that is more:
+      %br
+      = f.radio_button 'JP-18', 'a'
+      routinized
+      %br
+      = f.radio_button 'JP-18', 'b'
+      whimsical
+      %br
+
+      64. Are you more inclined to be:
+      %br
+      = f.radio_button 'E1-10', 'a'
+      easy to approach
+      %br
+      = f.radio_button 'E1-10', 'b'
+      somewhat reserved
+      %br
+
+      65. Do you have more fun with:
+      %br
+      = f.radio_button 'SN-19', 'a'
+      hand-on experience
+      %br
+      = f.radio_button 'SN-19', 'b'
+      blue-sky fantasy
+      %br
+
+      66. In writings do you prefer:
+      %br
+      = f.radio_button 'SN-20', 'a'
+      the more literal
+      %br
+      = f.radio_button 'SN-20', 'b'
+      the more figurative
+      %br
+
+      67. Are you usually more:
+      %br
+      = f.radio_button 'TF-19', 'a'
+      unbiased
+      %br
+      = f.radio_button 'TF-19', 'b'
+      compassionate
+      %br
+
+      68. Are you typically more:
+      %br
+      = f.radio_button 'TF-20', 'a'
+      just than lenient
+      %br
+      = f.radio_button 'TF-20', 'b'
+      lenient than just
+      %br
+
+      69. Is it more like you to:
+      %br
+      = f.radio_button 'JP-19', 'a'
+      make snap judgments
+      %br
+      = f.radio_button 'JP-19', 'b'
+      delay making judgments
+      %br
+
+      70. Do you tend to be more:
+      %br
+      = f.radio_button 'JP-20', 'a'
+      deliberate than spontaneous
+      %br
+      = f.radio_button 'JP-20', 'b'
+      spontaneous than deliberate
+      %br
+      %br
+      %input.button{:name => "commit", :type => "submit", :value => "Submit"}/
