@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  
+  has_many :personalities, :dependent => :destroy #personalitys???
+  
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation
   #magic to require a password, make sure passwords match, authenticate
   has_secure_password
