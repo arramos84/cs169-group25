@@ -29,7 +29,6 @@
 
   Scenario: creating a new account (sad path)
     Given that there is a user with the following email: "john@johnson.com"
-    When I am on the sign in page
     And I fill in "First Name" with "John"
     And I fill in "Last Name" with "Johnson"
     And I fill in "Email" with "john@johnson.com"

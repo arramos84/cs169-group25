@@ -51,6 +51,14 @@ Given /the following movies exist/ do |movies_table|
   end
 end
 
+Given /^that there is a user with the following email: "(.*?)"$/ do |user_email|
+  if User.find_by_email(user_email)
+    User.create(:first_name => "john",
+                :last_name => "johnson",
+                :email => user_email)
+  end
+end
+
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
