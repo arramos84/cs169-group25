@@ -4,6 +4,12 @@ CS169Group31::Application.routes.draw do
   
   root to: "static_pages#index"
   
+  # routes for login
+  match "login" => "sessions#new", :as => "login"
+  match "logout" => "sessions#destroy", :as => "logout"
+  match "signup" => "users#new", :as => "signup"
+  match "survey" => "survey#new", :as => "survey"
+
   #match '/signup',  to: 'users#new'
 
   # The priority is based upon order of creation:
