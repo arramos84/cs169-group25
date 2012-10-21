@@ -52,10 +52,12 @@ Given /the following movies exist/ do |movies_table|
 end
 
 Given /^that there is a user with the following email: "(.*?)"$/ do |user_email|
-  if User.find_by_email(user_email)
-    User.create(:first_name => "john",
+  if !User.find_by_email(user_email)
+    User.create!(:first_name => "john",
                 :last_name => "johnson",
-                :email => user_email)
+                :email => user_email,
+                :password=> '12345',
+                :password_confirmation=>'12345')
   end
 end
 

@@ -5,48 +5,48 @@
     I want to be able to log back in
 
   Scenario: logging in
+    Given that there is a user with the following email: "john@johnson.com"
     When I go to the login page
-    And I fill in "email" with "john@johnson.com"
-    And I fill in "password" with "12345"
-    And I fill in "Password Confirmation" with "12345"
-    And I press "login"
-    Then I should be on the user page
+    And I fill in "session_email" with "john@johnson.com"
+    And I fill in "session_password" with "12345"
+    And I press "Submit"
+    Then I should be on the home login page
 
   Scenario: logging in (sad path)
     When I go to the login page
-    And I press "login"
-    Then I should see "Incorrect user name"
+    And I press "Submit"
+    Then I should see "Invalid email and/or password! Please try again!"
 
   Scenario: creating a new account
-    When I am on the sign in page
-    And I fill in "First Name" with "John"
-    And I fill in "Last Name" with "Johnson"
-    And I fill in "Email" with "john@johnson.com"
-    And I fill in "Password" with "12345"
-    And I fill in "Password Confirmation" with "12345"
-    And I press "Sign Up"
-    Then I should be on the user page
+    When I am on the sign up page
+    And I fill in "user_first_name" with "John"
+    And I fill in "user_last_name" with "Johnson"
+    And I fill in "user_email" with "john@johnson.com"
+    And I fill in "user_password" with "12345"
+    And I fill in "user_password_confirmation" with "12345"
+    And I press "Submit"
+    Then I should be on the survey page
 
   Scenario: creating a new account (sad path)
     Given that there is a user with the following email: "john@johnson.com"
-    When I am on the sign in page
-    And I fill in "First Name" with "John"
-    And I fill in "Last Name" with "Johnson"
-    And I fill in "Email" with "john@johnson.com"
-    And I fill in "Password" with "12345"
-    And I fill in "Password Confirmation" with "12345"
-    And I press "Sign Up"
-    Then I should see "Email already in use"
+    When I am on the sign up page
+    And I fill in "user_first_name" with "John"
+    And I fill in "user_last_name" with "Johnson"
+    And I fill in "user_email" with "john@johnson.com"
+    And I fill in "user_password" with "12345"
+    And I fill in "user_password_confirmation" with "12345"
+    And I press "Submit"
+    Then I should be on the sign up page
 
   Scenario: incorrect password confirmation
-    When I am on the sign in page
-    And I fill in "First Name" with "John"
-    And I fill in "Last Name" with "Johnson"
-    And I fill in "Email" with "john@johnson.com"
-    And I fill in "Password" with "12345"
-    And I fill in "Password Confirmation" with "23456"
-    And I press "Sign Up"
-    Then I should see "Passwords do not match"
+    When I am on the sign up page
+    And I fill in "user_first_name" with "John"
+    And I fill in "user_last_name" with "Johnson"
+    And I fill in "user_email" with "john@johnson.com"
+    And I fill in "user_password" with "12345"
+    And I fill in "user_password_confirmation" with "23456"
+    And I press "Submit"
+    Then I should be on the sign up page
 
   
     
