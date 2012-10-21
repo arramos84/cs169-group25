@@ -1,0 +1,10 @@
+= render("static_pages/navigation.html.haml")
+.container
+  .marketing
+    %h2{:style=>'text-align: center'} Let's learn more about your personality
+    %h4 To get your four character personality "type", we need you to answer the following questions:
+    = form_for :survey, :url => {:action => "new"} do |f|
+      %questions 1. You are almost never late for your appointments
+      = check_box_tag :true, :caption => "This is a test question"
+      = f.check_box(:one)
+      = f.submit "Submit", :class => 'button'
