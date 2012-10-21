@@ -1,6 +1,6 @@
-class CreatePersonalities < ActiveRecord::Migration
+class CreateSurvey < ActiveRecord::Migration
   def change
-    create_table :personalities do |t|
+    create_table :survey do |t|
       t.integer :ei
       t.integer :ns
       t.integer :ft
