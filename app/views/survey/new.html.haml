@@ -1,563 +1,639 @@
-%form{:action => "/survey", :method => "post"}
+= render("static_pages/navigation.html.haml")
+.container
+.marketing
+%h2{:style=>'text-align: center'} Let's learn more about your personality
+%h4 To get your four character personality "types", we need you to answer the following questions:
+
+= form_for :survey, :url => {:action => "new"} do |f|
+
   %questions 1. At a party do you:
   %br
-    %input#survey_EI-1_a{:name => "survey[EI-1]", :type => "radio", :value => "a"}/
-    interact with many, including strangers
-    %br
-      %input#survey_EI-1_b{:name => "survey[EI-1]", :type => "radio", :value => "b"}/
-      interact with a few, known to you
-      %br
-        2. Are you more:
-        %br
-          %input#survey_SN-1_a{:name => "survey[SN-1]", :type => "radio", :value => "a"}/
-          realistic
-          %br
-            %input#survey_SN-1_b{:name => "survey[SN-1]", :type => "radio", :value => "b"}/
-            philosophically inclined
-            %br
-              3. Are you more intrigued by
-              %br
-                %input#survey_SN-2_a{:name => "survey[SN-2]", :type => "radio", :value => "a"}/
-                facts
-                %br
-                  %input#survey_SN-2_b{:name => "survey[SN-2]", :type => "radio", :value => "b"}/
-                  similes
-                  %br
-                    4. Are you usually more:
-                    %br
-                      %input#survey_TF-1_a{:name => "survey[TF-1]", :type => "radio", :value => "a"}/
-                      fair minded
-                      %br
-                        %input#survey_TF-1_b{:name => "survey[TF-1]", :type => "radio", :value => "b"}/
-                        kind hearted
-                        %br
-                          5. Do you tend to be more:
-                          %br
-                            %input#survey_TF-2_a{:name => "survey[TF-2]", :type => "radio", :value => "a"}/
-                            dispassionate
-                            %br
-                              %input#survey_TF-2_b{:name => "survey[TF-2]", :type => "radio", :value => "b"}/
-                              sympathetic
-                              %br
-                                6. Do you prefer to work:
-                                %br
-                                  %input#survey_JP-1_a{:name => "survey[JP-1]", :type => "radio", :value => "a"}/
-                                  to deadlines
-                                  %br
-                                    %input#survey_JP-1_b{:name => "survey[JP-1]", :type => "radio", :value => "b"}/
-                                    just "whenever"
-                                    %br
-                                      7. Do you tend to choose:
-                                      %br
-                                        %input#survey_JP-2_a{:name => "survey[JP-2]", :type => "radio", :value => "a"}/
-                                        rather carefully
-                                        %br
-                                          %input#survey_JP-2_b{:name => "survey[JP-2]", :type => "radio", :value => "b"}/
-                                          somewhat impulsively
-                                          %br
-                                            8. At parties do you:
-                                            %br
-                                              %input#survey_EI-2_a{:name => "survey[EI-2]", :type => "radio", :value => "a"}/
-                                              stay late, with increasing energy
-                                              %br
-                                                %input#survey_EI-2_b{:name => "survey[EI-2]", :type => "radio", :value => "b"}/
-                                                leave early, with decreased energy
-                                                %br
-                                                  9. Are you more:
-                                                  %br
-                                                    %input#survey_SN-3_a{:name => "survey[SN-3]", :type => "radio", :value => "a"}/
-                                                    sensible person
-                                                    %br
-                                                      %input#survey_SN-3_b{:name => "survey[SN-3]", :type => "radio", :value => "b"}/
-                                                      reflective person
-                                                      %br
-                                                        10. Are you more drawn to:
-                                                        %br
-                                                          %input#survey_SN-4_a{:name => "survey[SN-4]", :type => "radio", :value => "a"}/
-                                                          hard data
-                                                          %br
-                                                            %input#survey_SN-4_b{:name => "survey[SN-4]", :type => "radio", :value => "b"}/
-                                                            abstruse ideas
-                                                            %br
-                                                              11. Is it more natural for you to be:
-                                                              %br
-                                                                %input#survey_TF-3_a{:name => "survey[TF-3]", :type => "radio", :value => "a"}/
-                                                                fair to others
-                                                                %br
-                                                                  %input#survey_TF-3_b{:name => "survey[TF-3]", :type => "radio", :value => "b"}/
-                                                                  nice to others
-                                                                  %br
-                                                                    12. In first approaching others are you more:
-                                                                    %br
-                                                                      %input#survey_TF-4_a{:name => "survey[TF-4]", :type => "radio", :value => "a"}/
-                                                                      impersonal and detached
-                                                                      %br
-                                                                        %input#survey_TF-4_b{:name => "survey[TF-4]", :type => "radio", :value => "b"}/
-                                                                        personal and engaging
-                                                                        %br
-                                                                          13. Are you usually more:
-                                                                          %br
-                                                                            %input#survey_JP-3_a{:name => "survey[JP-3]", :type => "radio", :value => "a"}/
-                                                                            punctual
-                                                                            %br
-                                                                              %input#survey_JP-3_b{:name => "survey[JP-3]", :type => "radio", :value => "b"}/
-                                                                              leisurely
-                                                                              %br
-                                                                                14. Does it bother you more having things:
-                                                                                %br
-                                                                                  %input#survey_JP-4_a{:name => "survey[JP-4]", :type => "radio", :value => "a"}/
-                                                                                  incomplete
-                                                                                  %br
-                                                                                    %input#survey_JP-4_b{:name => "survey[JP-4]", :type => "radio", :value => "b"}/
-                                                                                    completed
-                                                                                    %br
-                                                                                      15. In your social groups do you:
-                                                                                      %br
-                                                                                        %input#survey_EI-3_a{:name => "survey[EI-3]", :type => "radio", :value => "a"}/
-                                                                                        keep abreast of others' happenings
-                                                                                        %br
-                                                                                          %input#survey_EI-3_b{:name => "survey[EI-3]", :type => "radio", :value => "b"}/
-                                                                                          get behind on the news
-                                                                                          %br
-                                                                                            16. Are you usually more interested in:
-                                                                                            %br
-                                                                                              %input#survey_SN-5_a{:name => "survey[SN-5]", :type => "radio", :value => "a"}/
-                                                                                              specifics
-                                                                                              %br
-                                                                                                %input#survey_SN-5_b{:name => "survey[SN-5]", :type => "radio", :value => "b"}/
-                                                                                                concepts
-                                                                                                %br
-                                                                                                  17. Do you prefer writers who:
-                                                                                                  %br
-                                                                                                    %input#survey_SN-6_a{:name => "survey[SN-6]", :type => "radio", :value => "a"}/
-                                                                                                    say what they mean
-                                                                                                    %br
-                                                                                                      %input#survey_SN-6_b{:name => "survey[SN-6]", :type => "radio", :value => "b"}/
-                                                                                                      use lots of analogies
-                                                                                                      %br
-                                                                                                        18. Are you more naturally:
-                                                                                                        %br
-                                                                                                          %input#survey_TF-5_a{:name => "survey[TF-5]", :type => "radio", :value => "a"}/
-                                                                                                          impartial
-                                                                                                          %br
-                                                                                                            %input#survey_TF-5_b{:name => "survey[TF-5]", :type => "radio", :value => "b"}/
-                                                                                                            compassionate
-                                                                                                            %br
-                                                                                                              19. In judging are you more likely to be:
-                                                                                                              %br
-                                                                                                                %input#survey_TF-6_a{:name => "survey[TF-6]", :type => "radio", :value => "a"}/
-                                                                                                                impersonal
-                                                                                                                %br
-                                                                                                                  %input#survey_TF-6_b{:name => "survey[TF-6]", :type => "radio", :value => "b"}/
-                                                                                                                  sentimental
-                                                                                                                  %br
-                                                                                                                    20. Do you usually:
-                                                                                                                    %br
-                                                                                                                      %input#survey_JP-5_a{:name => "survey[JP-5]", :type => "radio", :value => "a"}/
-                                                                                                                      settle things
-                                                                                                                      %br
-                                                                                                                        %input#survey_JP-5_b{:name => "survey[JP-5]", :type => "radio", :value => "b"}/
-                                                                                                                        keep options open
-                                                                                                                        %br
-                                                                                                                          21. Are you usually rather:
-                                                                                                                          %br
-                                                                                                                            %input#survey_JP-6_a{:name => "survey[JP-6]", :type => "radio", :value => "a"}/
-                                                                                                                            quick to agree to a time
-                                                                                                                            %br
-                                                                                                                              %input#survey_JP-6_b{:name => "survey[JP-6]", :type => "radio", :value => "b"}/
-                                                                                                                              reluctant to agree to a time
-                                                                                                                              %br
-                                                                                                                                22. In phoning do you:
-                                                                                                                                %br
-                                                                                                                                  %input#survey_EI-4_a{:name => "survey[EI-4]", :type => "radio", :value => "a"}/
-                                                                                                                                  just start talking
-                                                                                                                                  %br
-                                                                                                                                    %input#survey_EI-4_b{:name => "survey[EI-4]", :type => "radio", :value => "b"}/
-                                                                                                                                    rehearse what you'll say
-                                                                                                                                    %br
-                                                                                                                                      23. Facts:
-                                                                                                                                      %br
-                                                                                                                                        %input#survey_SN-7_a{:name => "survey[SN-7]", :type => "radio", :value => "a"}/
-                                                                                                                                        speak for themselves
-                                                                                                                                        %br
-                                                                                                                                          %input#survey_SN-7_b{:name => "survey[SN-7]", :type => "radio", :value => "b"}/
-                                                                                                                                          usually require interpretation
-                                                                                                                                          %br
-                                                                                                                                            24. Do you prefer to work with:
-                                                                                                                                            %br
-                                                                                                                                              %input#survey_SN-8_a{:name => "survey[SN-8]", :type => "radio", :value => "a"}/
-                                                                                                                                              practical information
-                                                                                                                                              %br
-                                                                                                                                                %input#survey_SN-8_b{:name => "survey[SN-8]", :type => "radio", :value => "b"}/
-                                                                                                                                                abstract ideas
-                                                                                                                                                %br
-                                                                                                                                                  25. Are you inclined to be more:
-                                                                                                                                                  %br
-                                                                                                                                                    %input#survey_TF-7_a{:name => "survey[TF-7]", :type => "radio", :value => "a"}/
-                                                                                                                                                    cool headed
-                                                                                                                                                    %br
-                                                                                                                                                      %input#survey_TF-7_b{:name => "survey[TF-7]", :type => "radio", :value => "b"}/
-                                                                                                                                                      warm hearted
-                                                                                                                                                      %br
-                                                                                                                                                        26. Would you rather be:
-                                                                                                                                                        %br
-                                                                                                                                                          %input#survey_TF-8_a{:name => "survey[TF-8]", :type => "radio", :value => "a"}/
-                                                                                                                                                          more just than merciful
-                                                                                                                                                          %br
-                                                                                                                                                            %input#survey_TF-8_b{:name => "survey[TF-8]", :type => "radio", :value => "b"}/
-                                                                                                                                                            more merciful than just
-                                                                                                                                                            %br
-                                                                                                                                                              27. Are you more comfortable:
-                                                                                                                                                              %br
-                                                                                                                                                                %input#survey_JP-7_a{:name => "survey[JP-7]", :type => "radio", :value => "a"}/
-                                                                                                                                                                setting a schedule
-                                                                                                                                                                %br
-                                                                                                                                                                  %input#survey_JP-7_b{:name => "survey[JP-7]", :type => "radio", :value => "b"}/
-                                                                                                                                                                  putting things off
-                                                                                                                                                                  %br
-                                                                                                                                                                    28. Are youmore comfortable with:
-                                                                                                                                                                    %br
-                                                                                                                                                                      %input#survey_JP-8_a{:name => "survey[JP-8]", :type => "radio", :value => "a"}/
-                                                                                                                                                                      written agreements
-                                                                                                                                                                      %br
-                                                                                                                                                                        %input#survey_JP-8_b{:name => "survey[JP-8]", :type => "radio", :value => "b"}/
-                                                                                                                                                                        handshake agreements
-                                                                                                                                                                        %br
-                                                                                                                                                                          29. In company do you:
-                                                                                                                                                                          %br
-                                                                                                                                                                            %input#survey_EI-5_a{:name => "survey[EI-5]", :type => "radio", :value => "a"}/
-                                                                                                                                                                            start conversations
-                                                                                                                                                                            %br
-                                                                                                                                                                              %input#survey_EI-5_b{:name => "survey[EI-5]", :type => "radio", :value => "b"}/
-                                                                                                                                                                              wait to be approached
-                                                                                                                                                                              %br
-                                                                                                                                                                                30. Traditionally common sense is:
-                                                                                                                                                                                %br
-                                                                                                                                                                                  %input#survey_SN-9_a{:name => "survey[SN-9]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                  usually trustworthy
-                                                                                                                                                                                  %br
-                                                                                                                                                                                    %input#survey_SN-9_b{:name => "survey[SN-9]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                    often misleading
-                                                                                                                                                                                    %br
-                                                                                                                                                                                      31. Children often do not:
-                                                                                                                                                                                      %br
-                                                                                                                                                                                        %input#survey_SN-10_a{:name => "survey[SN-10]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                        make themselves useful enough
-                                                                                                                                                                                        %br
-                                                                                                                                                                                          %input#survey_SN-10_b{:name => "survey[SN-10]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                          daydream enough
-                                                                                                                                                                                          %br
-                                                                                                                                                                                            32. Are you usually more:
-                                                                                                                                                                                            %br
-                                                                                                                                                                                              %input#survey_TF-9_a{:name => "survey[TF-9]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                              tough minded
-                                                                                                                                                                                              %br
-                                                                                                                                                                                                %input#survey_TF-9_b{:name => "survey[TF-9]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                tender hearted
-                                                                                                                                                                                                %br
-                                                                                                                                                                                                  33. Are you more:
-                                                                                                                                                                                                  %br
-                                                                                                                                                                                                    %input#survey_TF-10_a{:name => "survey[TF-10]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                    firm than gentle
-                                                                                                                                                                                                    %br
-                                                                                                                                                                                                      %input#survey_TF-10_b{:name => "survey[TF-10]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                      gentle than firm
-                                                                                                                                                                                                      %br
-                                                                                                                                                                                                        34. Are you more prone to keep things:
-                                                                                                                                                                                                        %br
-                                                                                                                                                                                                          %input#survey_JP-9_a{:name => "survey[JP-9]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                          well organized
-                                                                                                                                                                                                          %br
-                                                                                                                                                                                                            %input#survey_JP-9_b{:name => "survey[JP-9]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                            open-ended
-                                                                                                                                                                                                            %br
-                                                                                                                                                                                                              35. Do you put more value on the:
-                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                %input#survey_JP-10_a{:name => "survey[JP-10]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                definite
-                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                  %input#survey_JP-10_b{:name => "survey[JP-10]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                  variable
-                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                    36. Does new interaction with others:
-                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                      %input#survey_EI-6_a{:name => "survey[EI-6]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                      stimulate and energize you
-                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                        %input#survey_EI-6_b{:name => "survey[EI-6]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                        tax your reserves
-                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                          37. Are you more frequently:
-                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                            %input#survey_SN-11_a{:name => "survey[SN-11]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                            a practical sort of person
-                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                              %input#survey_SN-11_b{:name => "survey[SN-11]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                              an abstract sort of person
-                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                38. Which are you drawn to:
-                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                  %input#survey_SN-12_a{:name => "survey[SN-12]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                  accurate perception
-                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                    %input#survey_SN-12_b{:name => "survey[SN-12]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                    concept formation
-                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                      39. Which is more satisfying:
-                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                        %input#survey_TF-11_a{:name => "survey[TF-11]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                        to discuss an issue thoroughly
-                                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                                          %input#survey_TF-11_b{:name => "survey[TF-11]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                          to arrive at agreement on an issue
-                                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                                            40. Which rules you more:
-                                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                                              %input#survey_TF-12_a{:name => "survey[TF-12]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                              your head
-                                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                                %input#survey_TF-12_b{:name => "survey[TF-12]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                your heart
-                                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                                  41. Are you more comfortable with work:
-                                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                                    %input#survey_JP-11_a{:name => "survey[JP-11]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                    contracted
-                                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                                      %input#survey_JP-11_b{:name => "survey[JP-11]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                      done on a casual basis
-                                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                                        42. Do you prefer things to be:
-                                                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                                                          %input#survey_JP-12_a{:name => "survey[JP-12]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                          neat and orderly
-                                                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                                                            %input#survey_JP-12_b{:name => "survey[JP-12]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                            optional
-                                                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                                                              43. Do you prefer:
-                                                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                                                %input#survey_EI-7_a{:name => "survey[EI-7]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                many friends with brief contact
-                                                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                                                  %input#survey_EI-7_b{:name => "survey[EI-7]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                  a few friends with longer contact
-                                                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                                                    44. Are you more drawn to:
-                                                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                                                      %input#survey_SN-13_a{:name => "survey[SN-13]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                      substantial information
-                                                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                                                        %input#survey_SN-13_b{:name => "survey[SN-13]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                        credible assumptions
-                                                                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                                                                          45. Are you more interseted in:
-                                                                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                                                                            %input#survey_SN-14_a{:name => "survey[SN-14]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                            production
-                                                                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                                                                              %input#survey_SN-14_b{:name => "survey[SN-14]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                              research
-                                                                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                                                                46. Are you more comfortable when you are:
-                                                                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                                                                  %input#survey_TF-13_a{:name => "survey[TF-13]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                  objective
-                                                                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                                                                    %input#survey_TF-13_b{:name => "survey[TF-13]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                    personal
-                                                                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                                                                      47. Do you value in yourself more that you are:
-                                                                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                                                                        %input#survey_TF-14_a{:name => "survey[TF-14]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                        unwavering
-                                                                                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                                                                                          %input#survey_TF-14_b{:name => "survey[TF-14]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                          devoted
-                                                                                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                                                                                            48. Are you more comfortable with:
-                                                                                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                                                                                              %input#survey_JP-13_a{:name => "survey[JP-13]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                              final statements
-                                                                                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                                                                                %input#survey_JP-13_b{:name => "survey[JP-13]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                tentative statements
-                                                                                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                                                                                  49. Are you more comfortable:
-                                                                                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                                                                                    %input#survey_JP-14_a{:name => "survey[JP-14]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                    after a decision
-                                                                                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                                                                                      %input#survey_JP-14_b{:name => "survey[JP-14]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                      before a decision
-                                                                                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                                                                                        50. Do you:
-                                                                                                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                                                                                                          %input#survey_EI-8_a{:name => "survey[EI-8]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                          speak easily and at length with strangers
-                                                                                                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                                                                                                            %input#survey_EI-8_b{:name => "survey[EI-8]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                            find little to say to strangers
-                                                                                                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                                                                                                              51. Are you usually more interested in the:
-                                                                                                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                                                                                                %input#survey_SN-15_a{:name => "survey[SN-15]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                particular instance
-                                                                                                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                                                                                                  %input#survey_SN-15_b{:name => "survey[SN-15]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                  general case
-                                                                                                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                                                                                                    52. Do you feel:
-                                                                                                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                                                                                                      %input#survey_SN-16_a{:name => "survey[SN-16]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                      more practical than ingenious
-                                                                                                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                                                                                                        %input#survey_SN-16_b{:name => "survey[SN-16]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                        more ingenious than practical
-                                                                                                                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                                                                                                                          53. Are you typically more a person of:
-                                                                                                                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                                                                                                                            %input#survey_TF-15_a{:name => "survey[TF-15]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                            clear reason
-                                                                                                                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                                                                                                                              %input#survey_TF-15_b{:name => "survey[TF-15]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                              strong feeling
-                                                                                                                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                                                                                                                54. Are you inclined more to be:
-                                                                                                                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                                                                                                                  %input#survey_TF-16_a{:name => "survey[TF-16]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                  fair-minded
-                                                                                                                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                                                                                                                    %input#survey_TF-16_b{:name => "survey[TF-16]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                    sympathetic
-                                                                                                                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                                                                                                                      55. Is it preferable mostly to:
-                                                                                                                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                                                                                                                        %input#survey_JP-15_a{:name => "survey[JP-15]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                        make sure things are arranged
-                                                                                                                                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                                                                                                                                          %input#survey_JP-15_b{:name => "survey[JP-15]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                          just let things happen
-                                                                                                                                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                                                                                                                                            56. Is it you way more to:
-                                                                                                                                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                                                                                                                                              %input#survey_JP-16_a{:name => "survey[JP-16]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                              get things settled
-                                                                                                                                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                                                                                                                                %input#survey_JP-16_b{:name => "survey[JP-16]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                put off settlement
-                                                                                                                                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                                                                                                                                  57. When the phone rings do you:
-                                                                                                                                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                                                                                                                                    %input#survey_EI-9_a{:name => "survey[EI-9]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                    hasten to get it first
-                                                                                                                                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                                                                                                                                      %input#survey_EI-9_b{:name => "survey[EI-9]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                      hope someone else will answer
-                                                                                                                                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                                                                                                                                        58. Do you prize more in yourself a:
-                                                                                                                                                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                                                                                                                                                          %input#survey_SN-17_a{:name => "survey[SN-17]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                          good sense of reality
-                                                                                                                                                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                                                                                                                                                            %input#survey_SN-17_b{:name => "survey[SN-17]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                            good imagination
-                                                                                                                                                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                                                                                                                                                              59. Are you more drawn to:
-                                                                                                                                                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                                                                                                                                                %input#survey_SN-18_a{:name => "survey[SN-18]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                                fundamentals
-                                                                                                                                                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                                                                                                                                                  %input#survey_SN-18_b{:name => "survey[SN-18]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                                  overtones
-                                                                                                                                                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                                                                                                                                                    60. In judging are you usually more:
-                                                                                                                                                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                                                                                                                                                      %input#survey_TF-17_a{:name => "survey[TF-17]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                                      neutral
-                                                                                                                                                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                                                                                                                                                        %input#survey_TF-17_b{:name => "survey[TF-17]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                                        charitable
-                                                                                                                                                                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                                                                                                                                                                          61. Do you consider yourself more:
-                                                                                                                                                                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                                                                                                                                                                            %input#survey_TF-18_a{:name => "survey[TF-18]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                                            clear headed
-                                                                                                                                                                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                                                                                                                                                                              %input#survey_TF-18_b{:name => "survey[TF-18]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                                              good willed
-                                                                                                                                                                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                                                                                                                                                                62. Are you more prone to:
-                                                                                                                                                                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                                                                                                                                                                  %input#survey_JP-17_a{:name => "survey[JP-17]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                                                  schedule events
-                                                                                                                                                                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                                                                                                                                                                    %input#survey_JP-17_b{:name => "survey[JP-17]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                                                    take things as they come
-                                                                                                                                                                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                                                                                                                                                                      63. Are you the person that is more:
-                                                                                                                                                                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                                                                                                                                                                        %input#survey_JP-18_a{:name => "survey[JP-18]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                                                        routinized
-                                                                                                                                                                                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                                                                                                                                                                                          %input#survey_JP-18_b{:name => "survey[JP-18]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                                                          whimsical
-                                                                                                                                                                                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                                                                                                                                                                                            64. Are you more inclined to be:
-                                                                                                                                                                                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                                                                                                                                                                                              %input#survey_EI-10_a{:name => "survey[EI-10]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                                                              easy to approach
-                                                                                                                                                                                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                                                                                                                                                                                %input#survey_EI-10_b{:name => "survey[EI-10]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                                                                somewhat reserved
-                                                                                                                                                                                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                                                                                                                                                                                  65. Do you have more fun with:
-                                                                                                                                                                                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                                                                                                                                                                                    %input#survey_SN-19_a{:name => "survey[SN-19]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                                                                    hand-on experience
-                                                                                                                                                                                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                                                                                                                                                                                      %input#survey_SN-19_b{:name => "survey[SN-19]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                                                                      blue-sky fantasy
-                                                                                                                                                                                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                                                                                                                                                                                        66. In writings do you prefer:
-                                                                                                                                                                                                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                                                                                                                                                                                                          %input#survey_SN-20_a{:name => "survey[SN-20]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                                                                          the more literal
-                                                                                                                                                                                                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                                                                                                                                                                                                            %input#survey_SN-20_b{:name => "survey[SN-20]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                                                                            the more figurative
-                                                                                                                                                                                                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                                                                                                                                                                                                              67. Are you usually more:
-                                                                                                                                                                                                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                                                                                                                                                                                                %input#survey_TF-19_a{:name => "survey[TF-19]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                                                                                unbiased
-                                                                                                                                                                                                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                                                                                                                                                                                                  %input#survey_TF-19_b{:name => "survey[TF-19]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                                                                                  compassionate
-                                                                                                                                                                                                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                                                                                                                                                                                                    68. Are you typically more:
-                                                                                                                                                                                                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                                                                                                                                                                                                      %input#survey_TF-20_a{:name => "survey[TF-20]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                                                                                      just than lenient
-                                                                                                                                                                                                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                                                                                                                                                                                                        %input#survey_TF-20_b{:name => "survey[TF-20]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                                                                                        lenient than just
-                                                                                                                                                                                                                                                                                                                                                                                                                        %br
-                                                                                                                                                                                                                                                                                                                                                                                                                          69. Is it more like you to:
-                                                                                                                                                                                                                                                                                                                                                                                                                          %br
-                                                                                                                                                                                                                                                                                                                                                                                                                            %input#survey_JP-19_a{:name => "survey[JP-19]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                                                                                            make snap judgments
-                                                                                                                                                                                                                                                                                                                                                                                                                            %br
-                                                                                                                                                                                                                                                                                                                                                                                                                              %input#survey_JP-19_b{:name => "survey[JP-19]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                                                                                              delay making judgments
-                                                                                                                                                                                                                                                                                                                                                                                                                              %br
-                                                                                                                                                                                                                                                                                                                                                                                                                                70. Do you tend to be more:
-                                                                                                                                                                                                                                                                                                                                                                                                                                %br
-                                                                                                                                                                                                                                                                                                                                                                                                                                  %input#survey_JP-20_a{:name => "survey[JP-20]", :type => "radio", :value => "a"}/
-                                                                                                                                                                                                                                                                                                                                                                                                                                  deliberate than spontaneous
-                                                                                                                                                                                                                                                                                                                                                                                                                                  %br
-                                                                                                                                                                                                                                                                                                                                                                                                                                    %input#survey_JP-20_b{:name => "survey[JP-20]", :type => "radio", :value => "b"}/
-                                                                                                                                                                                                                                                                                                                                                                                                                                    spontaneous than deliberate
-                                                                                                                                                                                                                                                                                                                                                                                                                                    %br
-                                                                                                                                                                                                                                                                                                                                                                                                                                      %br
-                                                                                                                                                                                                                                                                                                                                                                                                                                        %input.button{:name => "commit", :type => "submit", :value => "Submit"}/
+  = f.radio_button 'E1-1', 'a'
+  interact with many, including strangers
+  %br
+  = f.radio_button 'E1-1', 'b'
+  interact with a few, known to you
+  %br
+
+  2. Are you more:
+  %br
+  = f.radio_button 'SN-1', 'a'
+  realistic
+  %br
+  = f.radio_button 'SN-1', 'b'
+  philosophically inclined
+  %br
+
+  3. Are you more intrigued by
+  %br
+  = f.radio_button 'SN-2', 'a'
+  facts
+  %br
+  = f.radio_button 'SN-2', 'b'
+  similes
+  %br
+
+  4. Are you usually more:
+  %br
+  = f.radio_button 'TF-1', 'a'
+  fair minded
+  %br
+  = f.radio_button 'TF-1', 'b'
+  kind hearted
+  %br
+
+  5. Do you tend to be more:
+  %br
+  = f.radio_button 'TF-2', 'a'
+  dispassionate
+  %br
+  = f.radio_button 'TF-2', 'b'
+  sympathetic
+  %br
+
+  6. Do you prefer to work:
+  %br
+  = f.radio_button 'JP-1', 'a'
+  to deadlines
+  %br
+  = f.radio_button 'JP-1', 'b'
+  just "whenever"
+  %br
+
+  7. Do you tend to choose:
+  %br
+  = f.radio_button 'JP-2', 'a'
+  rather carefully
+  %br
+  = f.radio_button 'JP-2', 'b'
+  somewhat impulsively
+  %br
+
+  8. At parties do you:
+  %br
+  = f.radio_button 'E1-2', 'a'
+  stay late, with increasing energy
+  %br
+  = f.radio_button 'E1-2', 'b'
+  leave early, with decreased energy
+  %br
+
+  9. Are you more:
+  %br
+  = f.radio_button 'SN-3', 'a'
+  sensible person
+  %br
+  = f.radio_button 'SN-3', 'b'
+  reflective person
+  %br
+
+  10. Are you more drawn to:
+  %br
+  = f.radio_button 'SN-4', 'a'
+  hard data
+  %br
+  = f.radio_button 'SN-4', 'b'
+  abstruse ideas
+  %br
+
+  11. Is it more natural for you to be:
+  %br
+  = f.radio_button 'TF-3', 'a'
+  fair to others
+  %br
+  = f.radio_button 'TF-3', 'b'
+  nice to others
+  %br
+
+  12. In first approaching others are you more:
+  %br
+  = f.radio_button 'TF-4', 'a'
+  impersonal and detached
+  %br
+  = f.radio_button 'TF-4', 'b'
+  personal and engaging
+  %br
+
+  13. Are you usually more:
+  %br
+  = f.radio_button 'JP-3', 'a'
+  punctual
+  %br
+  = f.radio_button 'JP-3', 'b'
+  leisurely
+  %br
+
+  14. Does it bother you more having things:
+  %br
+  = f.radio_button 'JP-4', 'a'
+  incomplete
+  %br
+  = f.radio_button 'JP-4', 'b'
+  completed
+  %br
+
+  15. In your social groups do you:
+  %br
+  = f.radio_button 'E1-3', 'a'
+  keep abreast of others' happenings
+  %br
+  = f.radio_button 'E1-3', 'b'
+  get behind on the news
+  %br
+
+  16. Are you usually more interested in:
+  %br
+  = f.radio_button 'SN-5', 'a'
+  specifics
+  %br
+  = f.radio_button 'SN-5', 'b'
+  concepts
+  %br
+
+  17. Do you prefer writers who:
+  %br
+  = f.radio_button 'SN-6', 'a'
+  say what they mean
+  %br
+  = f.radio_button 'SN-6', 'b'
+  use lots of analogies
+  %br
+
+  18. Are you more naturally:
+  %br
+  = f.radio_button 'TF-5', 'a'
+  impartial
+  %br
+  = f.radio_button 'TF-5', 'b'
+  compassionate
+  %br
+
+  19. In judging are you more likely to be:
+  %br
+  = f.radio_button 'TF-6', 'a'
+  impersonal
+  %br
+  = f.radio_button 'TF-6', 'b'
+  sentimental
+  %br
+
+  20. Do you usually:
+  %br
+  = f.radio_button 'JP-5', 'a'
+  settle things
+  %br
+  = f.radio_button 'JP-5', 'b'
+  keep options open
+  %br
+
+  21. Are you usually rather:
+  %br
+  = f.radio_button 'JP-6', 'a'
+  quick to agree to a time
+  %br
+  = f.radio_button 'JP-6', 'b'
+  reluctant to agree to a time
+  %br
+
+  22. In phoning do you:
+  %br
+  = f.radio_button 'E1-4', 'a'
+  just start talking
+  %br
+  = f.radio_button 'E1-4', 'b'
+  rehearse what you'll say
+  %br
+
+  23. Facts:
+  %br
+  = f.radio_button 'SN-7', 'a'
+  speak for themselves
+  %br
+  = f.radio_button 'SN-7', 'b'
+  usually require interpretation
+  %br
+
+  24. Do you prefer to work with:
+  %br
+  = f.radio_button 'SN-8', 'a'
+  practical information
+  %br
+  = f.radio_button 'SN-8', 'b'
+  abstract ideas
+  %br
+
+  25. Are you inclined to be more:
+  %br
+  = f.radio_button 'TF-7', 'a'
+  cool headed
+  %br
+  = f.radio_button 'TF-7', 'b'
+  warm hearted
+  %br
+
+  26. Would you rather be:
+  %br
+  = f.radio_button 'TF-8', 'a'
+  more just than merciful
+  %br
+  = f.radio_button 'TF-8', 'b'
+  more merciful than just
+  %br
+
+  27. Are you more comfortable:
+  %br
+  = f.radio_button 'JP-7', 'a'
+  setting a schedule
+  %br
+  = f.radio_button 'JP-7', 'b'
+  putting things off
+  %br
+
+  28. Are youmore comfortable with:
+  %br
+  = f.radio_button 'JP-8', 'a'
+  written agreements
+  %br
+  = f.radio_button 'JP-8', 'b'
+  handshake agreements
+  %br
+
+  29. In company do you:
+  %br
+  = f.radio_button 'E1-5', 'a'
+  start conversations
+  %br
+  = f.radio_button 'E1-5', 'b'
+  wait to be approached
+  %br
+
+  30. Traditionally common sense is:
+  %br
+  = f.radio_button 'SN-9', 'a'
+  usually trustworthy
+  %br
+  = f.radio_button 'SN-9', 'b'
+  often misleading
+  %br
+
+  31. Children often do not:
+  %br
+  = f.radio_button 'SN-10', 'a'
+  make themselves useful enough
+  %br
+  = f.radio_button 'SN-10', 'b'
+  daydream enough
+  %br
+
+  32. Are you usually more:
+  %br
+  = f.radio_button 'TF-9', 'a'
+  tough minded
+  %br
+  = f.radio_button 'TF-9', 'b'
+  tender hearted
+  %br
+
+  33. Are you more:
+  %br
+  = f.radio_button 'TF-10', 'a'
+  firm than gentle
+  %br
+  = f.radio_button 'TF-10', 'b'
+  gentle than firm
+  %br
+
+  34. Are you more prone to keep things:
+  %br
+  = f.radio_button 'JP-9', 'a'
+  well organized
+  %br
+  = f.radio_button 'JP-9', 'b'
+  open-ended
+  %br
+
+  35. Do you put more value on the:
+  %br
+  = f.radio_button 'JP-10', 'a'
+  definite
+  %br
+  = f.radio_button 'JP-10', 'b'
+  variable
+  %br
+
+  36. Does new interaction with others:
+  %br
+  = f.radio_button 'E1-6', 'a'
+  stimulate and energize you
+  %br
+  = f.radio_button 'E1-6', 'b'
+  tax your reserves
+  %br
+
+  37. Are you more frequently:
+  %br
+  = f.radio_button 'SN-11', 'a'
+  a practical sort of person
+  %br
+  = f.radio_button 'SN-11', 'b'
+  an abstract sort of person
+  %br
+
+  38. Which are you drawn to:
+  %br
+  = f.radio_button 'SN-12', 'a'
+  accurate perception
+  %br
+  = f.radio_button 'SN-12', 'b'
+  concept formation
+  %br
+
+  39. Which is more satisfying:
+  %br
+  = f.radio_button 'TF-11', 'a'
+  to discuss an issue thoroughly
+  %br
+  = f.radio_button 'TF-11', 'b'
+  to arrive at agreement on an issue
+  %br
+
+  40. Which rules you more:
+  %br
+  = f.radio_button 'TF-12', 'a'
+  your head
+  %br
+  = f.radio_button 'TF-12', 'b'
+  your heart
+  %br
+
+  41. Are you more comfortable with work:
+  %br
+  = f.radio_button 'JP-11', 'a'
+  contracted
+  %br
+  = f.radio_button 'JP-11', 'b'
+  done on a casual basis
+  %br
+
+  42. Do you prefer things to be:
+  %br
+  = f.radio_button 'JP-12', 'a'
+  neat and orderly
+  %br
+  = f.radio_button 'JP-12', 'b'
+  optional
+  %br
+
+  43. Do you prefer:
+  %br
+  = f.radio_button 'E1-7', 'a'
+  many friends with brief contact
+  %br
+  = f.radio_button 'E1-7', 'b'
+  a few friends with longer contact
+  %br
+
+  44. Are you more drawn to:
+  %br
+  = f.radio_button 'SN-13', 'a'
+  substantial information
+  %br
+  = f.radio_button 'SN-13', 'b'
+  credible assumptions
+  %br
+
+  45. Are you more interseted in:
+  %br
+  = f.radio_button 'SN-14', 'a'
+  production
+  %br
+  = f.radio_button 'SN-14', 'b'
+  research
+  %br
+
+  46. Are you more comfortable when you are:
+  %br
+  = f.radio_button 'TF-13', 'a'
+  objective
+  %br
+  = f.radio_button 'TF-13', 'b'
+  personal
+  %br
+
+  47. Do you value in yourself more that you are:
+  %br
+  = f.radio_button 'TF-14', 'a'
+  unwavering
+  %br
+  = f.radio_button 'TF-14', 'b'
+  devoted
+  %br
+
+  48. Are you more comfortable with:
+  %br
+  = f.radio_button 'JP-13', 'a'
+  final statements
+  %br
+  = f.radio_button 'JP-13', 'b'
+  tentative statements
+  %br
+
+  49. Are you more comfortable:
+  %br
+  = f.radio_button 'JP-14', 'a'
+  after a decision
+  %br
+  = f.radio_button 'JP-14', 'b'
+  before a decision
+  %br
+
+  50. Do you:
+  %br
+  = f.radio_button 'E1-8', 'a'
+  speak easily and at length with strangers
+  %br
+  = f.radio_button 'E1-8', 'b'
+  find little to say to strangers
+  %br
+
+  51. Are you usually more interested in the:
+  %br
+  = f.radio_button 'SN-15', 'a'
+  particular instance
+  %br
+  = f.radio_button 'SN-15', 'b'
+  general case
+  %br
+
+  52. Do you feel:
+  %br
+  = f.radio_button 'SN-16', 'a'
+  more practical than ingenious
+  %br
+  = f.radio_button 'SN-16', 'b'
+  more ingenious than practical
+  %br
+
+  53. Are you typically more a person of:
+  %br
+  = f.radio_button 'TF-15', 'a'
+  clear reason
+  %br
+  = f.radio_button 'TF-15', 'b'
+  strong feeling
+  %br
+
+  54. Are you inclined more to be:
+  %br
+  = f.radio_button 'TF-16', 'a'
+  fair-minded
+  %br
+  = f.radio_button 'TF-16', 'b'
+  sympathetic
+  %br
+
+  55. Is it preferable mostly to:
+  %br
+  = f.radio_button 'JP-15', 'a'
+  make sure things are arranged
+  %br
+  = f.radio_button 'JP-15', 'b'
+  just let things happen
+  %br
+
+  56. Is it you way more to:
+  %br
+  = f.radio_button 'JP-16', 'a'
+  get things settled
+  %br
+  = f.radio_button 'JP-16', 'b'
+  put off settlement
+  %br
+
+  57. When the phone rings do you:
+  %br
+  = f.radio_button 'E1-9', 'a'
+  hasten to get it first
+  %br
+  = f.radio_button 'E1-9', 'b'
+  hope someone else will answer
+  %br
+
+  58. Do you prize more in yourself a:
+  %br
+  = f.radio_button 'SN-17', 'a'
+  good sense of reality
+  %br
+  = f.radio_button 'SN-17', 'b'
+  good imagination
+  %br
+
+  59. Are you more drawn to:
+  %br
+  = f.radio_button 'SN-18', 'a'
+  fundamentals
+  %br
+  = f.radio_button 'SN-18', 'b'
+  overtones
+  %br
+
+  60. In judging are you usually more:
+  %br
+  = f.radio_button 'TF-17', 'a'
+  neutral
+  %br
+  = f.radio_button 'TF-17', 'b'
+  charitable
+  %br
+
+  61. Do you consider yourself more:
+  %br
+  = f.radio_button 'TF-18', 'a'
+  clear headed
+  %br
+  = f.radio_button 'TF-18', 'b'
+  good willed
+  %br
+
+  62. Are you more prone to:
+  %br
+  = f.radio_button 'JP-17', 'a'
+  schedule events
+  %br
+  = f.radio_button 'JP-17', 'b'
+  take things as they come
+  %br
+
+  63. Are you the person that is more:
+  %br
+  = f.radio_button 'JP-18', 'a'
+  routinized
+  %br
+  = f.radio_button 'JP-18', 'b'
+  whimsical
+  %br
+
+  64. Are you more inclined to be:
+  %br
+  = f.radio_button 'E1-10', 'a'
+  easy to approach
+  %br
+  = f.radio_button 'E1-10', 'b'
+  somewhat reserved
+  %br
+
+  65. Do you have more fun with:
+  %br
+  = f.radio_button 'SN-19', 'a'
+  hand-on experience
+  %br
+  = f.radio_button 'SN-19', 'b'
+  blue-sky fantasy
+  %br
+
+  66. In writings do you prefer:
+  %br
+  = f.radio_button 'SN-20', 'a'
+  the more literal
+  %br
+  = f.radio_button 'SN-20', 'b'
+  the more figurative
+  %br
+
+  67. Are you usually more:
+  %br
+  = f.radio_button 'TF-19', 'a'
+  unbiased
+  %br
+  = f.radio_button 'TF-19', 'b'
+  compassionate
+  %br
+
+  68. Are you typically more:
+  %br
+  = f.radio_button 'TF-20', 'a'
+  just than lenient
+  %br
+  = f.radio_button 'TF-20', 'b'
+  lenient than just
+  %br
+
+  69. Is it more like you to:
+  %br
+  = f.radio_button 'JP-19', 'a'
+  make snap judgments
+  %br
+  = f.radio_button 'JP-19', 'b'
+  delay making judgments
+  %br
+
+  70. Do you tend to be more:
+  %br
+  = f.radio_button 'JP-20', 'a'
+  deliberate than spontaneous
+  %br
+  = f.radio_button 'JP-20', 'b'
+  spontaneous than deliberate
+  %br
+  %br
+  %input.button{:name => "commit", :type => "submit", :value => "Submit"}/
