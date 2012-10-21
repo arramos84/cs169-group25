@@ -1,5 +1,5 @@
 class SurveyController < ApplicationController
-  
+
   def new
   end
 
@@ -10,7 +10,7 @@ class SurveyController < ApplicationController
       render :new
     end
   end
-  
+
   def destroy
   end
 
