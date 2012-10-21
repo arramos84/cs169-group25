@@ -9,14 +9,13 @@ class UsersController < ApplicationController
   
 
   def create
-    
-    if User.create_user(params[:user])
-      # auto login
-      session[:user_id] = @user.id
-      redirect_to root_path
+    @user = User.new(params[:user])
+    if @user.save
+      flash[:success] = 'User was successfully created'
+      redirect_to :survey
     else
-      render :new
-    end
-  end
+      render :signup
+    end    
+end
 
 end
