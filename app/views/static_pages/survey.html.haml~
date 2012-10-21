@@ -1,0 +1,9 @@
+= render("static_pages/navigation.html.haml")
+.container
+  .marketing
+      %h2 Getting your Personality Data
+      = form_for :survey, :url => {:action => "new"} do |f|
+        %p
+          = f.label :1, :caption => "This is a test question"
+          = f.check_box(:1)
+        
