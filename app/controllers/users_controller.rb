@@ -4,14 +4,20 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  def show
+    @user = current_user
+  end
+  
   def destroy
   end
   
 
   def create
     @user = User.new(params[:user])
+    puts @user.inspect
     if @user.save
       flash[:success] = 'User was successfully created'
+      sign_in user
       redirect_to :survey
     else
       render :signup

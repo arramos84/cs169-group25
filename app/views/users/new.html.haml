@@ -3,10 +3,13 @@
   .row-fluid
     .span4
       %h3 Sign-up
-      = form_for :user, :url => {:action => "new"} do |f|
+      = form_for @user do |f|
         %p
-          = f.label :name, :caption => "Name"
-          = f.text_field :name
+          = f.label :first_name, :caption => "First Name"
+          = f.text_field :first_name
+        %p
+          = f.label :last_name, :caption => "Last Name"
+          = f.text_field :last_name
         %p
           = f.label :email, :caption => "Email"
           = f.text_field :email
@@ -14,7 +17,7 @@
           = f.label :password
           = f.password_field :password
         %p
-          = f.label :password_confirm
-          = f.password_field :password
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation
         %p
           = f.submit "Submit", :class => 'button'

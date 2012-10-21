@@ -14,6 +14,7 @@ CS169Group31::Application.routes.draw do
   
   match "signup" => "users#new", :as => "signup"
   
+  match "home" => "users#show", :as => "home"
 
   #match '/signup',  to: 'users#new'
 

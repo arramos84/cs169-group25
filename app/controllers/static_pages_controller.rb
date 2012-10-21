@@ -1,7 +1,9 @@
 class StaticPagesController < ApplicationController
   
   def index
-    
+    if signed_in?
+      redirect_to :home
+    end
   end
   
   def about
