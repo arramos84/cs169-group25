@@ -13,24 +13,15 @@
 
 ActiveRecord::Schema.define(:version => 20121021205638) do
 
-  create_table "survey", :force => true do |t|
-    t.integer  "ei"
-    t.integer  "ns"
-    t.integer  "ft"
-    t.integer  "jp"
-    t.string   "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "surveys", :force => true do |t|
     t.integer  "ei"
     t.integer  "ns"
     t.integer  "ft"
     t.integer  "jp"
-    t.string   "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "personality_type"
+    t.integer  "user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "users", :force => true do |t|

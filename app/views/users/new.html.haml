@@ -1,5 +1,7 @@
 = render("static_pages/navigation.html.haml")
 .container
+  - flash.each do |key,value|
+    %div{:class => 'alert alert-#{key}'}= value
   .row-fluid
     .span4
       %h3 Sign-up

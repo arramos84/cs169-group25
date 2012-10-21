@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  has_many :surveys, :dependent => :destroy #surveys?
+  has_one :survey, :dependent => :destroy #surveys?
   
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation
   #magic to require a password, make sure passwords match, authenticate
@@ -18,9 +18,13 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 5 }
   validates :password_confirmation, presence: true
   
-  def self.get_full_name
-    return :first_name + " " + :last_name
+  def get_full_name
+    return self.first_name + " " + self.last_name
   end  
+
+  def has_completed_survey?
+    return !self.survey.nil?
+  end
   
   private
   

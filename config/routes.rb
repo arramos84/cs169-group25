@@ -1,17 +1,19 @@
 CS169Group31::Application.routes.draw do
-  #get "users/new"
+  #get "survey/new"
   get "static_pages/index"
   
   root to: "static_pages#index"
   # resources
   resources :users
   resources :sessions, only: [:new,:create,:destroy]  
+  resources :surveys, only: [:new,:create, :destroy]
 
   # routes for login
   match "login" => "sessions#new", :as => "login"
   match "logout" => "sessions#destroy", :as => "logout"
-  match "survey" => "survey#new", :as => "survey"
-  
+  match "survey" => "survey#new", :as => "survey", :via => :get
+  match "survey" => "survey#create", :as => "survey", :via => :post
+
   match "signup" => "users#new", :as => "signup"
   
   match "home" => "users#show", :as => "home"
