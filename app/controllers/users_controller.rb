@@ -6,6 +6,10 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    if !@user.has_completed_survey?
+      redirect_to :survey
+    end
+
   end
 
   def destroy
