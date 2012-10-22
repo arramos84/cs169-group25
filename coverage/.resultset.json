@@ -1,18 +1,18 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/controllers/application_controller.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/controllers/application_controller.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/helpers/application_helper.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/helpers/application_helper.rb": [
         1,
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/helpers/sessions_helper.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/helpers/sessions_helper.rb": [
         1,
         null,
         1,
@@ -40,15 +40,15 @@
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/helpers/static_pages_helper.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/helpers/static_pages_helper.rb": [
         1,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/helpers/users_helper.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/controllers/sessions_controller.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/controllers/sessions_controller.rb": [
         1,
         1,
         2,
@@ -72,7 +72,7 @@
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/controllers/static_pages_controller.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/controllers/static_pages_controller.rb": [
         1,
         null,
         1,
@@ -87,7 +87,7 @@
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/controllers/survey_controller.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/controllers/survey_controller.rb": [
         1,
         1,
         null,
@@ -112,7 +112,7 @@
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/models/survey.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/models/survey.rb": [
         1,
         1,
         1,
@@ -163,7 +163,7 @@
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/controllers/users_controller.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -192,7 +192,7 @@
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/models/user.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/models/user.rb": [
         1,
         null,
         1,
@@ -230,22 +230,22 @@
         null
       ]
     },
-    "timestamp": 1350868665
+    "timestamp": 1350868907
   },
   "RSpec": {
     "coverage": {
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/controllers/application_controller.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/controllers/application_controller.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/helpers/application_helper.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/helpers/application_helper.rb": [
         1,
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/helpers/sessions_helper.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/helpers/sessions_helper.rb": [
         1,
         null,
         1,
@@ -273,15 +273,15 @@
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/helpers/static_pages_helper.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/helpers/static_pages_helper.rb": [
         1,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/helpers/users_helper.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/controllers/sessions_controller.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/controllers/sessions_controller.rb": [
         1,
         1,
         0,
@@ -300,27 +300,27 @@
         0,
         0,
         0,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/controllers/static_pages_controller.rb": [
-        1,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
         null,
         null,
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/controllers/survey_controller.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/controllers/static_pages_controller.rb": [
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/ubuntu/Desktop/CS169-Group31/app/controllers/survey_controller.rb": [
         1,
         1,
         null,
@@ -345,7 +345,7 @@
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/models/survey.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/models/survey.rb": [
         1,
         1,
         1,
@@ -396,7 +396,7 @@
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/controllers/users_controller.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -425,7 +425,7 @@
         null,
         null
       ],
-      "/home/tim/Documents/Aptana Studio 3 Workspace/CS169-Group31/app/models/user.rb": [
+      "/home/ubuntu/Desktop/CS169-Group31/app/models/user.rb": [
         1,
         null,
         1,
@@ -463,6 +463,6 @@
         null
       ]
     },
-    "timestamp": 1350868644
+    "timestamp": 1350868931
   }
 }
