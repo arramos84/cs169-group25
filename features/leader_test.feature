@@ -3,21 +3,22 @@ Feature: test to identify personality type
 	So that I can learn more about myself
 	I want to take a personality test
 
-Background: I am on the test page
-	Given I am on the test page
-
-	Scenario: when one or more of the test questions are not filled out
-		When I don't answer all the questions
-		And I press "Submit Test"
-		Then I should see the error "All questions must be answered"
-		And I should be on the test page
+Background: I am on the survey page
+	When I am on the sign up page
+  And I fill in "user_first_name" with "John"
+  And I fill in "user_last_name" with "Johnson"
+  And I fill in "user_email" with "john@johnson.com"
+  And I fill in "user_password" with "12345"
+  And I fill in "user_password_confirmation" with "12345"
+  And I press "Submit"
+  Then I should be on the survey page
 	
 	Scenario: submit the test
-		Given I answer all questions
-		When I press "Submit Test"
-		I should be redirected to the profile page
-		I should see "Test Submitted"
-		I should see "Your Personality Type is:"
+		When I answer a question
+		And I press "Submit"
+		Then I should be on the home login page
+		And I should see "Your personality type is:"
+    And I should see "ESTJ"
 	
 	
 	

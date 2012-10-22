@@ -4,14 +4,6 @@
     So that I can track my progress
     I want to be able to log back in
 
-  Scenario: logging in
-    Given that there is a user with the following email: "john@johnson.com"
-    When I go to the login page
-    And I fill in "session_email" with "john@johnson.com"
-    And I fill in "session_password" with "12345"
-    And I press "Submit"
-    Then I should be on the home login page
-
   Scenario: logging in (sad path)
     When I go to the login page
     And I press "Submit"
