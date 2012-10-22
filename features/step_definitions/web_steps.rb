@@ -61,6 +61,13 @@ Given /^the following survey exist$/ do |table|
   end
 end
 
+When /^I answer a question$/ do
+  #pending # express the regexp above with the code you wish you had
+  choose('input_EI-1_1')
+  
+end
+
+
 Given /^I am logged in$/ do
   
   user = User.find_by_email('john@smith.com')
