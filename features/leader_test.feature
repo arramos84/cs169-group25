@@ -15,9 +15,8 @@ Background: I am on the test page
 	Scenario: submit the test
 		Given I answer all questions
 		When I press "Submit Test"
-		I should be redirected to the profile page
-		I should see "Test Submitted"
-		I should see "Your Personality Type is:"
+		Then I should be redirected to the profile page
+		And I should see "Your Personality Type is:"
 	
 	
 	

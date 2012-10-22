@@ -45,6 +45,29 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+Given /^the following user exist$/ do |table|
+  # table is a Cucumber::Ast::Table
+  #pending # express the regexp above with the code you wish you had  
+  table.hashes.each do |user|
+    User.create!(user)
+  end
+end
+
+Given /^the following survey exist$/ do |table|
+  # table is a Cucumber::Ast::Table
+  #pending # express the regexp above with the code you wish you had  
+  table.hashes.each do |hash|
+    Survey.create(hash)
+  end
+end
+
+Given /^I am logged in$/ do
+  
+  user = User.find_by_email('john@smith.com')
+  cookies.permanent[:remember_token] = user.remember_token
+  self.current_user = user
+end
+
 Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
     Movie.create!(movie)
