@@ -17,6 +17,7 @@ describe User do
   it { should respond_to(:authenticate) }
   
   #it { should be_valid }
+  
    
   describe "when first name is not present" do
     before {@user.first_name = " " }
@@ -66,6 +67,16 @@ describe User do
     it { should_not be_valid }
   end
   
+  # describe "creates full name" do
+    # (@user.get_full_name).should == "CharlesSmith"
+  # end
   
+  it "should create full name correctly" do
+    (@user.get_full_name).should == "Charles Smith"
+  end
+  
+  it "should not have complete survey" do
+    (@user.has_completed_survey?).should == false
+  end
   
 end
