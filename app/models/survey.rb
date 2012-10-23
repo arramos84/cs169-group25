@@ -12,10 +12,10 @@ class Survey < ActiveRecord::Base
       if( /EI-\d*/.match(key))
         calculated[:ei] = calculated[:ei]+value.to_i
       end
-      if( /FT-\d*/.match(key))
+      if( /TF-\d*/.match(key))
         calculated[:ft] = calculated[:ft]+value.to_i
       end
-      if( /NS-\d*/.match(key))
+      if( /SN-\d*/.match(key))
         calculated[:ns] = calculated[:ns]+value.to_i
       end
       if( /JP-\d*/.match(key))
