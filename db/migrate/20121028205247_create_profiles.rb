@@ -9,7 +9,7 @@ class CreateProfiles < ActiveRecord::Migration
       
       t.string :video_link
       
-      t.string :body
+      t.text :body
       
       t.timestamps
     end
