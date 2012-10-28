@@ -28,16 +28,6 @@ ActiveRecord::Schema.define(:version => 20121028212625) do
 
   add_index "profiles", ["personality_type"], :name => "index_profiles_on_personality_type", :unique => true
 
-  create_table "survey", :force => true do |t|
-    t.integer  "ei"
-    t.integer  "ns"
-    t.integer  "ft"
-    t.integer  "jp"
-    t.string   "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "surveys", :force => true do |t|
     t.integer  "ei"
     t.integer  "ns"

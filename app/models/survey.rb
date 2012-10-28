@@ -1,7 +1,7 @@
 class Survey < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy
   attr_accessible :ei, :ft, :ns, :jp, :personality_type, :user_id
-  def self.personality_types = ["ENFJ", "INFJ", "INTJ", "ENTJ", "ENFP", "INFP", "INTP", "ENTP", "ESFP", "ISFP", "ISTP", "ESTP", "ESFJ", "ISFJ", "ISTJ", "ESTJ"]
+  #self.personality_types = ["ENFJ", "INFJ", "INTJ", "ENTJ", "ENFP", "INFP", "INTP", "ENTP", "ESFP", "ISFP", "ISTP", "ESTP", "ESFJ", "ISFJ", "ISTJ", "ESTJ"]
 
   def self.organize(params)
     calculated = {}

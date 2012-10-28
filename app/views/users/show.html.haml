@@ -4,3 +4,5 @@
     %h2{:style=>'text-align: center'} Let's learn more about your personality!    
     %h3{:style=>'text-align:center'}
       Welcome #{@user.first_name}! Your personality type is: #{@user.survey.personality_type}
+    %center
+      %iframe{:width => "560", :height => "315",:frameborder => "0", :src =>"http://www.youtube.com/embed/#{@video_url}",:allowFullScreen => ""}
