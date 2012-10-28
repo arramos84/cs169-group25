@@ -1,4 +1,4 @@
-# Adds the 16 personality types
+ # Adds the 16 personality types
 # the command to execute this is as follows:
 # rake db:migrate OR rake db:schema:load, and then do rake bootstrap:all
 
