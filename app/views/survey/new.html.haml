@@ -1,9 +1,15 @@
 = render("static_pages/navigation.html.haml")
-.container
+.container 
   - flash.each do |key,value|
     %div{:class => 'alert alert-#{key}'}= value  
   .marketing
     %h2{:style=>'text-align: center'} Let's learn more about your personality
+    %br
+    <b>If you already know your type:</b>
+    = form_for :input do |f|
+      = text_field :type, 'type'
+      %input.button{:name => "commit", :type => "submit", :value => "Submit"}/
+    %br
     %h4 To get your four character personality "type", we need you to answer the following questions:
 
     = form_for :input do |f|

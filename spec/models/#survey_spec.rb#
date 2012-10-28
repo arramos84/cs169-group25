@@ -1,0 +1,10 @@
+require 'spec_helper'
+
+describe Survey do
+  before { @survey = Survey.new(:ei=>3, :ft=>3, :ns=>3, :jp=>3, :personality_type=>'INTJ') }
+  subject { @survey }
+  it { should respond_to(:ei) }
+  it { should respond_to(:ft) }
+  it { should respond_to(:ns) }
+  it { should respond_to(:jp) }
+end

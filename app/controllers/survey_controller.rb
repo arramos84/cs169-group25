@@ -4,8 +4,13 @@ class SurveyController < ApplicationController
   end
 
   def create
-    @survey_params = Survey.organize(params[:input])
-    @survey_params[:user_id] = current_user.id
+    if params.has_key? :type
+      @survey_params = Survey.organize(params[:type])
+      @survey_params[:user_id] = current_user.id
+    else
+      @survey_params = Survey.organize(params[:input])
+      @survey_params[:user_id] = current_user.id
+    end
 
     @survey = Survey.new(@survey_params)
     if @survey.save
