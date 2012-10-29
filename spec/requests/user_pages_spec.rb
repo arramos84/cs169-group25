@@ -8,4 +8,5 @@ describe "UserPages" do
       # response.status.should be(200)
     # end
   # end
+
 end
