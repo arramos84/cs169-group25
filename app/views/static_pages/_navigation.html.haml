@@ -7,14 +7,14 @@
         %span.icon-bar
       %a.brand{:href => "/"} LeadU
       .nav-collapse.collapse
-        %ul.nav
-          %li
-            %a{:href => "/"} Home
-            - if signed_in?
-              %li
-                %a{:href => "./logout"} Logout
-            - else  
-              %li
-                %a{:href => "./login"} Login
-              %li
-                %a{:href => "./signup"} Sign Up
+      %ul.nav
+        %li
+          %a{:href => "/"} Home
+          - if signed_in?
+            %li
+              %a{:href => "./logout"} Logout
+          - else  
+            %li
+              %a{:href => "./login"} Login
+            %li
+              %a{:href => "./signup"} Sign Up

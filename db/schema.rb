@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021205638) do
+ActiveRecord::Schema.define(:version => 20121028212625) do
+
+  create_table "profiles", :force => true do |t|
+    t.string   "step_1"
+    t.string   "step_2"
+    t.string   "step_3"
+    t.string   "step_4"
+    t.string   "step_5"
+    t.string   "video_link"
+    t.string   "body"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "personality_type"
+  end
+
+  add_index "profiles", ["personality_type"], :name => "index_profiles_on_personality_type", :unique => true
 
   create_table "surveys", :force => true do |t|
     t.integer  "ei"

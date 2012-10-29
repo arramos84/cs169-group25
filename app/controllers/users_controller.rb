@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def new
+    @sign_up = true
     @user = User.new
   end
 
@@ -9,7 +10,9 @@ class UsersController < ApplicationController
     if !@user.has_completed_survey?
       redirect_to :survey
     end
-
+    @personality_db = Profile.find_by_personality_type(@user.survey.personality_type)
+    #puts @personality_db.inspect
+    @video_url = /v=(.*)/.match(@personality_db.video_link)[1]
   end
 
   def destroy
