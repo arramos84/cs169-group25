@@ -6,3 +6,13 @@
       Welcome #{@user.first_name}! Your personality type is: #{@user.survey.personality_type}
     %center
       %iframe{:width => "560", :height => "315",:frameborder => "0", :src =>"http://www.youtube.com/embed/#{@video_url}",:allowFullScreen => ""}
+    %br    
+    %div{:class => 'row'}    
+      %div{:class => 'span8 offset1'}
+        #{@body}
+      %div{:class => 'span2'}
+        %li #{@step_1}
+        %li #{@step_2}
+        %li #{@step_3}
+        %li #{@step_4}
+        %li #{@step_5}
