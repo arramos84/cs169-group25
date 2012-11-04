@@ -47,7 +47,7 @@ end
 
 Given /^the following user exist$/ do |table|
   # table is a Cucumber::Ast::Table
-  #pending # express the regexp above with the code you wish you had  
+  #pending # express the regexp above with the code you wish you had
   table.hashes.each do |user|
     User.create!(user)
   end
@@ -55,21 +55,22 @@ end
 
 Given /^the following survey exist$/ do |table|
   # table is a Cucumber::Ast::Table
-  #pending # express the regexp above with the code you wish you had  
+  #pending # express the regexp above with the code you wish you had
   table.hashes.each do |hash|
     Survey.create(hash)
+
   end
 end
 
 When /^I answer a question$/ do
   #pending # express the regexp above with the code you wish you had
   choose('input_EI-1_1')
-  
+
 end
 
 
 Given /^I am logged in$/ do
-  
+
   user = User.find_by_email('john@smith.com')
   cookies.permanent[:remember_token] = user.remember_token
   self.current_user = user
@@ -83,11 +84,14 @@ end
 
 Given /^that there is a user with the following email: "(.*?)"$/ do |user_email|
   if !User.find_by_email(user_email)
-    User.create!(:first_name => "john",
-                :last_name => "johnson",
+    User.create!(:first_name => "John",
+                :last_name => "Johnson",
                 :email => user_email,
                 :password=> '12345',
                 :password_confirmation=>'12345')
+    Survey.create!(:personality_type=>"ENTP")
+    user = User.find_by_email(user_email)
+    user.survey = Survey.find_by_personality_type("ENTP")
   end
 end
 
