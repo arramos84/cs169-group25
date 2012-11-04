@@ -25,6 +25,9 @@ module NavigationHelpers
     when /^the login page$/
       '/login'
 
+    when /^the logout page$/
+      '/logout'
+
     when /^the survey page$/
       '/survey'
 

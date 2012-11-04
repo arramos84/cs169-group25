@@ -40,16 +40,16 @@
     And I press "Submit"
     Then I should be on the sign up page
 
- # Scenario: signing out
- #   Given all the profiles exist
- #   Given that there is a user with the following email: "john@johnson.com"
- #   When I go to the login page
- #   And I fill in "session_email" with "john@johnson.com"
- #   And I fill in "session_password" with "12345"
- #   And I press "Submit"
- #   Then I should be on the home login page
- #   When I follow "Logout" 
- #   Then I should be on the home page
+  Scenario: signing out
+    Given all the profiles exist
+    Given that there is a user with the following email: "john@johnson.com"
+    When I go to the login page
+    And I fill in "session_email" with "john@johnson.com"
+    And I fill in "session_password" with "12345"
+    And I press "Submit"
+    Then I should be on the home login page
+    When I follow "Logout" 
+    Then I should be on the home page
 
   
     

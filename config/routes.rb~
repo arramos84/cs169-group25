@@ -10,7 +10,7 @@ CS169Group31::Application.routes.draw do
 
   # routes for login
   match "login" => "sessions#new", :as => "login"
-  match "logout" => "sessions#destroy", :as => "logout", :via => :get
+  match "logout" => "sessions#destroy", :as => "logout"
   match "survey" => "survey#new", :as => "survey", :via => :get
   match "survey" => "survey#create", :as => "survey", :via => :post
 
