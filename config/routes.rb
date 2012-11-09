@@ -3,7 +3,7 @@ CS169Group31::Application.routes.draw do
   get "static_pages/index"
   
   root to: "static_pages#index"
-  # resources
+  #  resources
   resources :users
   resources :sessions, only: [:new,:create,:destroy]  
   resources :surveys, only: [:new,:create, :destroy]
