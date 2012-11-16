@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   def destroy
     flash[:notice] = "Signout successful"
     sign_out
-    redirect_to :root_path #:home #root_path #root_url?
+    redirect_to :root #:home #root_path #root_url?
   end
 
 

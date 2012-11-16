@@ -1,4 +1,7 @@
 class SurveyController < ApplicationController
+  
+  before_filter :auth_user
+  
   def new
 
   end

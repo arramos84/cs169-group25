@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  
+  before_filter :auth_user, only: [:show]
 
   def new
     @sign_up = true
@@ -40,5 +42,7 @@ class UsersController < ApplicationController
       @user.errors.full_messages.each { |x| flash[:alert] << x + ",\n" }
     end
 end
+
+
 
 end

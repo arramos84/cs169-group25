@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
   
+  before_filter :auth_user
+  
   def show
     @personality_type = current_user.survey.personality_type
     @video_link = Profile.find_by_personality_type(@personality_type).video_link
