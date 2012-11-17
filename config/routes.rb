@@ -1,11 +1,15 @@
 CS169Group31::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   #get "survey/new"
   get "static_pages/index"
-  
+
   root to: "static_pages#index"
   #  resources
   resources :users
-  resources :sessions, only: [:new,:create,:destroy]  
+  resources :sessions, only: [:new,:create,:destroy]
   resources :surveys, only: [:new,:create, :destroy]
 
   # routes for login
@@ -15,8 +19,12 @@ CS169Group31::Application.routes.draw do
   match "survey" => "survey#create", :as => "survey", :via => :post
 
   match "signup" => "users#new", :as => "signup"
-  
+
   match "home" => "users#show", :as => "home"
+
+  devise_scope :admin_user do
+    delete '/admin/logout' => 'active_admin/devise/sessions#destroy'
+  end
 
   #match '/signup',  to: 'users#new'
 

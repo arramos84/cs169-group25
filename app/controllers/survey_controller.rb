@@ -1,7 +1,7 @@
 class SurveyController < ApplicationController
-  
+
   before_filter :auth_user
-  
+
   def new
 
   end
@@ -26,6 +26,8 @@ class SurveyController < ApplicationController
       flash[:notice] = "You may have entered a field wrong"
       render :survey
     end
+
+    current_user.survey = @survey
   end
 
   def destroy

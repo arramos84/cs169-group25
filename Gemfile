@@ -44,3 +44,5 @@ group :production do
 end
 
 gem 'simplecov'
+
+gem 'activeadmin'
