@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   before_filter :auth_user, only: [:show]
 
   def new
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     end
     @personality_db = Profile.find_by_personality_type(@user.survey.personality_type)
     #puts @personality_db.inspect
-    
+
     @video_url = /v=(.*)/.match(@personality_db.video_link)[1]
     @body = @personality_db.body
     @step_1 = @personality_db.step_1
@@ -25,7 +25,6 @@ class UsersController < ApplicationController
 
   end
 
-
   def destroy
   end
 
@@ -34,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:success] = 'User was successfully created'
-      sign_in @user
+      sign_in_user @user
       redirect_to :survey
     else
       redirect_to :signup

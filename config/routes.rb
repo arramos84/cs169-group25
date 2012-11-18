@@ -22,9 +22,9 @@ CS169Group31::Application.routes.draw do
 
   match "home" => "users#show", :as => "home"
 
-  devise_scope :admin_user do
-    delete '/admin/logout' => 'active_admin/devise/sessions#destroy'
-  end
+  #devise_scope :admin_user do
+   # delete '/admin/logout' => 'active_admin/devise/sessions#destroy'
+  #end
 
   #match '/signup',  to: 'users#new'
 
