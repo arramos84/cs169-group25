@@ -8,13 +8,13 @@
     %center
       <b>If you already know your type (ex. ENTP):</b>
       = form_for :input do |f|
-        = text_field :type, 'type'
+        = text_field :type, 'type', :placeholder => "Enter your personality type here"
         %input.button{:name => "commit", :type => "submit", :value => "Enter"}/
     %h4 Otherwise, to get your four character personality "type", we need you to answer the following questions:
 
     = form_for :input do |f|
-      <table border="2" cellpadding="20" align="center">
-      <tr><th>Questiion</th><th>Answer</th></tr>
+      <table class="table table-striped table-bordered table-condensed">
+      <tr><th>Question</th><th>Answer</th></tr>
       <tr><td>1. At a party do you:</td>
       <td>
       = f.radio_button 'EI-1', '1'
