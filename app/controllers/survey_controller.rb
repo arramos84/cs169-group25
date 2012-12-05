@@ -19,7 +19,7 @@ class SurveyController < ApplicationController
     end
     
     if params[:input].length < 50
-      flash[:notice] = "Please complete the majority of the survey to generate an personality match for you!"
+      flash[:notice] = "Please complete the majority of the survey to generate an accurate personality match for you!"
       redirect_to :survey and return 
     end
 
