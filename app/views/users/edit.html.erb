@@ -1,18 +1,24 @@
 <%= render("static_pages/navigation.html.haml") %>
+<div class="container">
+<% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 <br>
+
+<div class="row">
+  <div class="span8 offset2">
 <% if current_user.code != nil %>
   Current code to give to students: <%= current_user.code %>
 <% else %>
 
 <%= simple_form_for @user do |f| %>
   <%= f.input :code, :label => 'Please create a code to give to students' %>
-  <%= f.button :submit %>
+  <%= f.button :submit, 'Create Code'%>
 <% end %>
 
 <% end %>
-
-<div class="row">
-  <div class="span8 offset2">
+<br>
+<br>
 <table class="table table-striped table-bordered">
   
   <thead>Students</thead>
@@ -31,5 +37,6 @@
   <% end %>
   <% end %>
 </table>
+</div>
 </div>
 </div>

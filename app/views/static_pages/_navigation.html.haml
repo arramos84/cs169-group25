@@ -12,10 +12,14 @@
         %li
           %a{:href => "/"} Home
           - if signed_in?
+            - if professor?
+              %li
+                %a{:href => "/users/#{current_user.id}/edit"} Professor Panel
+            - else
+              %li
+                %a{:href => follow_code_path } Student Panel
             %li
-              %a{:href => "logout"} Logout
-            %li
-              %a{:href => "/users/#{current_user.id}/edit"} Professor Panel
+              %a{:href => logout_path} Logout
           - else  
             %li
               %a{:href => "./login"} Login
