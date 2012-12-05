@@ -1,12 +1,22 @@
 = render 'navigation.html.haml'
 
 .jumbotron.masthead
-  .container
-    %h1 LeadU
-    %p Leadership Prescriptions for tomorrow's leaders
-    %p
-      %a.btn.btn-primary.btn-large{:href => "login"} Log In
-      %a.btn.btn-primary.btn-large{:href => "signup"} Sign Up
+  .container   
+    .slider-wrapper.theme-default
+      #slider.nivoSlider
+        -#%img{:alt => "", "data-thumb" => "images/leadu-barack-obama.jpg", :src => #{image_tag("leadu-barack-obama.jpg")}}
+        = image_tag("leadu-barack-obama.jpg")
+        = image_tag("leadu-dan-mulhern.jpg")
+    :javascript
+      $(window).load(function() {
+          $('#slider').nivoSlider();
+      });
+    %center
+      %p Leadership Prescriptions for Tomorrow's Leaders
+    %center
+      %p
+        %a.btn.btn-primary.btn-large{:href => "login"} Log In
+        %a.btn.btn-primary.btn-large{:href => "signup"} Sign Up
 
 .container
   .marketing
