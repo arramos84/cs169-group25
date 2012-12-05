@@ -66,9 +66,9 @@ ActiveRecord::Schema.define(:version => 20121205011617) do
     t.string   "step_4"
     t.string   "step_5"
     t.string   "video_link"
-    t.text     "body",             :limit => 255
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.text     "body"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "personality_type"
   end
 
