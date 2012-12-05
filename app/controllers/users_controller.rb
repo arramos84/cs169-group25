@@ -26,16 +26,21 @@ class UsersController < ApplicationController
   end
   
   def edit #Add a code so that users can follow. ie Professors/employers use this
-    @user = current_user
+    @user = current_user 
     @followers = @user.user_followers#array of users that follow current_user 
   end
 
   def update
     @user = current_user
-    if @user.update_column(:code, params[:user][:code]) #@user.update_attributes(params[:user])  
-      redirect_to root_path, :notice => "User updated."
-    else
-      redirect_to new_user_path, :alert => "Unable to update user."
+    if params[:user][:code].nil? || params[:user][:code].empty?
+      flash[:alert] = "Code cannot be empty"
+      redirect_to edit_user_path
+    elsif @user.update_column(:code, params[:user][:code]) #@user.update_attributes(params[:user])  
+      flash[:success] = "Code updated."
+      redirect_to edit_user_path
+    elsif
+      flash[:alert] = "Unable to create code"
+      redirect_to edit_user_path
     end
   end
 
@@ -44,13 +49,15 @@ class UsersController < ApplicationController
   end
   
   def followsubmit
-    if User.find_by_code(params[:code_string])
+    if User.find_by_code(params[:code_string]) and !params[:code_string].empty?
       @parent = User.find_by_code(params[:code_string])
       @child = current_user
-      @child.follow(@parent) 
+      @child.follow(@parent)
+      flash[:success] = 'Code entered.'
       redirect_to root_path
     else
-      redirect_to root_path
+      flash[:alert] = 'Code not correct.'
+      redirect_to follow_code_path
     end
     
   end

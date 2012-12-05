@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   
   has_one :survey, :dependent => :destroy #surveys?
   
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :code
+  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :code, :professor #codestuffs
   #magic to require a password, make sure passwords match, authenticate
   has_secure_password
   

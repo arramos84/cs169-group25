@@ -9,6 +9,10 @@ module SessionsHelper
     puts current_user
     !current_user.nil?
   end
+  
+  def professor?
+    current_user.professor
+  end
 
   def current_user=(user)
     @current_user = user

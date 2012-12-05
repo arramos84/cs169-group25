@@ -24,4 +24,9 @@
           = f.label :password_confirmation
           = f.password_field :password_confirmation
         %p
+          = f.radio_button :professor, false
+          = f.label "Student"
+          = f.radio_button :professor, true
+          = f.label "Professor"
+        %p
           = f.submit "Submit", :class => 'button'
