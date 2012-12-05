@@ -13,13 +13,18 @@ Background: I am on the survey page
   And I press "Submit"
   Then I should be on the survey page
 	
-	Scenario: submit the test
+	Scenario: submit the test (sad path)
 		Given all the profiles exist
 		When I answer a question
 		And I press "Submit"
-		Then I should be on the home login page
-		And I should see "Your personality type is:"
-    And I should see "ENTJ"
+		Then I should be on the survey page
+		And I should see "Please complete the majority of the survey to generate an accurate personality match for you!"
+
+  Scenario: submit a test
+    Given all the profiles exist
+    Given I answer a majority of the questions
+    And I press "Submit"
+    Then I should be on the home login page
 
 
   Scenario: type in personality type

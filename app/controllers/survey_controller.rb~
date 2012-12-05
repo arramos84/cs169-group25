@@ -14,9 +14,9 @@ class SurveyController < ApplicationController
       @survey_params = Survey.organize(params[:type])
       @survey_params[:user_id] = current_user.id
     else
-      if params[:input].length < 50 && params[:input][:manual] == nil
+      if params[:input].length < 50
         flash[:notice] = "Please complete the majority of the survey to generate an accurate personality match for you!"
-        redirect_to :survey and return
+        redirect_to :survey and return 
       end
       @survey_params = Survey.organize(params[:input])
       @survey_params[:user_id] = current_user.id

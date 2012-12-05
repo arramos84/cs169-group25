@@ -25,6 +25,18 @@ h3 code {
 
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
+.quotes{
+    
+}
+.quotes h1{
+    font-family: 'Sacramento', cursive;
+}
+.quotes h2{
+    font-family: 'Sacramento', cursive;
+}
+.quotes h3{
+    font-family: 'Sacramento', cursive;
+}
 
 body > .navbar {
   font-size: 13px;
@@ -881,6 +893,8 @@ form.bs-docs-example {
     top: 0;
   }
 }
+
+
 
 /* Tablet
 ------------------------- */

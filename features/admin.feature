@@ -38,3 +38,25 @@ Feature: have an admin panel so that an administrator can edit the database
     And user 1 creates a new survey
     Then I should see "Survey was successfully created."
     And I should see "john@smith.com"
+    When I follow "Profiles"
+    Then I should be on the admin profiles page
+    When I follow "New Profile"
+    And I create a new profile
+    Then I should see "Profile was successfully created."
+
+  Scenario: creating a new admin user
+    Given there is an admin
+    When I am on the admin login page
+    And I fill in "admin_user_email" with "admin@example.com"
+    And I fill in "admin_user_password" with "password"
+    And I press "Login"
+    Then I should be on the admin page
+    When I follow "Admin Users"
+    And I follow "New Admin User"
+    And I fill in "admin_user_email" with "john@johnson.com"
+    And I fill in "admin_user_password" with "123456"
+    And I fill in "admin_user_password_confirmation" with "123456"
+    And I press "Create Admin user"
+    Then I should see "Admin user was successfully created."
+
+    
