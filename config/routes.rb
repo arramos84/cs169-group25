@@ -19,8 +19,10 @@ CS169Group31::Application.routes.draw do
   match "survey" => "survey#create", :as => "survey", :via => :post
 
   match "signup" => "users#new", :as => "signup"
-
   match "home" => "users#show", :as => "home"
+  match "add_code" => "users#code", :as => "code"
+  match "follow_code" => "users#follow_code", :as => "follow_code", :via => 'get'
+  match "follow_code" => 'users#followsubmit', :as => "follow_code", :via => 'post' #follow button route
 
   #devise_scope :admin_user do
    # delete '/admin/logout' => 'active_admin/devise/sessions#destroy'
