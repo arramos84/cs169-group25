@@ -40,6 +40,12 @@ module NavigationHelpers
     when /^the admin surveys page$/
       '/admin/surveys'
 
+    when /^the admin profiles page$/
+      '/admin/profiles'
+
+    when /^the user edit page$/
+      '/follow_code'
+
     when /^the admin page$/
       '/admin'
 

@@ -27,3 +27,17 @@ When /^user 1 creates a new survey$/ do
     And I press "Create Survey"
   }
 end
+
+When /^I create a new profile$/ do
+  steps %Q{
+    When I fill in "profile_step_1" with "step 1"
+    And I fill in "profile_step_2" with "step 2"
+    And I fill in "profile_step_3" with "step 3"
+    And I fill in "profile_step_4" with "step 4"
+    And I fill in "profile_step_5" with "step 5"
+    And I fill in "profile_body" with "lorem ipsum"
+    And I fill in "profile_video_link" with "1"
+    And I fill in "profile_personality_type" with "bro"
+    And I press "Create Profile"
+  }
+end

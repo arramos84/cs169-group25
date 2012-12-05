@@ -9,6 +9,7 @@
       <b>If you already know your type (ex. ENTP):</b>
       = form_for :input do |f|
         = text_field :type, 'type', :placeholder => "Enter your personality type here"
+        = hidden_field :manual, value: 1
         %input.button{:name => "commit", :type => "submit", :value => "Enter"}/
     %h4 Otherwise, to get your four character personality "type", we need you to answer the following questions:
 
