@@ -3,36 +3,36 @@
   - flash.each do |key,value|
     %div{:class => 'alert alert-#{key}'}= value.chop.chop + "."
 	 
-
-  .row-fluid
-    .span4
-      %h3 Sign-up
-      = form_for @user do |f|
-        %p
-          = f.label :first_name, :caption => "First Name"
-          = f.text_field :first_name
-        %p
-          = f.label :last_name, :caption => "Last Name"
-          = f.text_field :last_name
-        %p
-          = f.label :email, :caption => "Email"
-          = f.text_field :email
-        %p
-          = f.label :password
-          = f.password_field :password
-        %p
-          = f.label :password_confirmation
-          = f.password_field :password_confirmation
-        %p
-          = f.radio_button :professor, false
-          = f.label "Student"
-          = f.radio_button :professor, true
-          = f.label "Professor"
-        %p
-          = f.submit "Submit", :class => 'button'
+  .marketing
+    .row-fluid
+      .span4
+        %h3 Sign-up
+        = form_for @user do |f|
+          %p
+            = f.label :first_name, :caption => "First Name"
+            = f.text_field :first_name
+          %p
+            = f.label :last_name, :caption => "Last Name"
+            = f.text_field :last_name
+          %p
+            = f.label :email, :caption => "Email"
+            = f.text_field :email
+          %p
+            = f.label :password
+            = f.password_field :password
+          %p
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation
+          %p
+            = f.radio_button :professor, false
+            = f.label "Student"
+            = f.radio_button :professor, true
+            = f.label "Professor"
+          %p
+            = f.submit "Submit", :class => 'button'
           
-    %div{:class => 'span4 offset1'}
-      %div{:class => 'quotes'}
-        %br
-        %h2
-          &#8220 Leadership is not the private reserve of a few charismatic men and women. &#8221 - kouzes & posner
+      %div{:class => 'span4 offset1'}
+        %div{:class => 'quotes'}
+          %br
+          %h2
+            &#8220 Leadership is not the private reserve of a few charismatic men and women. &#8221 - kouzes & posner
