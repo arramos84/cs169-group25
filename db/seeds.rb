@@ -7,7 +7,11 @@
 # rake db:seed
 # ***************
 
+# All Passwords are "please"
+
+# user@example.com is the teacher
 professor = User.create! :first_name => 'John', :last_name => 'Smith', :email => 'user@example.com', :code => "leader_match", :professor => true, :password => 'please', :password_confirmation => 'please'
+
 student1 = User.create! :first_name => 'Dave', :last_name => 'Jenkins', :email => 'user2@example.com', :code => nil, :professor => false, :password => 'please', :password_confirmation => 'please'
 student2 = User.create! :first_name => 'Alice', :last_name => 'Hope', :email => 'user3@example.com', :code => nil, :professor => false, :password => 'please', :password_confirmation => 'please'
 student3 = User.create! :first_name => 'Hannah', :last_name => 'Montana', :email => 'user4@example.com', :code => nil, :professor => false, :password => 'please', :password_confirmation => 'please'
