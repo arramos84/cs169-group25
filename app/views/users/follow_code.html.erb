@@ -1,0 +1,14 @@
+<!-- <%= simple_form_for :code_string, :url => "/follow_code" do |f| %>
+  <%= f.input :code, :label => 'Please choose a code' %>
+  <%= f.button :submit %>
+<% end %> -->
+
+<!-- <%= form_tag(follow_code_path, :method => 'post') do %>
+	<%= submit_tag("Submit") %>
+<% end %> -->
+
+<%= form_tag( {:controller => :users, :action => :follow_code}, {:method => :post} ) do %>
+    <%= label_tag :code_string %>
+    <%= text_field_tag :code_string, params[:code_string] %>
+	<%= submit_tag("Submit") %>
+<% end %>
