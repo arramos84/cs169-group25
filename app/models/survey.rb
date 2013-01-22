@@ -58,9 +58,9 @@ class Survey < ActiveRecord::Base
       calculated[:personality_type] = 'I'
     end
     if(calculated[:ns] >= 0)
-      calculated[:personality_type] << 'N'
-    else
       calculated[:personality_type] << 'S'
+    else
+      calculated[:personality_type] << 'N'
     end
     if(calculated[:ft] >= 0)
       calculated[:personality_type] << 'T'
