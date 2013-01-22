@@ -26,7 +26,7 @@ class Survey < ActiveRecord::Base
       else
         calculated[:ft] -= 1
       end
-      if ns == "N" || ns == "n"
+      if ns == "S" || ns == "s"
         calculated[:ns] += 1
       else
         calculated[:ns] -= 1
