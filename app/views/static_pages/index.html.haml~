@@ -1,23 +1,35 @@
 = render 'navigation.html.haml'
 
 .jumbotron.masthead
-  .container
-    %h1 LeaderMatch
-    %p Leadership Prescriptions for tomorrow's leaders
-    %p
-      %a.btn.btn-primary.btn-large{:href => "login"} Log In
-      %a.btn.btn-primary.btn-large{:href => "login"} Sign Up
+  .container   
+    .slider-wrapper.theme-default
+      #slider.nivoSlider
+        -#%img{:alt => "", "data-thumb" => "images/leadu-barack-obama.jpg", :src => #{image_tag("leadu-barack-obama.jpg")}}
+        = image_tag("leadu-barack-obama.jpg")
+        = image_tag("leadu-dan-mulhern.jpg")
+        = image_tag("leadu-martin-luther.jpg")
+        = image_tag("leadu-nelson-mandela.jpg")
+    :javascript
+      $(window).load(function() {
+          $('#slider').nivoSlider();
+      });
+    %center
+      %p Leadership Prescriptions for Tomorrow's Leaders
+    %center
+      %p
+        %a.btn.btn-primary.btn-large{:href => "login"} Log In
+        %a.btn.btn-primary.btn-large{:href => "signup"} Sign Up
 
 .container
   .marketing
-    %h1 LeaderMatch Features
+    %h1 LeadU Features
     .row-fluid
       .span4
         %h2 Built In Testing
-        %p We provide the survey for students to learn their personality type, and automatically calculate their prescriptions.
-      .span4
-        %h2 Advice from the Best
-        %p All recommendations stem from Dan Mulhern, Professor at the Haas School of Business at UC Berkeley. 
+        %p{:style=>'text-align: center'} We provide the survey for students to learn their personality type, and automatically calculate their prescriptions.
       .span4
         %h2 Free
-        %p This service is offered free to all students.
+        %p{:style=>'text-align: center'} This service is offered free to all students.      
+      .span4
+        %h2 Advice from the Best
+        %p{:style=>'text-align: center'} All recommendations stem from Dan Mulhern, Professor at the Haas School of Business at UC Berkeley. 
