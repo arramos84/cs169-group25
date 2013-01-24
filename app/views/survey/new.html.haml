@@ -637,3 +637,8 @@
       <tr><td align="right" colspan="2">
       %input.button{:name => "commit", :type => "submit", :value => "Submit"}
       </td></tr></table>
+%script{:type => "text/javascript"} 
+  $(document).ready(function(){
+  $.fn.prettyPhoto({ social_tools: false });
+  $.prettyPhoto.open('http://www.youtube.com/watch?v=QUv3rSI2NAc','Welcome to LeadU','');
+  });
