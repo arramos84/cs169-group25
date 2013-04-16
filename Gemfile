@@ -10,6 +10,10 @@ gem 'haml'
 gem 'twitter-bootstrap-rails'
 gem "acts_as_follower"
 gem 'simple_form'
+configure :production do
+  require 'newrelic_rpm'
+end
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
