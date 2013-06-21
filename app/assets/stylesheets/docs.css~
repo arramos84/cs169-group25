@@ -25,6 +25,18 @@ h3 code {
 
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
+.quotes{
+    
+}
+.quotes h1{
+    font-family: 'Sacramento', cursive;
+}
+.quotes h2{
+    font-family: 'Sacramento', cursive;
+}
+.quotes h3{
+    font-family: 'Sacramento', cursive;
+}
 
 body > .navbar {
   font-size: 13px;
@@ -45,6 +57,7 @@ body > .navbar .brand {
 }
 body > .navbar .brand:hover {
   text-decoration: none;
+  color: #5a5a5a;
   text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
 }
 
@@ -183,6 +196,7 @@ hr.soften {
 ------------------------- */
 .masthead {
   /*padding: 70px 0 80px;*/
+  padding: 20px 0 20px;
   margin-bottom: 0;
   color: #fff;
 }
@@ -254,10 +268,14 @@ hr.soften {
 -------------------------------------------------- */
 
 .marketing {
-  text-align: center;
   color: #5a5a5a;
 }
+.marketing h4 {
+text-align: center;
+}
+
 .marketing h1 {
+  text-align: center;  
   margin: 60px 0 10px;
   font-size: 60px;
   font-weight: 200;
@@ -265,12 +283,18 @@ hr.soften {
   letter-spacing: -1px;
 }
 .marketing h2 {
+  text-align: center;  
   font-weight: 200;
   margin-bottom: 5px;
 }
 .marketing p {
   font-size: 16px;
   line-height: 1.5;
+}
+.marketing questions {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
 }
 .marketing .marketing-byline {
   margin-bottom: 40px;
@@ -869,6 +893,8 @@ form.bs-docs-example {
     top: 0;
   }
 }
+
+
 
 /* Tablet
 ------------------------- */

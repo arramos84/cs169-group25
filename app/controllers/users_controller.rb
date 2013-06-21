@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = current_user
     if !@user.has_completed_survey?
       redirect_to :survey
-    else 
+    else
     @personality_db = Profile.find_by_personality_type(@user.survey.personality_type)
     #puts @personality_db.inspect
 
@@ -23,11 +23,15 @@ class UsersController < ApplicationController
     @step_4 = @personality_db.step_4
     @step_5 = @personality_db.step_5
     end
+    
+    #User survey bar chart
+   survey_data = user_survey_data(@user.survey)
+   create_survey_chart(survey_data)
   end
   
   def edit #Add a code so that users can follow. ie Professors/employers use this
-    @user = current_user 
-    @followers = @user.user_followers#array of users that follow current_user 
+    @user = current_user
+    @followers = @user.user_followers#array of users that follow current_user
   end
 
   def update
@@ -35,7 +39,7 @@ class UsersController < ApplicationController
     if params[:user][:code].nil? || params[:user][:code].empty?
       flash[:alert] = "Code cannot be empty"
       redirect_to edit_user_path
-    elsif @user.update_column(:code, params[:user][:code]) #@user.update_attributes(params[:user])  
+    elsif @user.update_column(:code, params[:user][:code]) #@user.update_attributes(params[:user])
       flash[:success] = "Code updated."
       redirect_to edit_user_path
     elsif
@@ -78,5 +82,28 @@ class UsersController < ApplicationController
       @user.errors.full_messages.each { |x| flash[:alert] << x + ",\n" }
     end
   end
+  
+  #fetch user survey data and set into chart format
+  def user_survey_data(user_survey)
+    survey_type = ['EI', 'NS', 'FT', 'JP']
+    survey_data = []
+    survey_type.each do |w|
+     data_arr = []
+     data_arr << w.to_s << user_survey.send(w.downcase)
+     survey_data << data_arr
+    end
+    return survey_data
+  end
+  
+  #load user survey chart
+  def create_survey_chart(survey_data)
+data_table = GoogleVisualr::DataTable.new
+data_table.new_column('string', 'Personality' )
+data_table.new_column('number', current_user.first_name)
+data_table.add_rows(survey_data)
+vaxes = [{format: "#", viewWindow: {min: 0}}]	
+option = { width: "400", height: 300, areaOpacity: 0, vAxes: vaxes, title: "Survey" }
+@survey_chart = GoogleVisualr::Interactive::BarChart.new(data_table, option)
+end	
 
 end

@@ -11,6 +11,7 @@ gem 'twitter-bootstrap-rails'
 gem "acts_as_follower"
 gem 'simple_form'
 gem 'newrelic_rpm'
+gem "google_visualr", ">= 2.1"
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
