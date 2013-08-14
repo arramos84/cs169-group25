@@ -6,6 +6,7 @@ ActiveAdmin.register User do
     column :last_name
     column :email
     column :survey
+    column :code
     default_actions
   end 
 
