@@ -1,4 +1,22 @@
 ActiveAdmin.register Survey do
+  index do
+    selectable_column
+    column :id
+    column :user
+    column :first_name do |resource|
+      resource.user.first_name
+    end
+    column :last_name do |resource|
+      resource.user.last_name
+    end
+    column :ei
+    column :ft
+    column :ns
+    column :jp
+    column :personality_type
+    default_actions
+  end 
+
   form do |f|
     f.inputs "Details" do
       f.input :ei
