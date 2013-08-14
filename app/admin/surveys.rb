@@ -9,6 +9,7 @@ ActiveAdmin.register Survey do
     column :last_name do |resource|
       resource.user.last_name
     end
+    column :created_at
     column :ei
     column :ft
     column :ns
