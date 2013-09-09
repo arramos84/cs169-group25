@@ -31,7 +31,7 @@
   <% @followers.each do |f| %>
   <tr>
     <td><%= f.first_name %> <%= f.last_name %></td>
-    <td><%= if f.survey.personality_type then f.survey.personality_type else "None" end %></td>  
+    <td><%= if f.survey then f.survey.personality_type else "None" end %></td>  
     <td><%= f.email %></td>
   </tr>
   <% end %>
