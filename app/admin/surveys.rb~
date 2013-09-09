@@ -1,4 +1,24 @@
 ActiveAdmin.register Survey do
+
+  scope :all, :default => true
+  scope :fa2013 do |s|
+    if(User.where(:code => 'fa2013').exists?)
+      fID = User.where(:code => 'fa2013').first.id
+      s.includes(:user, {user: :follows}).where('follows.followable_id' => fID)
+    else
+      s.where(:id => 0)
+    end
+  end  
+  scope :kunal do |s|
+    if(User.where(:code => 'kunal').exists?)
+      fID = User.where(:code => 'kunal').first.id
+      s.includes(:user, {user: :follows}).where('follows.followable_id' => fID) 
+    else
+      s.where(:id => 0)
+    end  
+  end  
+  
+  
   index do
     selectable_column
     column :id
@@ -9,12 +29,19 @@ ActiveAdmin.register Survey do
     column :last_name do |resource|
       resource.user.last_name
     end
-    column :date_created
+    column :created_at
     column :ei
     column :ft
     column :ns
     column :jp
     column :personality_type
+    column :group do |r|
+      groupedBool = r.user.follows.first
+      if(groupedBool)
+        User.find_by_id(r.user.follows.first.followable_id).code
+      end    
+    end
+      
     default_actions
   end 
 

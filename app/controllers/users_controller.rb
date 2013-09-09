@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     if params[:user][:code].nil? || params[:user][:code].empty?
       flash[:alert] = "Code cannot be empty"
       redirect_to edit_user_path
-    elsif @user.update_column(:code, params[:user][:code]) #@user.update_attributes(params[:user])
+    elsif @user.update_column(:code, params[:user][:code].downcase) #@user.update_attributes(params[:user])
       flash[:success] = "Code updated."
       redirect_to edit_user_path
     elsif
@@ -53,12 +53,12 @@ class UsersController < ApplicationController
   end
   
   def followsubmit
-    if User.find_by_code(params[:code_string]) and !params[:code_string].empty?
-      @parent = User.find_by_code(params[:code_string])
+    if User.find_by_code(params[:code_string].downcase) and !params[:code_string].empty?
+      @parent = User.find_by_code(params[:code_string].downcase)
       @child = current_user
       @child.follow(@parent)
       flash[:success] = 'Code entered.'
-      redirect_to root_path
+      redirect_to home_path
     else
       flash[:alert] = 'Code not correct.'
       redirect_to follow_code_path

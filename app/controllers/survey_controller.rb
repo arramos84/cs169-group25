@@ -28,7 +28,7 @@ class SurveyController < ApplicationController
 
     @survey = Survey.new(@survey_params)
     if @survey.save
-      flash[:notice] = "Welcome to LeadU!"
+      flash[:success] = "Welcome to LeadU!"
       redirect_to root_path
     else
       flash[:notice] = "You may have entered a field wrong"

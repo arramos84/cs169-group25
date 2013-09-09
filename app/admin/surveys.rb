@@ -1,4 +1,25 @@
 ActiveAdmin.register Survey do
+
+  scope :all, :default => true
+  scope :fa2013 do |s|
+    if(User.where(:code => 'fa2013').exists?)
+      fID = User.where(:code => 'fa2013').first.id
+      s.includes(:user, {user: :follows}).where('follows.followable_id' => fID)
+    else
+      s.where(:id => 0)
+    end
+  end  
+  =begin
+  scope :kunal do |s|
+    if(User.where(:code => 'kunal').exists?)
+      fID = User.where(:code => 'kunal').first.id
+      s.includes(:user, {user: :follows}).where('follows.followable_id' => fID) 
+    else
+      s.where(:id => 0)
+    end  
+  end  
+  =end
+  
   index do
     selectable_column
     column :id
@@ -15,6 +36,13 @@ ActiveAdmin.register Survey do
     column :ns
     column :jp
     column :personality_type
+    column :group do |r|
+      groupedBool = r.user.follows.first
+      if(groupedBool)
+        User.find_by_id(r.user.follows.first.followable_id).code
+      end    
+    end
+      
     default_actions
   end 
 
