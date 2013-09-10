@@ -22,11 +22,13 @@ class UsersController < ApplicationController
     @step_3 = @personality_db.step_3
     @step_4 = @personality_db.step_4
     @step_5 = @personality_db.step_5
+    #User survey bar chart
+    survey_data = user_survey_data(@user.survey)
+    create_survey_chart(survey_data)
     end
     
-    #User survey bar chart
-   survey_data = user_survey_data(@user.survey)
-   create_survey_chart(survey_data)
+
+
   end
   
   def edit #Add a code so that users can follow. ie Professors/employers use this
@@ -58,7 +60,7 @@ class UsersController < ApplicationController
       @child = current_user
       @child.follow(@parent)
       flash[:success] = 'Code entered.'
-      render home_path
+      redirect_to home_path
     else
       flash[:alert] = 'Code not correct.'
       redirect_to follow_code_path

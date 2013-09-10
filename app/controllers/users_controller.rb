@@ -22,11 +22,11 @@ class UsersController < ApplicationController
     @step_3 = @personality_db.step_3
     @step_4 = @personality_db.step_4
     @step_5 = @personality_db.step_5
-    end
-    
     #User survey bar chart
-   survey_data = user_survey_data(@user.survey)
-   create_survey_chart(survey_data)
+    survey_data = user_survey_data(@user.survey)
+    create_survey_chart(survey_data)
+    end
+
   end
   
   def edit #Add a code so that users can follow. ie Professors/employers use this
