@@ -47,6 +47,9 @@ group :production do
   gem 'pg', '0.12.2'
 end
 
+gem 'heroku-deflater', :group => :production
+
+
 gem 'simplecov'
 
 gem 'activeadmin'
