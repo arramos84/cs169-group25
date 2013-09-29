@@ -9,16 +9,7 @@ ActiveAdmin.register Survey do
       s.where(:id => 0)
     end
   end  
-  =begin
-  scope :kunal do |s|
-    if(User.where(:code => 'kunal').exists?)
-      fID = User.where(:code => 'kunal').first.id
-      s.includes(:user, {user: :follows}).where('follows.followable_id' => fID) 
-    else
-      s.where(:id => 0)
-    end  
-  end  
-  =end
+
   
   index do
     selectable_column

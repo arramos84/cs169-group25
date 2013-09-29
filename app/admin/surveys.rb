@@ -23,8 +23,8 @@ ActiveAdmin.register Survey do
     end
     column :created_at
     column :ei
-    column :ft
     column :ns
+    column :ft
     column :jp
     column :personality_type
     column :group do |r|
