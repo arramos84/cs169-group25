@@ -6,7 +6,8 @@ Feature: Access user questionnaire responses
 
 Background:
 
-  Given I am on the admin page
+  Given there is an admin
+  And I am on the admin page
   And the following users exists
   | first_name        | last_name   | email           | password  | password_confirmation |
   | John              | Smith       | john@smith.com  | 123456    | 123456                |
@@ -17,8 +18,8 @@ Background:
 
   Scenario: 
     Given I am on the admin page
-    And I click on "Users"
-    And I click on "John Smith"
+    And I press "Users"
+    And I press "John Smith"
     Then I should be on John Smith's survey results page
 
     
