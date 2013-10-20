@@ -5,9 +5,7 @@ Feature: Access user questionnaire responses
   I want to collect individual responses to questionnaires
 
 Background:
-
-  Given I am on the admin page
-  And the following users exists
+  Given the following user exists
   | first_name        | last_name   | email           | password  | password_confirmation |
   | John              | Smith       | john@smith.com  | 123456    | 123456                |
   And the following survey exists
@@ -16,9 +14,16 @@ Background:
   And the user with email "john@smith.com" has personality type "ENTP"
 
   Scenario: 
-    Given I am on the admin page
-    And I click on "Users"
-    And I click on "John Smith"
-    Then I should be on John Smith's survey results page
+    Given there is an admin
+    When I am on the admin login page
+    And I fill in "admin_user_email" with "admin@example.com"
+    And I fill in "admin_user_password" with "password"
+    And I press "Login"
+    Then I should be on the admin page
+    When I follow "Surveys"
+    When I select "Any" from "User"
+    And I press "Filter"
+    Then I should see "No Surveys found"
+    
 
     
