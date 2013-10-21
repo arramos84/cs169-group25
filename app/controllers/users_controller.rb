@@ -90,8 +90,16 @@ class UsersController < ApplicationController
     user_hash = {:email => auth_hash['info']['email'], :first_name => auth_hash['info']['first_name'],\
       :last_name => auth_hash['info']['last_name'], :password => auth_hash['credentials']['token'],\
       :password_confirmation => auth_hash['credentials']['token'], :code => nil, :professor => false}
-    params[:user] = user_hash
-    create
+
+    user = User.where(email: user_hash[:email])[0]
+    if !user.nil? 
+      params[:user] = user
+      sign_in_user user
+      redirect_to home_path
+    else
+      params[:user] = user_hash
+      create
+    end 
   end
 
   #fetch user survey data and set into chart format
@@ -108,13 +116,13 @@ class UsersController < ApplicationController
   
   #load user survey chart
   def create_survey_chart(survey_data)
-data_table = GoogleVisualr::DataTable.new
-data_table.new_column('string', 'Personality' )
-data_table.new_column('number', current_user.first_name)
-data_table.add_rows(survey_data)
-vaxes = [{format: "#", viewWindow: {min: 0}}]	
-option = { width: "400", height: 300, areaOpacity: 0, vAxes: vaxes, title: "Survey" }
-@survey_chart = GoogleVisualr::Interactive::BarChart.new(data_table, option)
-end	
+    data_table = GoogleVisualr::DataTable.new
+    data_table.new_column('string', 'Personality' )
+    data_table.new_column('number', current_user.first_name)
+    data_table.add_rows(survey_data)
+    vaxes = [{format: "#", viewWindow: {min: 0}}]	
+    option = { width: "400", height: 300, areaOpacity: 0, vAxes: vaxes, title: "Survey" }
+    @survey_chart = GoogleVisualr::Interactive::BarChart.new(data_table, option)
+  end	
 
 end
