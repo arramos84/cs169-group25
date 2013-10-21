@@ -13,8 +13,7 @@ gem "acts_as_follower"
 gem 'simple_form'
 gem 'newrelic_rpm'
 gem "google_visualr", ">= 2.1"
-gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
