@@ -1,5 +1,5 @@
 = render 'navigation.html.haml'
-<div id="fb-root"></div>
+#fb-root
 :javascript
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -26,7 +26,8 @@
       %p
         %a.btn.btn-primary.btn-large{:href => "login"} Log In
         %a.btn.btn-primary.btn-large{:href => "signup"} Sign Up
-        <div class="fb-login-button" data-width="200"></div>
+        .fb-login-button{:method => :post, :href => "users", "data-width" => "200"}
+
 .container
   .marketing
     %h1 LeadU Features
