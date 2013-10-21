@@ -25,9 +25,7 @@ CS169Group31::Application.routes.draw do
   match "follow_code" => 'users#followsubmit', :as => "follow_code", :via => 'post' #follow button route
 
   #routes for third party login
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
-  match 'signout', to: 'sessions#destroy', as: 'signout'
+  match 'auth/:provider/callback', to: 'users#create_with_third_party_auth'
 
   #devise_scope :admin_user do
    # delete '/admin/logout' => 'active_admin/devise/sessions#destroy'
