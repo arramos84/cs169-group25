@@ -84,7 +84,16 @@ class UsersController < ApplicationController
       @user.errors.full_messages.each { |x| flash[:alert] << x + ",\n" }
     end
   end
-  
+
+  def create_with_third_party_auth
+    auth_hash = request.env['omniauth.auth']
+    user_hash = {:email => auth_hash['info']['email'], :first_name => auth_hash['info']['first_name'],\
+      :last_name => auth_hash['info']['last_name'], :password => auth_hash['credentials']['token'],\
+      :password_confirmation => auth_hash['credentials']['token'], :code => nil, :professor => false}
+    params[:user] = user_hash
+    create
+  end
+
   #fetch user survey data and set into chart format
   def user_survey_data(user_survey)
     survey_type = ['EI', 'NS', 'FT', 'JP']
