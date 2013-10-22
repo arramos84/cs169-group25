@@ -17,6 +17,7 @@ gem 'omniauth-facebook', '1.4.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
+  gem 'ZenTest'
 end
 
 gem 'annotate', '2.5.0', group: :development
