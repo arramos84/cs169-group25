@@ -2,7 +2,7 @@
 .jumbotron.masthead
   .container   
   - flash.each do |key,value|
-      %div{:class => 'alert alert-#{key}'}= value 
+    %div{:class => 'alert alert-#{key}'}= value 
     .slider-wrapper.theme-default
       #slider.nivoSlider
         -#%img{:alt => "", "data-thumb" => "images/leadu-barack-obama.jpg", :src => #{image_tag("leadu-barack-obama.jpg")}}
