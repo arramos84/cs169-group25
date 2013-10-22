@@ -125,4 +125,8 @@ class UsersController < ApplicationController
     @survey_chart = GoogleVisualr::Interactive::BarChart.new(data_table, option)
   end	
 
+  def omniauth_failure
+    redirect_to home_path
+  end
+
 end
