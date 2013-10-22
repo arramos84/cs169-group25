@@ -11,13 +11,28 @@
       $(window).load(function() {
           $('#slider').nivoSlider();
       });
+      var signinWin;
+      $('#FacebookBtn').click(function () {
+        var pos = screenCenterPos(800, 500);
+        signinWin = window.open("[URL]", "SignIn", "width=780,height=410,toolbar=0,scrollbars=0,status=0,resizable=0,location=0,menuBar=0,left=" + pos.x + ",top=" + pos.y);
+        setTimeout(CheckLoginStatus, 2000);
+        signinWin.focus();
+        return false;
+      });
+
+      function CheckLoginStatus() {
+        if (signinWin.closed) {
+          $('#UserInfo').text($.cookie("some_cookie");
+        }
+        else setTimeout(CheckLoginStatus, 1000);
+      }
     %center
       %p Leadership Prescriptions for Tomorrow's Leaders
     %center
       %p
         %a.btn.btn-primary.btn-large{:href => "login"} Log In
         %a.btn.btn-primary.btn-large{:href => "signup"} Sign Up
-        %a{:class => "zocial facebook", :href => "/auth/facebook/"} Sign in with Facebook
+        %a{:class => "zocial facebook", :href => "/auth/facebook/" :id => "FacebookBtn"} Sign in 
 
 .container
   .marketing
