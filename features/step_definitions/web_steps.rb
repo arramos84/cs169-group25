@@ -104,6 +104,11 @@ Given /^I am (not)? a valid user$/ do |condition|
   if condition == 'not'
     assert !user
   else
+    User.create!(:first_name => "Test",
+                :last_name => "User",
+                :email => "info@gmail.com",
+                :password=> '12345',
+                :password_confirmation=>'12345')
     assert user
   end
 end
