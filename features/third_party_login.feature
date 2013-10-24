@@ -12,3 +12,10 @@ Feature: Ability to login to LEADU via a third party
     Then I should be on the signup page
     And I should see "Account could not successfully be created"
 
+  @omniauth_test
+  Scenario: Loggin in with Facebook (success)
+  	Given I am on the root page
+  	And I login with provider "Facebook"
+  	And I am a valid user
+  	Then I should be on the survey page
+
