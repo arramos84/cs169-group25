@@ -80,7 +80,7 @@ class UsersController < ApplicationController
       redirect_to :survey
     else
       redirect_to :signup
-      flash[:alert] = "Account could not successfully created because:\n"
+      flash[:alert] = "Account could not successfully be created because:\n"
       @user.errors.full_messages.each { |x| flash[:alert] << x + ",\n" }
     end
   end
