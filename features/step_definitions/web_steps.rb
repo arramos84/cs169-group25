@@ -95,6 +95,19 @@ Given /^that there is a user with the following email: "(.*?)"$/ do |user_email|
   end
 end
 
+Given /^I login with provider "([^"]*)"$/ do |provider|
+  visit "/auth/#{provider.downcase}"
+end
+
+Given /^I am (not)? a valid user$/ do |condition|
+  user = User.find_by_email('info@gmail.com')
+  if condition == 'not'
+    assert !user
+  else
+    assert user
+  end
+end
+
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
