@@ -1,6 +1,7 @@
 class Survey < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy
   attr_accessible :ei, :ft, :ns, :jp, :personality_type, :user_id
+  serialize :responses
 
 
   def self.personality_types
@@ -9,6 +10,7 @@ class Survey < ActiveRecord::Base
 
   def self.organize(params)
     calculated = {}
+    user_responses = {}
     calculated[:ei] = 0
     calculated[:ft] = 0
     calculated[:ns] = 0
@@ -52,7 +54,9 @@ class Survey < ActiveRecord::Base
         if( /JP-\d*/.match(key))
           calculated[:jp] = calculated[:jp]+value.to_i
         end
+        user_responses[key] = value
       end
+      
     end
     if(calculated[:ei] >= 0)
       calculated[:personality_type] = 'E'
