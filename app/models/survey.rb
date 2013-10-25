@@ -2,7 +2,15 @@ class Survey < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy
   attr_accessible :ei, :ft, :ns, :jp, :personality_type, :user_id
   serialize :responses
-
+  @@last_test_result = nil
+  
+  def self.last_test_result=(arg)
+    @@last_test_result = arg
+  end
+  
+  def self.last_test_result
+    @@last_test_result
+  end
 
   def self.personality_types
     return ["ENFJ", "INFJ", "INTJ", "ENTJ", "ENFP", "INFP", "INTP", "ENTP", "ESFP", "ISFP", "ISTP", "ESTP", "ESFJ", "ISFJ", "ISTJ", "ESTJ"]
@@ -56,7 +64,7 @@ class Survey < ActiveRecord::Base
         end
         user_responses[key] = value
       end
-      responses = user_responses
+      @@last_test_result = user_responses
     end
     if(calculated[:ei] >= 0)
       calculated[:personality_type] = 'E'
