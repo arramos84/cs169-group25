@@ -99,16 +99,18 @@ Given /^I login with provider "([^"]*)"$/ do |provider|
   visit "/auth/#{provider.downcase}"
 end
 
-Given /^I am (not)? a valid user$/ do |condition|
+Given /^I am\s?(not)? a valid user$/ do |condition|
+
   user = User.find_by_email('info@gmail.com')
   if condition == 'not'
     assert !user
   else
-    User.create!(:first_name => "Test",
-                :last_name => "User",
-                :email => "info@gmail.com",
+    user = User.new(:first_name => 'Test',
+                :last_name => 'User',
+                :email => 'info@gmail.com',
                 :password=> '12345',
                 :password_confirmation=>'12345')
+    user.save
     assert user
   end
 end
