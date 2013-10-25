@@ -10,4 +10,10 @@ class StaticPagesController < ApplicationController
     
   end
   
+  def mbinfo
+  end
+
+  def wifm
+  end
+
 end

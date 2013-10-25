@@ -24,6 +24,9 @@ CS169Group31::Application.routes.draw do
   match "follow_code" => "users#follow_code", :as => "follow_code", :via => 'get'
   match "follow_code" => 'users#followsubmit', :as => "follow_code", :via => 'post' #follow button route
 
+  match "mbinfo" => 'static_pages#mbinfo'
+  match "wifm" => 'static_pages#wifm'
+  match "about" => 'static_pages#about'
   #devise_scope :admin_user do
    # delete '/admin/logout' => 'active_admin/devise/sessions#destroy'
   #end

@@ -1,0 +1,36 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .navbar-inner
+    .container
+      %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand{:href=>"/"}LeadU
+      .nav-collapse.collapse
+      = link_to image_tag( 'facebook.png', :width=> '35', :align=>'right'), 'http://www.facebook.com/sharer/sharer.php?u=http://leadermatch.herokuapp.com&t=I discovered my personality at LEADU!'
+      = link_to image_tag( 'twitter.png', :width=> '35', :align=>'right'), ' https://twitter.com/intent/tweet?text=Learn to be a better leader @ http://leadermatch.herokuapp.com @danmulhern'
+      = link_to image_tag( 'linkedin.png', :width=> '35', :align=>'right'), 'http://www.linkedin.com/shareArticle?mini=true&url=http://leadermatch.herokuapp.com&title=LEADU - Leading with your best self&summary=Become a better leader at your business today!&source=<source>'
+      %ul.nav
+        %li
+          %a{:href=>"/"}Home
+        %li
+          %a{:href=>"about"}About
+        %li
+          %a{:href=>"#contact"}Contact
+        %li.dropdown
+          %a.dropdown-toggle{:href=>"#", :data=>{:toggle=>"dropdown"}} 
+            MBTI 
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href=>"#"}INTP
+            %li
+              %a{:href=>"#"}ENTP
+            %li
+              %a{:href=>"#"}INTJ
+            %li.divider
+            %li.nav-header ENTJ
+            %li
+              %a{:href=>"#"}ISTP
+            %li 
+              %a{:href=>"#"}ESTJ
