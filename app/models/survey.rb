@@ -1,6 +1,7 @@
 class Survey < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy
   attr_accessible :ei, :ft, :ns, :jp, :personality_type, :user_id
+  serialize :responses
 
 
   def self.personality_types
