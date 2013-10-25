@@ -56,7 +56,7 @@ class Survey < ActiveRecord::Base
         end
         user_responses[key] = value
       end
-      
+      responses = user_responses
     end
     if(calculated[:ei] >= 0)
       calculated[:personality_type] = 'E'

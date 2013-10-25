@@ -14,7 +14,6 @@ class SurveyController < ApplicationController
       @survey_params = Survey.organize(params[:type])
       @survey_params[:user_id] = current_user.id
     else
-      puts "HELLLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
       puts !params[:input]
       puts params[:input].length < 50
       puts params[:input][:manual] == nil

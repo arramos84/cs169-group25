@@ -7,7 +7,10 @@ Feature: get user survey responses
 Background: surveys in database
  
 Scenario: take a survey
-  When I go to the survey page
-  And  I press a bunch of buttons
-  And  I press submit
+  Given all the profiles exist
+  Given that there is a user with the following email: "mccormack@berkeley.edu"
+  Given I am on the login page
+  When I sign in
+  And  I answer a majority of the questions
+  And  I press "Submit"
   Then the survey should have recorded the responses

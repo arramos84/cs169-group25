@@ -41,3 +41,8 @@ When /^I create a new profile$/ do
     And I press "Create Profile"
   }
 end
+
+Then /^the survey should have recorded the responses$/ do
+
+end
+

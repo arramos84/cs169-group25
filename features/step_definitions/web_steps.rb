@@ -70,9 +70,8 @@ end
 
 
 Given /^I am logged in$/ do
-
   user = User.find_by_email('john@smith.com')
-  cookies.permanent[:remember_token] = user.remember_token
+  #cookies.permanent[:remember_token] = user.remember_token
   self.current_user = user
 end
 
@@ -91,7 +90,7 @@ Given /^that there is a user with the following email: "(.*?)"$/ do |user_email|
                 :password_confirmation=>'12345')
     Survey.create!(:personality_type=>"ENTP")
     user = User.find_by_email(user_email)
-    user.survey = Survey.find_by_personality_type("ENTP")
+    #user.survey = Survey.find_by_personality_type("ENTP")
   end
 end
 

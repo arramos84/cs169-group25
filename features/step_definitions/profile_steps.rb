@@ -39,6 +39,14 @@ Given /^the user with email "(.*)" has personality type "(.*)"$/ do |email, type
   User.find_by_email(email).survey = Survey.find_by_personality_type("ENTP")
 end
 
+And /^I sign in$/ do
+  steps %Q{
+    When I fill in "session_email" with "mccormack@berkeley.edu"
+    And I fill in "session_password" with "12345"
+    And I press "Submit"
+  }
+end
+
 Given /^I answer a majority of the questions$/ do
     choose('input_EI-1_1')
     choose('input_EI-2_1')
