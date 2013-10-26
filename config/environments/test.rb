@@ -9,18 +9,22 @@ CS169Group31::Application.configure do
 
   # omniauth authentication test set up
   OmniAuth.config.test_mode = true
-  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
-    'uid' => '1234',
-    'provider' => 'facebook',
-    'info' => {
-      'first_name' => 'Rios',
-      'last_name' => 'Isdick',
-      'email' => 'riosisdick@example.com'
-    },
-    'credentials' => {
-      'token' => '12345678'
-    }
-  })
+  OmniAuth.config.mock_auth[:facebook] = {
+   :provider => 'facebook',
+   :uid => '1234567',
+   :credentials => {
+    :token => 'asdf12341'
+   },
+   :info => {
+     :nickname => 'test',
+     :email => 'info@gmail.com',
+     :name => 'Test User',
+     :first_name => 'Test',
+     :last_name => 'User',
+     :location => 'California',
+     :verified => true
+    }.stringify_keys!
+  }.stringify_keys!
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=3600"
