@@ -92,7 +92,7 @@ class UsersController < ApplicationController
       :password_confirmation => auth_hash['credentials']['token'], :code => nil, :professor => false}
 
     user = User.where(email: user_hash[:email])[0]
-    if !user.nil? 
+    if user
       params[:user] = user
       sign_in_user user
       redirect_to home_path

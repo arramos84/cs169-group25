@@ -7,6 +7,20 @@ CS169Group31::Application.configure do
   # and recreated between test runs. Don't rely on the data there!
   config.cache_classes = true
 
+  # omniauth authentication test set up
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+    'uid' => '1234',
+    'provider' => 'facebook',
+    'info' => {
+      'first_name' => 'Rios',
+      'last_name' => 'Isdick',
+      'email' => 'riosisdick@example.com'
+    },
+    'credentials' => {
+      'token' => '12345678'
+    }
+  })
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=3600"
