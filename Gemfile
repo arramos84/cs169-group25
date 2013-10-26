@@ -13,10 +13,14 @@ gem "acts_as_follower"
 gem 'simple_form'
 gem 'newrelic_rpm'
 gem "google_visualr", ">= 2.1"
+gem 'omniauth-facebook', '1.4.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
+  gem 'ZenTest'
 end
+
+
 
 gem 'annotate', '2.5.0', group: :development
 

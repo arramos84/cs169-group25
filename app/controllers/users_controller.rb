@@ -80,11 +80,28 @@ class UsersController < ApplicationController
       redirect_to :survey
     else
       redirect_to :signup
-      flash[:alert] = "Account could not successfully created because:\n"
+      flash[:alert] = "Account could not successfully be created because:\n"
       @user.errors.full_messages.each { |x| flash[:alert] << x + ",\n" }
     end
   end
-  
+
+  def create_with_third_party_auth
+    auth_hash = request.env['omniauth.auth']
+    user_hash = {:email => auth_hash['info']['email'], :first_name => auth_hash['info']['first_name'],\
+      :last_name => auth_hash['info']['last_name'], :password => auth_hash['credentials']['token'],\
+      :password_confirmation => auth_hash['credentials']['token'], :code => nil, :professor => false}
+
+    user = User.where(email: user_hash[:email])[0]
+    if user
+      params[:user] = user
+      sign_in_user user
+      redirect_to home_path
+    else
+      params[:user] = user_hash
+      create
+    end 
+  end
+
   #fetch user survey data and set into chart format
   def user_survey_data(user_survey)
     survey_type = ['EI', 'NS', 'FT', 'JP']
@@ -99,13 +116,17 @@ class UsersController < ApplicationController
   
   #load user survey chart
   def create_survey_chart(survey_data)
-data_table = GoogleVisualr::DataTable.new
-data_table.new_column('string', 'Personality' )
-data_table.new_column('number', current_user.first_name)
-data_table.add_rows(survey_data)
-vaxes = [{format: "#", viewWindow: {min: 0}}]	
-option = { width: "400", height: 300, areaOpacity: 0, vAxes: vaxes, title: "Survey" }
-@survey_chart = GoogleVisualr::Interactive::BarChart.new(data_table, option)
-end	
+    data_table = GoogleVisualr::DataTable.new
+    data_table.new_column('string', 'Personality' )
+    data_table.new_column('number', current_user.first_name)
+    data_table.add_rows(survey_data)
+    vaxes = [{format: "#", viewWindow: {min: 0}}]	
+    option = { width: "400", height: 300, areaOpacity: 0, vAxes: vaxes, title: "Survey" }
+    @survey_chart = GoogleVisualr::Interactive::BarChart.new(data_table, option)
+  end	
+
+  def omniauth_failure
+    redirect_to home_path
+  end
 
 end

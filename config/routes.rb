@@ -27,6 +27,10 @@ CS169Group31::Application.routes.draw do
   match "mbinfo" => 'static_pages#mbinfo'
   match "wifm" => 'static_pages#wifm'
   match "about" => 'static_pages#about'
+
+  #routes for third party login
+  match 'auth/:provider/callback', to: 'users#create_with_third_party_auth'
+
   #devise_scope :admin_user do
    # delete '/admin/logout' => 'active_admin/devise/sessions#destroy'
   #end

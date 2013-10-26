@@ -7,6 +7,24 @@ CS169Group31::Application.configure do
   # and recreated between test runs. Don't rely on the data there!
   config.cache_classes = true
 
+  # omniauth authentication test set up
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = {
+   :provider => 'facebook',
+   :uid => '1234567',
+   :credentials => {
+    :token => 'asdf12341'
+   },
+   :info => {
+     :nickname => 'test',
+     :email => 'info@gmail.com',
+     :name => 'Test User',
+     :first_name => 'Test',
+     :last_name => 'User',
+     :location => 'California',
+     :verified => true
+    }.stringify_keys!
+  }.stringify_keys!
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=3600"
