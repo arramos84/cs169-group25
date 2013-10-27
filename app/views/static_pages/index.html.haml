@@ -9,6 +9,7 @@
           = link_to(image_tag("leadu-dan-mulhern75.jpg", :title=>"#dancaption"), about_path)
           = link_to(image_tag("wifm75.jpg", :title=>"#wifmcaption"), wifm_path)
           = link_to(image_tag("mbti75.jpg", :title=>"#mbinfocaption"), mbinfo_path)
+
       :javascript
         $(window).load(function() {
             $('#slider').nivoSlider();
@@ -27,7 +28,7 @@
         %p
           %a.btn.btn-primary.btn-large{:href => "login"} Log In
           %a.btn.btn-primary.btn-large{:href => "signup"} Sign Up
-          %a{:class => "zocial facebook", :href => "/auth/facebook/"} Sign In 
+          %a.zocial.facebook{:href => "/auth/facebook/"} Sign In 
 
   .container
     .marketing

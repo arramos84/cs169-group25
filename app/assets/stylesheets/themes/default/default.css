@@ -83,13 +83,12 @@ Supports Thumbs: true
 .theme-default .nivo-caption {
     font-family: Helvetica, Arial, sans-serif;
     /*top:364px; /* y position */
-    /*bottom: 0px; /*auto; /* background height is automatically adjusted */
-    margin: auto auto auto auto;
+    bottom: 0px; /*auto; /* background height is automatically adjusted */
+    /*margin: auto auto auto auto;*/
     /*right:auto;/*15px; /* x position */
     /*left:auto; /* left side of the background is automatically adjusted to the text */
     max-width:80%; /* width cannot exceed 30% of Nivoslider's width */
     width:auto; /* width is automatically adjusted to the text */
-    text-align:bottom center; 
     overflow:hidden;
     background:none; /* for a fade in & out effect */
 }
@@ -105,7 +104,7 @@ Supports Thumbs: true
 
 .theme-default .nivo-controlNav.nivo-thumbs-enabled {
 	width: 50%;
-	top: 400px;
+	top: 0px;
 	left: 0;
 }
 .theme-default .nivo-controlNav.nivo-thumbs-enabled a {

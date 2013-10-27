@@ -644,7 +644,7 @@
         startSlide: 0,
         directionNav: true,
         controlNav: true,
-        controlNavThumbs: true,
+        controlNavThumbs: false,
         pauseOnHover: true,
         manualAdvance: false,
         prevText: 'Prev',
