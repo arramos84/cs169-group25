@@ -34,7 +34,7 @@ a.zocial {
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
-	width: 100px;
+	width: auto;
 	font-size: 15px; 
 	top: 2px;
 	position: relative;

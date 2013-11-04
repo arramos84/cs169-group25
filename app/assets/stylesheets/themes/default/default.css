@@ -19,6 +19,7 @@ Supports Thumbs: true
 	height: 379px !important;
 	margin-left: auto;
 	margin-right: auto;
+	opacity: 1.0;
 }
 
 .theme-default .nivoSlider img {
@@ -82,19 +83,21 @@ Supports Thumbs: true
 
 .theme-default .nivo-caption {
     font-family: Helvetica, Arial, sans-serif;
-    /*top:364px; /* y position */
-    bottom: 0px; /*auto; /* background height is automatically adjusted */
-    /*margin: auto auto auto auto;*/
-    /*right:auto;/*15px; /* x position */
-    /*left:auto; /* left side of the background is automatically adjusted to the text */
+    /*top: -200px; /* y position */
+    /* bottom: -20px; /*auto; /* background height is automatically adjusted */
+    padding-left: 20px;
+    padding-top: 5px;
+    right:auto;/*15px; /* x position */
+    left:auto; /* left side of the background is automatically adjusted to the text */
     max-width:80%; /* width cannot exceed 30% of Nivoslider's width */
     width:auto; /* width is automatically adjusted to the text */
-    overflow:hidden;
+    /* overflow:hidden;
     background:none; /* for a fade in & out effect */
 }
 .theme-default .nivo-caption a {
     color:#fff;
-    border-bottom:1px dotted #fff;
+    /*border-bottom:1px dotted #fff;*/
+    top: -200px;
 }
 .theme-default .nivo-caption a:hover {
     color:#0000ff;
@@ -103,9 +106,7 @@ Supports Thumbs: true
 /* Thumbnails */
 
 .theme-default .nivo-controlNav.nivo-thumbs-enabled {
-	width: 50%;
-	top: 0px;
-	left: 0;
+	width: auto; 
 }
 .theme-default .nivo-controlNav.nivo-thumbs-enabled a {
 	width: auto;

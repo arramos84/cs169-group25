@@ -29,6 +29,16 @@
 	width: 100% !important;
 }
 
+#nivoslider-container { 
+    width: 877px !important;
+	height: 379px !important;
+	margin-left: auto;
+	margin-right: auto;
+	background: url(shadow.png) no-repeat center bottom;
+	padding-bottom:50px;
+	opacity: 1.0;
+}
+
 /* If an image is wrapped in a link */
 .nivoSlider a.nivo-imageLink {
 	position:absolute;
@@ -69,10 +79,16 @@
 	margin:0;
 }
 .nivo-caption a {
-	display:inline !important;
+	display:inline !important; 
 }
 .nivo-html-caption {
     display:none;
+}
+
+.nivo-imageLink a{
+	top: 0px;
+	left: auto;
+	right: auto;
 }
 
 /* Direction nav styles (e.g. Next & Prev) */

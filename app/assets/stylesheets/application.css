@@ -11,5 +11,66 @@
  *= require_self
  *= require_tree .
  */
+/* Reset */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, pre,
+a, abbr, acronym, address, b, bdo, big, blockquote, center, cite, code,
+del, dfn, em, i, img, ins, kbd, q, samp,
+small, strike, strong, sub, sup, tt, u, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, thead, tfoot, tbody, tr, th, td,
+article, aside, canvas, details, embed, figcaption, figure,
+footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+#login-form {
+    height: 100% !important;
+    min-height: 100%;
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+.login-form h2 {
+    margin-bottom: 5px;
+    font-size: 21px;
+    color: #f1f1f1;
+}
+.login-form .alert-message.error {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+    background: rgba(94, 28, 28, .5);
+    border: none;
+    color: #FFF;
+    border: 1px solid #661919;
+    text-align: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.login-form-wrap {
+    width: 100%;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+#login-form-wrap-center {
+    margin-top: 50px;
+    width: 300px !important;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    text-align: center;
+}
 
-
+.wrapper-facebook {
+    margin-bottom: 15px;
+    position: relative;
+}
