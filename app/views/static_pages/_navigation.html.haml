@@ -5,6 +5,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
+        %span.icon-bar
       %a.brand{:href=>"/"} LeadU
       .nav-collapse.collapse
         %ul.nav
@@ -19,17 +20,43 @@
               Myers Briggs 
               %b.caret
             %ul.dropdown-menu
+              %li.nav-header General Info
               %li
-                %a{:href=>"infp"} INFP 
-              %li
-                %a{:href=>"#"} INFJ
-              %li
-                %a{:href=>"#"} INTP
+                %a{:href=>'mbinfo'} About MBTI
               %li.divider
-              %li.nav-header INTJ
+              %li.nav-header Types
               %li
-                %a{:href=>"#"} ISFP
+                %a{:href=>"#"} ISTJ - The Inspector 
               %li
-                %a{:href=>"#"} ISFJ
+                %a{:href=>"#"} ISFJ - The Protector
+              %li
+                %a{:href=>"#"} INFJ - The Counselor
+              %li
+                %a{:href=>"#"} INTJ - The Mastermind
+              %li
+                %a{:href=>"#"} ISTP - The Craftsman
+              %li
+                %a{:href=>"#"} ISFP - The Composer
+              %li
+                %a{:href=>"infp"} INFP - The Healer
+              %li
+                %a{:href=>"#"} INTP - The Architect
+              %li
+                %a{:href=>"#"} ESTP - The Dynamo
+              %li
+                %a{:href=>"#"} ESFP - The Performer
+              %li
+                %a{:href=>"#"} ENFP - The Champion
+              %li
+                %a{:href=>"#"} ENTP - The Visionry
+              %li
+                %a{:href=>"#"} ESTJ - The Supervisor
+              %li
+                %a{:href=>"#"} ESFJ - The Provider
+              %li
+                %a{:href=>"#"} ENFJ - The Teacher
+              %li
+                %a{:href=>"#"} ENTJ - The Commander
+
         = render signed_in? ? 'static_pages/socialbtns.html.haml' : 'static_pages/joinnow.html.haml'
           

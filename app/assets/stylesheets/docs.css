@@ -25,7 +25,9 @@ Special styles for presenting Bootstrap's documentation and examples
   margin: 0;
   padding: 0;
 }
-
+#logout{
+  vertical-align: center;
+}
 
 /* Body and structure
 -------------------------------------------------- */
