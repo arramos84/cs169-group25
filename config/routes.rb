@@ -18,6 +18,8 @@ CS169Group31::Application.routes.draw do
   match "survey" => "survey#new", :as => "survey", :via => :get
   match "survey" => "survey#create", :as => "survey", :via => :post
 
+  match "skip_survey" => "survey#skip_survey", :as => "skip_survey", :via => :post
+
   match "signup" => "users#new", :as => "signup"
   match "home" => "users#show", :as => "home"
   match "add_code" => "users#code", :as => "code"

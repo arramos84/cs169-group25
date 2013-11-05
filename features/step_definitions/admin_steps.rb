@@ -16,6 +16,19 @@ When /^I create a new user$/ do
   }
 end
 
+When /^I sign up as "(.*?)"$/ do |name|
+#When /^I sign in as "(.*?)"$/ do |arg1|
+
+  steps %Q{
+    When I fill in "user_first_name" with "#{name}"
+    And I fill in "user_last_name" with "#{name}"
+    And I fill in "user_email" with "#{name}@#{name}.#{name}"
+    And I fill in "user_password" with "#{name}"
+    And I fill in "user_password_confirmation" with "#{name}"
+    And I press "Submit"
+  }
+end
+
 When /^user 1 creates a new survey$/ do
   steps %Q{
     When I fill in "survey_ei" with "1"
