@@ -1,8 +1,9 @@
 #wrap  
-  = render 'navigation4.html.haml'
+  = render 'navigation.html.haml'
 
   %div.masthead
-    -#.jumbotron
+    - flash.each do |key,value|
+      %div{:class => 'alert alert-#{key}'}= value
     .container    
       %div#nivoslider-container.theme-default
         %div#slider.nivoSlider
@@ -21,26 +22,27 @@
       #mbinfocaption.nivo-html-caption.theme-defaults.nivo-caption
         %a{:href=>mbinfo_path} Learn More about the Myers Briggs
 
-      %div#login-form
+      %div
         %center
-          %h2 Sign in to LeadU
-          .wrapper-form
-            .wrapper-facebook
-              %a.zocial.facebook{:href => "/auth/facebook/"} 
-                Sign in with 
-                %strong Facebook
-            %h4 OR
-            %form#login-form{:method=>"post", :class=>"form-stacked form-signup"}
-              %fieldset
-                .wrapper-input.input
-                  %input{:class=>"xlarge", :type=>"text", :id=>"user", :name=>"user", :value=>"", :placeholder=>"Email or Username"}
-                .wrapper-input.input
-                  %input{:class=>"xlarge", :type=>"password", :id=>"pass", :name=>"pass", :maxlength=>"16", :placeholder=>"Password"}
-                %a{:tabindex=>"-1", :href=>"/reset-password"} Forgot your password?
-                %label
-                  %input{:name=>"remember", :value=>"1", :type=>"checkbox", :id=>"remember", :maxlength=>"16", :checked=>"checked"}
-                  %span Remember me
-                %button.btn.btn-primary{:type=>"submit"} Sign In    
+          %p
+            %a.zocial.facebook{:href => '/auth/facebook/'} 
+              Sign in with 
+              %strong Facebook
+          %h4 OR
+          = form_for :session, :url => {:action => "create", :controller=>"sessions"} do |f|
+            %p
+              = f.text_field :email, :id=>"user", :name=>"user", :value=>"", :placeholder=>"Email or Username"
+            %p
+              = f.password_field :password, :id=>"pass", :name=>"pass", :maxlength=>"16", :placeholder=>"Password"
+            %p#forgotpword
+              %a{:tabindex=>"-1", :href=>"/reset-password"} Forgot your password?
+
+            %p
+              = f.submit "Sign In", :class => 'btn btn-primary'
+              = f.check_box :remember, { :id=>"remember" }, true, false
+              %span#remember Remember me
+
+
 
 #push
 

@@ -26,10 +26,14 @@ class SurveyController < ApplicationController
     end
 
     @survey = Survey.new(@survey_params)
+
+    ############## This is a bug ################
     if Survey.last_test_result != nil
       @survey.responses = Survey.last_test_result
       Survey.last_test_result = nil
     end
+    #############################################
+
     if @survey.save
       flash[:success] = "Welcome to LeadU!"
       redirect_to root_path
