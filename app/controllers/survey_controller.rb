@@ -15,6 +15,15 @@ class SurveyController < ApplicationController
     end
     @user = current_user
     current_user.entered_type = params[:entered_type]
+    @personality_db = Profile.find_by_personality_type(current_user.entered_type)
+    #puts @personality_db.inspect
+
+    @body = @personality_db.body
+    @step_1 = @personality_db.step_1
+    @step_2 = @personality_db.step_2
+    @step_3 = @personality_db.step_3
+    @step_4 = @personality_db.step_4
+    @step_5 = @personality_db.step_5
 
   end
 

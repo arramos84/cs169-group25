@@ -31,3 +31,8 @@ survey = Survey.create! :user_id => 3, :ei => -1, :ns => -1, :ft => -1, :jp => 1
 survey = Survey.create! :user_id => 4, :ei => 1, :ns => 1, :ft => -1, :jp => 1, :personality_type => "ENFJ"
 survey = Survey.create! :user_id => 5, :ei => -1, :ns => -1, :ft => -1, :jp => -1, :personality_type => "ISFP"
 survey = Survey.create! :user_id => 6, :ei => -1, :ns => -1, :ft => -1, :jp => 1, :personality_type => "ISFJ"
+
+
+
+
+
