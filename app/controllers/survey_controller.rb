@@ -26,7 +26,7 @@ class SurveyController < ApplicationController
     end
 
     @survey = Survey.new(@survey_params)
-
+    current_user.survey = @survey
     ############## This is a bug ################
     #if Survey.last_test_result != nil
     #  @survey.responses = Survey.last_test_result
@@ -36,13 +36,13 @@ class SurveyController < ApplicationController
 
     if @survey.save
       flash[:success] = "Welcome to LeadU!"
-      redirect_to root_path
+      redirect_to home_path
     else
       flash[:notice] = "You may have entered a field wrong"
       render :survey
     end
 
-    current_user.survey = @survey
+    
   end
 
   def destroy
