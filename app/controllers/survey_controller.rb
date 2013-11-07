@@ -15,7 +15,8 @@ class SurveyController < ApplicationController
     end
     @user = current_user
     current_user.entered_type = params[:entered_type]
-    @personality_db = Profile.find_by_personality_type(current_user.entered_type)
+    current_user.entered_type
+    @personality_db = Profile.find_by_personality_type(current_user.entered_type) 
     #puts @personality_db.inspect
 
     @body = @personality_db.body
@@ -52,10 +53,10 @@ class SurveyController < ApplicationController
     @survey = Survey.new(@survey_params)
 
     ############## This is a bug ################
-    #if Survey.last_test_result != nil
-    #  @survey.responses = Survey.last_test_result
-    #  Survey.last_test_result = nil
-    #end
+    if Survey.last_test_result != nil
+      @survey.responses = Survey.last_test_result
+      Survey.last_test_result = nil
+    end
     #############################################
 
     if @survey.save

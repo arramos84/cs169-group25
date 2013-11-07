@@ -1,5 +1,5 @@
 #wrap
-= render 'static_pages/navigation3.html.haml'
+= render 'static_pages/navigation.html.haml'
 
 .container
   - flash.each do |key,value|
@@ -9,8 +9,8 @@
     %h3{:style=>'text-align:center'}
       Welcome #{@user.first_name}! Your personality type is: #{@user.entered_type}
     %br
-    %div{:class => 'row'}
-      %div{:class => 'span8 offset2'}
+    %div.row
+      %div.span8.offset2
         #{@body}
 
 = render 'static_pages/footer.html.haml'

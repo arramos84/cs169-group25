@@ -15,3 +15,4 @@ Scenario:
     And I press "Enter"
     Then I should see "Welcome Molly"
     And I should see "Your personality type is: ESTJ"
+    And I should see "Lorem ipsum"
