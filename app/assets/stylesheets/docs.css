@@ -4,8 +4,30 @@
 Bootstrap's documentation styles
 Special styles for presenting Bootstrap's documentation and examples
 */
+#forgotpword{
+  font-family: arial, helvetica, sans-serif;
+  font-size: 16px;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
 
+#remember {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 16px;
+  padding: 0 0 0 0;
+  margin-bottom: 0;
+}
 
+.aboutDan p span {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 18px;
+  text-indent: 100px;
+  margin: 0;
+  padding: 0;
+}
+#logout{
+  vertical-align: center;
+}
 
 /* Body and structure
 -------------------------------------------------- */
@@ -152,7 +174,7 @@ hr.soften {
 /* Download button */
 .masthead .btn {
   /*padding: 14px 24px;*/
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 200;
   color: #fff; /* redeclare to override the `.jumbotron a` */
   border: 0;
@@ -203,7 +225,7 @@ hr.soften {
   /* padding: 70px 0 80px;*/
   padding: 20px 0 20px;
   margin-bottom: 0;
-  /*color: #fff;*/
+  color: #ffffff;
 }
 .masthead h1 {
   font-size: 120px;

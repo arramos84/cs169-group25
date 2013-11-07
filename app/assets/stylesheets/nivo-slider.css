@@ -109,6 +109,7 @@
 .nivo-controlNav {
 	text-align:center;
 	padding: 15px 0;
+	display: none;
 }
 .nivo-controlNav a {
 	cursor:pointer;

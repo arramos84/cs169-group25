@@ -1,5 +1,5 @@
 #wrap 
-  = render("static_pages/navigation4.html.haml")
+  = render("static_pages/navigation.html.haml")
   .container
     - flash.each do |key,value|
       %div{:class => 'alert alert-#{key}'}= value.chop.chop + "."
