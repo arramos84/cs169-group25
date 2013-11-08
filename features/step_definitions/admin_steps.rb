@@ -62,15 +62,12 @@ Then /^the survey should have recorded the responses$/ do
 end
 
 Then /^the survey for "(.*)" should have recorded the responses$/ do |name|
-  email = %Q{#{name}@#{name}.#{name}}
-  puts %Q{#{name}}
   responses = User.find_by_first_name(%Q{#{name}}).survey.responses
   responses.should_not == nil
   responses.size.should > 0
 end
 
 Then /^the survey for "(.*)" should have the response for (.*) as (.*)$/ do |name, question, response|
-  puts name
   user = User.find_by_first_name(%Q{#{name}})
   user.survey.responses.has_key?(question).should == true
   user.survey.responses[question].should == response

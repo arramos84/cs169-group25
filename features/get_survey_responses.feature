@@ -10,12 +10,19 @@ Background: surveys in database
   When I sign up as "Mikey"
   Then I should see "If you already know your type"
   And I should see "answer the following questions"  
-  And I answer a majority of the questions
-  And I press "Submit"
-
  
 Scenario: take a survey redux
+  And I answer a majority of the questions
+  And I press "Submit"
   Then the survey for "Mikey" should have recorded the responses  
   
 Scenario: check proper survey response recording
+  And I answer a majority of the questions
+  And I press "Submit"
   Then the survey for "Mikey" should have the response for JP-10 as 1
+
+Scenario: Don't fill out the survey
+  And I answer a few of the questions
+  And I press "Submit"
+  Then I should see "Please complete the majority of the survey"
+  

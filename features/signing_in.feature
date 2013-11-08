@@ -42,31 +42,14 @@
 
   Scenario: signing out
     Given all the profiles exist
-    Given that there is a user with the following email: "john@johnson.com"
-    When I go to the login page
-    And I fill in "session_email" with "john@johnson.com"
-    And I fill in "session_password" with "12345"
+    When I am on the sign up page
+    And I sign up as "Molly"
+    And I answer a majority of the questions
     And I press "Submit"
     Then I should be on the home login page
     When I follow "Logout" 
     Then I should be on the home page
 
-  Scenario: going to the edit page
-    Given all the profiles exist
-    When I am on the sign up page
-    And I fill in "user_first_name" with "John"
-    And I fill in "user_last_name" with "Johnson"
-    And I fill in "user_email" with "john@johnson.com"
-    And I fill in "user_password" with "12345"
-    And I fill in "user_password_confirmation" with "12345"
-    And I press "Submit"
-    Then I should be on the survey page
-    When I fill in "type_type" with "ISTJ"
-    And I press "Enter"
-    Then I should be on the home login page
-    When I follow "Student Panel"
-    Then I should be on the user edit page
-    And I should see "Please enter the code your professor gave you"
 
 
   

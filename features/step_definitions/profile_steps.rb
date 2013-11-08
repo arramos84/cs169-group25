@@ -47,6 +47,16 @@ And /^I sign in$/ do
   }
 end
 
+And /^I answer a few of the questions$/ do
+    choose('input_EI-1_1')
+    choose('input_EI-2_1')
+    choose('input_EI-3_1')
+    choose('input_EI-4_1')
+    choose('input_EI-5_1')
+    choose('input_EI-6_1')
+end
+
+    
 Given /^I answer a majority of the questions$/ do
     choose('input_EI-1_1')
     choose('input_EI-2_1')
