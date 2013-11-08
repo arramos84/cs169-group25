@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :code, :professor #codestuffs
   #magic to require a password, make sure passwords match, authenticate
   has_secure_password
+
+  attr_accessor :entered_type
   
   acts_as_followable #method allowing professors to follwer there students/users
   acts_as_follower

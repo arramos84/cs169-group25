@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     if !@user.has_completed_survey?
+      puts "user has not completed survey"
       redirect_to :survey
     else
     @personality_db = Profile.find_by_personality_type(@user.survey.personality_type)

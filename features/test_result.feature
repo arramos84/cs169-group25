@@ -5,25 +5,20 @@ Feature: display result of personality type with a respective detailed descripti
 	I want to read a detailed description of my personality type
 
 Background:
+  Given all the profiles exist
+  When I am on the sign up page
+  And I sign up as "Molly"
+  And I answer a majority of the questions
+  And I press "Submit"
+  Then I should be on the home login page
+  When I follow "Logout" 
+  Then I should be on the home page
 
-	Given the following user exist
-	| first_name        | last_name   | email           | password  | password_confirmation |
-	| John		          | Smith     	| john@smith.com  | 123456    | 123456                |
-  And the following survey exist
-  | personality_type  | user_id     | ei | ft | ns | jp |
-	| "ENTP"	          | 1           | 1  | 1  | -1 | -1 |
-  And the user with email "john@smith.com" has personality type "ENTP"
-
-  Scenario: display personality type based on test results 
-    Given that there is a user with the following email: "john@johnson.com"
-    Given all the profiles exist
-    Given I go to the login page
-    And I fill in "session_email" with "john@johnson.com"
-    And I fill in "session_password" with "12345"
-    And I press "Submit"	  
+  Scenario: log back in and see personality type 
+    Given I go to the root page
+    And I log in as "Molly"
     Then I should be on the home login page
-	  And I should see "Welcome John"
+	  And I should see "Welcome Molly"
 	  And I should see "Your personality type is:"
-    And I should see "ENTP"
 
 	

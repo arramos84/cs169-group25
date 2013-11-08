@@ -6,11 +6,36 @@ class SurveyController < ApplicationController
 
   end
 
+  def skip_survey
+    puts "params: "
+    puts params
+    if !params.has_key?(:entered_type) or !Survey.personality_types.include?(params[:entered_type].upcase)
+      flash[:notice] = "That is not a correct personality type"
+      redirect_to :survey and return
+    end
+    @user = current_user
+    current_user.entered_type = params[:entered_type]
+    current_user.entered_type
+    @personality_db = Profile.find_by_personality_type(current_user.entered_type) 
+    #puts @personality_db.inspect
+
+    @body = @personality_db.body
+    @step_1 = @personality_db.step_1
+    @step_2 = @personality_db.step_2
+    @step_3 = @personality_db.step_3
+    @step_4 = @personality_db.step_4
+    @step_5 = @personality_db.step_5
+
+  end
+
   def create
+    puts "params: "
+    puts params
     if params.has_key?(:type) && !Survey.personality_types.include?(params[:type][:type].upcase)
       flash[:notice] = "That is not a correct personality type"
       redirect_to :survey and return
     elsif params.has_key?(:type)
+      puts "params.haskey(:type)"
       @survey_params = Survey.organize(params[:type])
       @survey_params[:user_id] = current_user.id
     else
@@ -28,10 +53,10 @@ class SurveyController < ApplicationController
     @survey = Survey.new(@survey_params)
     current_user.survey = @survey
     ############## This is a bug ################
-    #if Survey.last_test_result != nil
-    #  @survey.responses = Survey.last_test_result
-    #  Survey.last_test_result = nil
-    #end
+    if Survey.last_test_result != nil
+      @survey.responses = Survey.last_test_result
+      Survey.last_test_result = nil
+    end
     #############################################
 
     if @survey.save

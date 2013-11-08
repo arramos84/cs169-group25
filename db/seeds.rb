@@ -67,3 +67,4 @@ entj = Profile.create!( :personality_type => 'ENTJ', :body => body_text, :video_
                 :step_4 => 'step 4 text', :step_5 => 'step 1 text')
 
 
+

@@ -16,6 +16,29 @@ When /^I create a new user$/ do
   }
 end
 
+When /^I sign up as "(.*?)"$/ do |name|
+#When /^I sign in as "(.*?)"$/ do |arg1|
+
+  steps %Q{
+    When I fill in "user_first_name" with "#{name}"
+    And I fill in "user_last_name" with "#{name}"
+    And I fill in "user_email" with "#{name}@#{name}.#{name}"
+    And I fill in "user_password" with "#{name}"
+    And I fill in "user_password_confirmation" with "#{name}"
+    And I press "Submit"
+  }
+end
+
+When /^I log in as "(.*?)"$/ do |name|
+#When /^I sign in as "(.*?)"$/ do |arg1|
+
+  steps %Q{
+    And I fill in "user" with "#{name}@#{name}.#{name}"
+    And I fill in "password" with "#{name}"
+    And I press "Sign In"
+  }
+end
+
 When /^user 1 creates a new survey$/ do
   steps %Q{
     When I fill in "survey_ei" with "1"
@@ -48,6 +71,17 @@ Then /^the survey should have recorded the responses$/ do
   responses.size.should > 0
 end
 
+Then /^the survey for "(.*)" should have recorded the responses$/ do |name|
+  responses = User.find_by_first_name(%Q{#{name}}).survey.responses
+  responses.should_not == nil
+  responses.size.should > 0
+end
+
+Then /^the survey for "(.*)" should have the response for (.*) as (.*)$/ do |name, question, response|
+  user = User.find_by_first_name(%Q{#{name}})
+  user.survey.responses.has_key?(question).should == true
+  user.survey.responses[question].should == response
+end
 Then /^the survey response for (.*) should be (.*)$/ do |elt1, elt2|
   User.find_by_email("mccormack@berkeley.edu").survey.responses.has_key?(elt1).should == true
   User.find_by_email("mccormack@berkeley.edu").survey.responses[elt1].should == elt2

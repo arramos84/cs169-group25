@@ -8,10 +8,11 @@
       %br
       %center
         <b>If you already know your type (ex. ENTP):</b>
-        = form_for :input do |f|
-          = text_field :type, 'type', :placeholder => "Enter your personality type here"
-          = hidden_field :manual, value: 1
-          %input.btn.btn-primary{:name => "commit", :type => "submit", :value => "Enter"}/
+        = form_tag(skip_survey_path) do
+          = label_tag('entered_type', "Personality Type")
+          = text_field_tag('entered_type')
+          <br>
+          = submit_tag("Enter") 
 
       %h4 Otherwise, to get your four character personality "type", we need you to answer the following questions:
 
