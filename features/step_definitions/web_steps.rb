@@ -45,7 +45,7 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-Given /^the following user exist$/ do |table|
+Given /^the following user exists$/ do |table|
   # table is a Cucumber::Ast::Table
   #pending # express the regexp above with the code you wish you had
   table.hashes.each do |user|
@@ -53,7 +53,7 @@ Given /^the following user exist$/ do |table|
   end
 end
 
-Given /^the following survey exist$/ do |table|
+Given /^the following survey exists$/ do |table|
   # table is a Cucumber::Ast::Table
   #pending # express the regexp above with the code you wish you had
   table.hashes.each do |hash|
