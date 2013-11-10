@@ -23,8 +23,8 @@ ActiveAdmin.register Survey do
     end
     column :created_at
     column :ei
-    column :ns
-    column :ft
+    column :sn
+    column :tf
     column :jp
     column :personality_type
     column :group do |r|
@@ -40,8 +40,8 @@ ActiveAdmin.register Survey do
   form do |f|
     f.inputs "Details" do
       f.input :ei
-      f.input :ft
-      f.input :ns
+      f.input :tf
+      f.input :sn
       f.input :jp
       f.input :personality_type
       f.input :user_id
