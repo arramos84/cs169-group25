@@ -30,6 +30,9 @@ CS169Group31::Application.routes.draw do
 
   #routes for third party login
   match 'auth/:provider/callback', to: 'users#create_with_third_party_auth'
+  
+  #routes for resetting password
+  match 'reset-password' => 'users#reset_password'
 
   #devise_scope :admin_user do
    # delete '/admin/logout' => 'active_admin/devise/sessions#destroy'

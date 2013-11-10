@@ -69,6 +69,23 @@ class UsersController < ApplicationController
     
   end
 
+  def reset_password
+    user = User.find_by_email(params[:email]) 
+    if user
+      content = Hash.new
+      message = "Please follow the link to reset your password"
+      content[:body] = message
+      content[:subject] = 'Reset Password'
+      content[:to] = user.email
+      Mailer.send_to(content).deliver
+      flash[:success] = "Confirmation was successfully sent"
+    else
+      flash[:error] = "There is no user with this email"
+    end
+    flash.keep
+    redirect_to home_path
+  end
+  
   def destroy
   end
 

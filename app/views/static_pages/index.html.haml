@@ -1,6 +1,18 @@
 #wrap  
   = render 'navigation.html.haml'
 
+  :javascript
+    $(window).load(function() {
+        $('div#fake').hide();
+        $('#reset-button').on('click', function() {
+            $('.masthead').css({'display': 'none'});
+            $('a.btn.btn-primary.pull-right').css({'display': 'none'});
+            $('div#fake').show();
+            return false;
+        });
+        
+        $('#slider').nivoSlider();
+    });
   %div.masthead
     - flash.each do |key,value|
       %div{:class => 'alert alert-#{key}'}= value
@@ -10,10 +22,7 @@
           = image_tag("leadu-dan-mulhern75.jpg", :title=>"#dancaption")
           = image_tag("wifm75.jpg", :title=>"#wifmcaption")
           = image_tag("mbti75.jpg", :title=>"#mbinfocaption")
-      :javascript
-        $(window).load(function() {
-            $('#slider').nivoSlider();
-        });
+      
 
       #dancaption.nivo-html-caption.theme-default.nivo-caption
         %a{:href=>about_path} About LeadU and it's founder Dan Mulhern
@@ -35,15 +44,22 @@
             %p
               = f.password_field :password, :id=>"pass", :name=>"password", :maxlength=>"16", :placeholder=>"Password"
             %p#forgotpword
-              %a{:tabindex=>"-1", :href=>"/reset-password"} Forgot your password?
+              %a{:tabindex=>"-1", :href=>"#", :id => 'reset-button'} Forgot your password?
 
             %p
               = f.submit "Sign In", :class => 'btn btn-primary'
               = f.check_box :remember, { :id=>"remember" }, true, false
               %span#remember Remember me
 
-
-
+  %div#fake
+    .marketing
+      %center
+        <div style="position: relative; top: 250px;">
+        = form_tag(:controller => 'users', :action => 'reset_password', :method => 'post') do
+          = label_tag(:email, "Enter your account email and we will send your password")
+          = text_field_tag(:email)
+          = submit_tag("SEND")
+        </div>
 #push
 
 = render "footer.html.haml"
