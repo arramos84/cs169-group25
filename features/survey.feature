@@ -9,7 +9,7 @@ Background:
   | first_name        | last_name   | email           | password  | password_confirmation |
   | John              | Smith       | john@smith.com  | 123456    | 123456                |
   And the following survey exists
-  | personality_type  | user_id     | ei | ft | ns | jp |
+  | personality_type  | user_id     | ei | tf | sn | jp |
   | "ENTP"            | 1           | 1  | 1  | -1 | -1 |
   And the user with email "john@smith.com" has personality type "ENTP"
 
