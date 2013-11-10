@@ -1,6 +1,6 @@
 class Survey < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy
-  attr_accessible :ei, :ft, :ns, :jp, :personality_type, :user_id
+  attr_accessible :ei, :tf, :sn, :jp, :personality_type, :user_id
   serialize :responses
   @@last_test_result = nil
   
@@ -20,28 +20,28 @@ class Survey < ActiveRecord::Base
     calculated = {}
     user_responses = {}
     calculated[:ei] = 0
-    calculated[:ft] = 0
-    calculated[:ns] = 0
+    calculated[:tf] = 0
+    calculated[:sn] = 0
     calculated[:jp] = 0
     if params.has_key? :type
       ei = params[:type].split("")[0]
-      ns = params[:type].split("")[1]
-      ft = params[:type].split("")[2]
+      sn = params[:type].split("")[1]
+      tf = params[:type].split("")[2]
       jp = params[:type].split("")[3]
       if ei == "E" || ei == "e"
         calculated[:ei] += 1
       else
         calculated[:ei] -= 1
       end
-      if ft == "T" || ft == "t"
-        calculated[:ft] += 1
+      if tf == "T" || tf == "t"
+        calculated[:tf] += 1
       else
-        calculated[:ft] -= 1
+        calculated[:tf] -= 1
       end
-      if ns == "S" || ns == "s"
-        calculated[:ns] += 1
+      if sn == "S" || sn == "s"
+        calculated[:sn] += 1
       else
-        calculated[:ns] -= 1
+        calculated[:sn] -= 1
       end
       if jp == "J" || jp == "j"
         calculated[:jp] += 1
@@ -54,10 +54,10 @@ class Survey < ActiveRecord::Base
           calculated[:ei] = calculated[:ei]+value.to_i
         end
         if( /TF-\d*/.match(key))
-          calculated[:ft] = calculated[:ft]+value.to_i
+          calculated[:tf] = calculated[:tf]+value.to_i
         end
         if( /SN-\d*/.match(key))
-          calculated[:ns] = calculated[:ns]+value.to_i
+          calculated[:sn] = calculated[:sn]+value.to_i
         end
         if( /JP-\d*/.match(key))
           calculated[:jp] = calculated[:jp]+value.to_i
@@ -71,12 +71,12 @@ class Survey < ActiveRecord::Base
     else
       calculated[:personality_type] = 'I'
     end
-    if(calculated[:ns] >= 0)
+    if(calculated[:sn] >= 0)
       calculated[:personality_type] << 'S'
     else
       calculated[:personality_type] << 'N'
     end
-    if(calculated[:ft] >= 0)
+    if(calculated[:tf] >= 0)
       calculated[:personality_type] << 'T'
     else
       calculated[:personality_type] << 'F'
