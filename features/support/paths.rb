@@ -48,6 +48,9 @@ module NavigationHelpers
 
     when /^the admin page$/
       '/admin'
+      
+    when /^the survey metrics page$/
+      '/admin/survey_metrics'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

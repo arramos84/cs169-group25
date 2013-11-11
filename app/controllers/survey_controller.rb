@@ -27,12 +27,13 @@ class SurveyController < ApplicationController
 
     @survey = Survey.new(@survey_params)
     current_user.survey = @survey
-    ############## This is a bug ################
-    #if Survey.last_test_result != nil
-    #  @survey.responses = Survey.last_test_result
-    #  Survey.last_test_result = nil
-    #end
-    #############################################
+
+    # Kludgy way of getting survey responses
+    if Survey.last_test_result != nil
+      @survey.responses = Survey.last_test_result
+      Survey.last_test_result = nil
+      SurveyMetrics.tally_survey_results(@survey.responses, @survey_params)
+    end
 
     if @survey.save
       flash[:success] = "Welcome to LeadU!"
@@ -41,8 +42,6 @@ class SurveyController < ApplicationController
       flash[:notice] = "You may have entered a field wrong"
       render :survey
     end
-
-    
   end
 
   def destroy

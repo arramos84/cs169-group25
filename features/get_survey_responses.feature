@@ -8,18 +8,24 @@ Background: surveys in database
  
 Scenario: take a survey
   Given all the profiles exist
-  Given that there is a user with the following email: "mccormack@berkeley.edu"
-  Given I am on the login page
-  When I sign in
-  And  I answer a majority of the questions
-  And  I press "Submit"
-  Then the survey should have recorded the responses
+  Given that there is a user with the following email: "john@johnson.com"
+  When I go to the home page
+  And I fill in "user" with "john@johnson.com"
+  And I fill in "pass" with "12345"
+  And I press "Sign In"
+  Then I should be on the survey page
+  And I answer a majority of the questions
+  And I press "Submit"
+  Then the survey for john@johnson.com should have recorded the responses
   
 Scenario: check proper survey response recording
   Given all the profiles exist
-  Given that there is a user with the following email: "mccormack@berkeley.edu"
-  Given I am on the login page
-  When I sign in
+  Given that there is a user with the following email: "john@johnson.com"
+  When I go to the home page
+  And I fill in "user" with "john@johnson.com"
+  And I fill in "pass" with "12345"
+  And I press "Sign In"
+  Then I should be on the survey page
   And  I answer a majority of the questions
   And  I press "Submit"
-  Then the survey response for JP-10 should be 1
+  Then the survey response for user john@johnson.com question JP-10 should be 1

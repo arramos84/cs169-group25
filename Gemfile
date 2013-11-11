@@ -16,6 +16,7 @@ gem "google_visualr", ">= 2.1"
 gem 'omniauth-facebook', '1.4.0'
 
 group :development, :test do
+  gem 'debugger'
   gem 'sqlite3', '1.3.5'
   gem 'ZenTest'
 end
