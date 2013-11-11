@@ -5,7 +5,10 @@ Feature: get user survey responses
   I want to collect individual user questionnaire responses 
  
 Background: surveys in database
+
+Scenario: check proper survey response recording
   Given all the profiles exist
+  Given the survey metrics table has been populated
   Given that there is a user with the following email: "john@johnson.com"
   When I go to the home page
   And I fill in "user" with "john@johnson.com"
@@ -18,6 +21,7 @@ Background: surveys in database
   
 Scenario: check proper survey response recording
   Given all the profiles exist
+  Given the survey metrics table has been populated
   Given that there is a user with the following email: "john@johnson.com"
   When I go to the home page
   And I fill in "user" with "john@johnson.com"
