@@ -42,6 +42,7 @@
 
   Scenario: signing out
     Given all the profiles exist
+    And the survey metrics table has been populated
     When I am on the sign up page
     And I sign up as "Molly"
     And I answer a majority of the questions
