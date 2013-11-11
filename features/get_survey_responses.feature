@@ -5,24 +5,29 @@ Feature: get user survey responses
   I want to collect individual user questionnaire responses 
  
 Background: surveys in database
+
+Scenario: check proper survey response recording
   Given all the profiles exist
-  Given I am on the signup page
-  When I sign up as "Mikey"
-  Then I should see "If you already know your type"
-  And I should see "answer the following questions"  
- 
-Scenario: take a survey redux
+  Given the survey metrics table has been populated
+  Given that there is a user with the following email: "john@johnson.com"
+  When I go to the home page
+  And I fill in "user" with "john@johnson.com"
+  And I fill in "pass" with "12345"
+  And I press "Sign In"
+  Then I should be on the survey page
   And I answer a majority of the questions
   And I press "Submit"
-  Then the survey for "Mikey" should have recorded the responses  
+  Then the survey for john@johnson.com should have recorded the responses
   
 Scenario: check proper survey response recording
-  And I answer a majority of the questions
-  And I press "Submit"
-  Then the survey for "Mikey" should have the response for JP-10 as 1
-
-Scenario: Don't fill out the survey
-  And I answer a few of the questions
-  And I press "Submit"
-  Then I should see "Please complete the majority of the survey"
-  
+  Given all the profiles exist
+  Given the survey metrics table has been populated
+  Given that there is a user with the following email: "john@johnson.com"
+  When I go to the home page
+  And I fill in "user" with "john@johnson.com"
+  And I fill in "pass" with "12345"
+  And I press "Sign In"
+  Then I should be on the survey page
+  And  I answer a majority of the questions
+  And  I press "Submit"
+  Then the survey response for user john@johnson.com question JP-10 should be 1
