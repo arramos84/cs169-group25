@@ -342,3 +342,15 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+Then /^the new user should receive an email confirmation$/ do
+  # this will get the first email, so we can check the email headers and body.
+  @email = ActionMailer::Base.deliveries.first
+  @email.from.should == ["from@example.com"]
+  curr_email = User.where(:email => "arramos84@gmail.com")[0].email
+  @email.to.should == [curr_email]
+  @email.body.should include("To reset your password, click the URL below.")
+  url_regex = Regexp.new(/password_resets.*edit$/)
+  reset_link = @email.body.match(url_regex)
+  visit "/" + reset_link.to_s
+end
