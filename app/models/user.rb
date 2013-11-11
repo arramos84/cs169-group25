@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
   acts_as_followable #method allowing professors to follwer there students/users
   acts_as_follower
   
-  before_save { |user| user.email = email.downcase } #help ensure uniqueness
-  before_save :create_remember_token
+  before_create { |user| user.email = email.downcase } #help ensure uniqueness
+  before_create { create_remember_token(:remember_token) }
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence:   true,
@@ -20,8 +20,8 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :first_name, presence: true, length: {maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
-  validates :password, presence: true, length: { minimum: 5 }
-  validates :password_confirmation, presence: true
+  validates_presence_of :password, :on => :create, length: { minimum: 5 }
+  validates_presence_of :password_confirmation, :on => :create
   
   #code is how professors are attached to students and can see their students types
   #validates :code, :uniqueness => true, :unless => nil
@@ -34,11 +34,20 @@ class User < ActiveRecord::Base
   def has_completed_survey?
     return !self.survey.nil?
   end
+
+  def send_password_reset
+    create_remember_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UserMailer.password_reset(self).deliver
+  end
   
   private
-  
-    def create_remember_token
-      self.remember_token = SecureRandom.urlsafe_base64
+
+    def create_remember_token(column)
+      begin
+        self.remember_token = self[column] = SecureRandom.urlsafe_base64
+      end while User.exists?(column => self[column])
     end
     
   

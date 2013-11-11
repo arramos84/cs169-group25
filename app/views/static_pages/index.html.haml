@@ -35,7 +35,7 @@
             %p
               = f.password_field :password, :id=>"pass", :name=>"password", :maxlength=>"16", :placeholder=>"Password"
             %p#forgotpword
-              %a{:tabindex=>"-1", :href=>"/reset-password"} Forgot your password?
+              %a{:tabindex=>"-1", :href=>"/password_resets/new"} Forgot your password?
 
             %p
               = f.submit "Sign In", :class => 'btn btn-primary'
