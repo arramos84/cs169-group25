@@ -106,11 +106,11 @@ class UsersController < ApplicationController
 
   #fetch user survey data and set into chart format
   def user_survey_data(user_survey)
-    survey_type = ['EI', 'SN', 'TF', 'JP']
+    survey_type = ["EI", "SN", "TF", "JP"]
     survey_data = []
     survey_type.each do |w|
      data_arr = []
-     data_arr << w.to_s << user_survey.send(w.downcase)
+     data_arr << w[0] + " - " + w[1] << -user_survey.send(w.downcase)
      survey_data << data_arr
     end
     return survey_data
@@ -123,7 +123,10 @@ class UsersController < ApplicationController
     data_table.new_column('number', current_user.first_name)
     data_table.add_rows(survey_data)
     vaxes = [{format: "#", viewWindow: {min: 0}}]	
-    option = { width: "400", height: "315", areaOpacity: 0, vAxes: vaxes, title: "Survey" }
+    hAxis = {miValue: "-20", maxValue: "20"}
+    backgroundColor = {stroke: '#171717', strokeWidth: '30', fill: '#a6a6a6'}
+    titleTextStyle = { color: 'black', fontName: 'Arial', fontSize: 20, bold: true, italic: true}
+    option = { width: "500", height: "315", backgroundColor: backgroundColor, titleTextStyle: titleTextStyle, legend: {position: 'none'}, areaOpacity: 50, vAxes: vaxes, hAxis: hAxis, title: "#{current_user.first_name.titleize}'s Survey Results" }
     @survey_chart = GoogleVisualr::Interactive::BarChart.new(data_table, option)
   end	
 
