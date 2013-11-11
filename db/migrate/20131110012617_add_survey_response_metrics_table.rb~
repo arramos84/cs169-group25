@@ -1,0 +1,53 @@
+class AddSurveyResponseMetricsTable < ActiveRecord::Migration
+  def up
+    create_table :surveymetrics do |t|
+    end
+    
+    add_column :surveymetrics, :eitotal, :integer 
+    1.upto 10 do |i|
+      add_column :surveymetrics, ('ei-' + i.to_s + '-e').to_sym, :integer
+      add_column :surveymetrics, ('ei-' + i.to_s + '-i').to_sym, :integer
+    end
+    add_column :surveymetrics, :sntotal, :integer 
+    1.upto 21 do |i|
+      add_column :surveymetrics, ('sn-' + i.to_s + '-s').to_sym, :integer
+      add_column :surveymetrics, ('sn-' + i.to_s + '-n').to_sym, :integer
+    end
+    add_column :surveymetrics, :tftotal, :integer     
+    1.upto 19 do |i|
+      add_column :surveymetrics, ('tf-' + i.to_s + '-t').to_sym, :integer
+      add_column :surveymetrics, ('tf-' + i.to_s + '-f').to_sym, :integer
+    end
+    add_column :surveymetrics, :jptotal, :integer     
+    1.upto 20 do |i|
+      add_column :surveymetrics, ('jp-' + i.to_s + '-j').to_sym, :integer
+      add_column :surveymetrics, ('jp-' + i.to_s + '-p').to_sym, :integer
+    end
+    
+  end
+
+  def down
+    1.upto 20 do |i|
+      remove_column :surveymetrics, ('jp-' + i.to_s + '-j').to_sym, :integer
+      remove_column :surveymetrics, ('jp-' + i.to_s + '-p').to_sym, :integer
+    end
+    remove_column :surveymetrics, :jptotal, :integer      
+    1.upto 19 do |i|
+      remove_column :surveymetrics, ('tf-' + i.to_s + '-t').to_sym, :integer
+      remove_column :surveymetrics, ('tf-' + i.to_s + '-f').to_sym, :integer
+    end
+    remove_column :surveymetrics, :tftotal, :integer     
+    1.upto 21 do |i|
+      remove_column :surveymetrics, ('sn-' + i.to_s + '-s').to_sym, :integer
+      remove_column :surveymetrics, ('sn-' + i.to_s + '-n').to_sym, :integer
+    end
+    remove_column :surveymetrics, :sntotal, :integer
+    1.upto 10 do |i|
+      remove_column :surveymetrics, ('ei-' + i.to_s + '-e').to_sym, :integer
+      remove_column :surveymetrics, ('ei-' + i.to_s + '-i').to_sym, :integer
+    end
+    remove_column :surveymetrics, :eitotal, :integer 
+    drop_table :surveymetrics
+
+  end
+end

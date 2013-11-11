@@ -86,7 +86,6 @@ class Survey < ActiveRecord::Base
     else
       calculated[:personality_type] << 'P'
     end
-
     return calculated
   end
 
