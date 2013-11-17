@@ -13,6 +13,13 @@ class SurveyController < ApplicationController
       flash[:notice] = "That is not a correct personality type"
       redirect_to :survey and return
     end
+
+    @user = current_user
+    @user.entered_type = params[:entered_type]
+
+    flash[:success] = "Welcome to LeadU!"
+    redirect_to home_path
+    """
     @user = current_user
     current_user.entered_type = params[:entered_type]
     current_user.entered_type
@@ -25,6 +32,7 @@ class SurveyController < ApplicationController
     @step_3 = @personality_db.step_3
     @step_4 = @personality_db.step_4
     @step_5 = @personality_db.step_5
+    """
 
   end
 
@@ -61,6 +69,7 @@ class SurveyController < ApplicationController
     end
 
     if @survey.save
+      current_user.entered_type = @survey.personality_type
       flash[:success] = "Welcome to LeadU!"
       redirect_to home_path
     else

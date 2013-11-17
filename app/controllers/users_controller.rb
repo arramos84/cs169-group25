@@ -12,11 +12,13 @@ class UsersController < ApplicationController
   
   def show
     @user = current_user
-    if !@user.has_completed_survey?
+
+    if !@user.has_completed_survey? or @user.entered_type.nil?
       puts "user has not completed survey"
+      flash[:notice] = "You have not discovered your personality type yet!"
       redirect_to :survey
     else
-    @personality_db = Profile.find_by_personality_type(@user.survey.personality_type)
+    @personality_db = Profile.find_by_personality_type(@user.survey.personality_type) || Profile.find_by_personality_type(@user.entered_type)
     #puts @personality_db.inspect
 
     @video_url = /v=(.*)/.match(@personality_db.video_link)[1]
