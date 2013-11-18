@@ -12,27 +12,26 @@ class UsersController < ApplicationController
   
   def show
     @user = current_user
+    flash[:warning] = @user.get_full_name + @user.has_completed_survey?.to_s + @user.entered_type.to_s
 
-    if !@user.has_completed_survey? or @user.entered_type.nil?
-      puts "user has not completed survey"
-      flash[:notice] = "You have not discovered your personality type yet!"
-      redirect_to :survey
-    else
-    @personality_db = Profile.find_by_personality_type(@user.survey.personality_type) || Profile.find_by_personality_type(@user.entered_type)
-    #puts @personality_db.inspect
+    if @user.has_completed_survey? or !@user.entered_type.nil?
+    	@personality_db = Profile.find_by_personality_type(@user.survey.personality_type) || Profile.find_by_personality_type(@user.entered_type)
+	    #puts @personality_db.inspect
 
-    @video_url = /v=(.*)/.match(@personality_db.video_link)[1]
-    @body = @personality_db.body
-    @step_1 = @personality_db.step_1
-    @step_2 = @personality_db.step_2
-    @step_3 = @personality_db.step_3
-    @step_4 = @personality_db.step_4
-    @step_5 = @personality_db.step_5
-    #User survey bar chart
-    survey_data = user_survey_data(@user.survey)
-    create_survey_chart(survey_data)
+	    @video_url = /v=(.*)/.match(@personality_db.video_link)[1]
+	    @body = @personality_db.body
+	    @step_1 = @personality_db.step_1
+	    @step_2 = @personality_db.step_2
+	    @step_3 = @personality_db.step_3
+	    @step_4 = @personality_db.step_4
+	    @step_5 = @personality_db.step_5
+	    #User survey bar chart
+	    survey_data = user_survey_data(@user.survey)
+	    create_survey_chart(survey_data)
+	else
+		flash[:notice] = @user.entered_type.to_s + params.to_s
+      	redirect_to :survey
     end
-
   end
   
   def edit #Add a code so that users can follow. ie Professors/employers use this
