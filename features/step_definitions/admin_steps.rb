@@ -5,6 +5,30 @@ Given /^there is an admin$/ do
 
 end
 
+
+Then /^the User Model for (.*) should have a blank survey attached to it$/ do |name|
+ #pending # express the regexp above with the code you wish you had 
+  user = User.find_by_first_name(%Q{#{name}})
+  survey = user.survey 
+  responses = survey.responses 
+  responses.should == nil  
+  Survey.last_test_result.should == nil
+
+end
+
+Then /^the User Model for (.*) should not have a blank survey attached to it$/ do |name|
+  #pending # express the regexp above with the code you wish you had
+  user = User.find_by_first_name(%Q{#{name}})
+  user.survey.should_not == nil
+end
+
+Then /^the User Model for (.*) should not have a filled\-in survey attached to it$/ do |name|
+  #pending # express the regexp above with the code you wish you had
+  user = User.find_by_first_name(%Q{#{name}})
+  user.survey.should == nil
+end
+
+
 When /^I sign in as an administrator$/ do
   steps %Q{
     When I fill in "admin_user_email" with "admin@example.com"

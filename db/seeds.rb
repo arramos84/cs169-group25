@@ -26,12 +26,12 @@ student4.follow(professor)
 student5.follow(professor)
 
 ## Creates surveys
-survey = Survey.create! :user_id => 1, :ei => -1, :sn => 1, :tf => -1, :jp => 1, :personality_type => "ENTP"
-survey = Survey.create! :user_id => 2, :ei => -1, :sn => -1, :tf => 1, :jp => 1, :personality_type => "ESFP"
-survey = Survey.create! :user_id => 3, :ei => 1, :sn => -1, :tf => 1, :jp => -1, :personality_type => "ISFJ"
-survey = Survey.create! :user_id => 4, :ei => -1, :sn => 1, :tf => 1, :jp => -1, :personality_type => "ENFJ"
-survey = Survey.create! :user_id => 5, :ei => 1, :sn => -1, :tf => 1, :jp => 1, :personality_type => "ISFP"
-survey = Survey.create! :user_id => 6, :ei => 1, :sn => -1, :tf => 1, :jp => -1, :personality_type => "ISFJ"
+survey = Survey.create! :user_id => 1, :ei => 1, :sn => -1, :tf => 1, :jp => -1, :personality_type => "ENTP"
+survey = Survey.create! :user_id => 2, :ei => 1, :sn => 1, :tf => -1, :jp => -1, :personality_type => "ESFP"
+survey = Survey.create! :user_id => 3, :ei => -1, :sn => 1, :tf => -1, :jp => 1, :personality_type => "ISFJ"
+survey = Survey.create! :user_id => 4, :ei => 1, :sn => -1, :tf => -1, :jp => 1, :personality_type => "ENFJ"
+survey = Survey.create! :user_id => 5, :ei => -1, :sn => 1, :tf => -1, :jp => -1, :personality_type => "ISFP"
+survey = Survey.create! :user_id => 6, :ei => -1, :sn => 1, :tf => -1, :jp => 1, :personality_type => "ISFJ"
 
 ## Create profiles
 body_text = body_text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum. Suspendisse vulputate aliquam dui. Nulla elementum dui ut augue. Aliquam vehicula mi at mauris. Maecenas placerat, nisl at consequat rhoncus, sem nunc gravida justo, quis eleifend arcu velit quis lacus. Morbi magna magna, tincidunt a, mattis non, imperdiet vitae, tellus. Sed odio est, auctor ac, sollicitudin in, consequat vitae, orci. Fusce id felis. Vivamus sollicitudin metus eget eros."
