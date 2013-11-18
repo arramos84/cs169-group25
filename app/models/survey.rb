@@ -3,6 +3,39 @@ class Survey < ActiveRecord::Base
   attr_accessible :ei, :tf, :sn, :jp, :personality_type, :user_id
   serialize :responses
   @@last_test_result = nil
+
+
+
+#@survey = Survey.create! :user_id => @user.id, :ei => 1, :sn => 1, :tf => 1, :jp => 1, :personality_type => "ESTJ"
+  def self.create_blank_survey(type)
+    if !self.personality_types.include?(type.upcase)
+      return nil
+    end
+    @id = :user_id
+
+    @ei = 0
+    @sn = 0
+    @tf = 0
+    @jp = 0
+
+=begin
+    @ei = 1 unless type[0] == "I"
+      @ei = -1
+
+    @sn = 1 unless type[1] == "N"
+      @sn = -1
+
+    @tf = 1 unless type[2] == "F"
+      @tf = -1
+
+    @jp = 1 unless type[3] == "P"
+      @jp = -1
+=end
+
+    self.create! :user_id => @id, :ei => @ei, :sn => @sn, :tf => @tf, :jp => @jp, :personality_type => type
+
+  end
+
   
   def self.last_test_result=(arg)
     @@last_test_result = arg

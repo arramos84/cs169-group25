@@ -16,7 +16,11 @@ class SurveyController < ApplicationController
 
     @user = current_user
     @user.entered_type = params[:entered_type]
-    current_user= @user 
+
+    @survey = Survey.create_blank_survey(@user.entered_type)
+    #@survey = Survey.new(current_user.entered_type)
+    @user.survey = @survey
+    current_user= @user
 
     #current_user.entered_type = params[:entered_type]
 
