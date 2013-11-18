@@ -110,7 +110,7 @@ class UsersController < ApplicationController
     survey_data = []
     survey_type.each do |w|
      data_arr = []
-     data_arr << w[0] + " - " + w[1] << -user_survey.send(w.downcase)
+     data_arr << w[0] + " - " + w[1] << user_survey.send(w.downcase)
      survey_data << data_arr
     end
     return survey_data
@@ -123,7 +123,8 @@ class UsersController < ApplicationController
     data_table.new_column('number', current_user.first_name)
     data_table.add_rows(survey_data)
     vaxes = [{format: "#", viewWindow: {min: 0}}]	
-    hAxis = {miValue: "-20", maxValue: "20"}
+    ticks = [{v:-20, f:"20"}, {v:-15, f:"15"}, {v:-10, f:"10"}, {v:-5, f:"5"}, {v:0, f:"0"}, {v:5, f:"5"}, {v:10, f:"10"}, {v:15, f:"15"}, {v:20, f:"20"}]
+    hAxis = {miValue: -20, maxValue: 20, baseline: 0, direction: -1, ticks: ticks}
     backgroundColor = {stroke: '#171717', strokeWidth: '30', fill: '#a6a6a6'}
     titleTextStyle = { color: 'black', fontName: 'Arial', fontSize: 20, bold: true, italic: true}
     option = { width: "500", height: "315", backgroundColor: backgroundColor, titleTextStyle: titleTextStyle, legend: {position: 'none'}, areaOpacity: 50, vAxes: vaxes, hAxis: hAxis, title: "#{current_user.first_name.titleize}'s Survey Results" }
