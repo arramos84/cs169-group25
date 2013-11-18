@@ -20,8 +20,8 @@ class SurveyController < ApplicationController
 
     #current_user.entered_type = params[:entered_type]
 
-	flash[:success] = "Welcome to LeadU!"
-	flash[:notice] = params.to_s + current_user.entered_type.to_s
+  	flash[:success] = "Welcome to LeadU!"
+  	flash[:notice] = params.to_s + current_user.entered_type.to_s
     #redirect_to home_path
 
     """
