@@ -24,30 +24,21 @@ class Survey < ActiveRecord::Base
     calculated[:sn] = 0
     calculated[:jp] = 0
     if params.has_key? :type
-      ei = params[:type].split("")[0]
-      sn = params[:type].split("")[1]
-      tf = params[:type].split("")[2]
-      jp = params[:type].split("")[3]
-      if ei == "E" || ei == "e"
+      type = params[:type].split("").upcase
+      ei = type[0]
+      sn = type[1]
+      tf = type[2]
+      jp = type[3]
+
+      calculated[:ei] -= 1 unless ei == "E"
         calculated[:ei] += 1
-      else
-        calculated[:ei] -= 1
-      end
-      if tf == "T" || tf == "t"
-        calculated[:tf] += 1
-      else
-        calculated[:tf] -= 1
-      end
-      if sn == "S" || sn == "s"
+      calculated[:sn] -= 1 unless sn == "S"
         calculated[:sn] += 1
-      else
-        calculated[:sn] -= 1
-      end
-      if jp == "J" || jp == "j"
+      calculated[:tf] -= 1 unless tf == "F"
+        calculated[:tf] += 1
+      calculated[:jp] -= 1 unless jp == "J"
         calculated[:jp] += 1
-      else
-        calculated[:jp] -= 1
-      end
+
     else
       params.each do |key,value|
         if( /EI-\d*/.match(key))
