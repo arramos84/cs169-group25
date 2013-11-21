@@ -32,12 +32,12 @@ class Survey < ActiveRecord::Base
 
       calculated[:ei] -= 1 unless ei == "E"
         calculated[:ei] += 1
-      calculated[:sn] -= 1 unless sn == "S"
-        calculated[:sn] += 1
-      calculated[:tf] -= 1 unless tf == "F"
-        calculated[:tf] += 1
-      calculated[:jp] -= 1 unless jp == "J"
-        calculated[:jp] += 1
+      calculated[:ei] -= 1 unless sn == "S"
+        calculated[:ei] += 1
+      calculated[:ei] -= 1 unless tf == "T"
+        calculated[:ei] += 1
+      calculated[:ei] -= 1 unless jp == "J"
+        calculated[:ei] += 1
 
     else
       params.each do |key,value|
