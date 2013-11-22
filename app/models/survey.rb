@@ -30,14 +30,11 @@ class Survey < ActiveRecord::Base
       tf = type[2]
       jp = type[3]
 
-      calculated[:ei] -= 1 unless ei == "E"
-        calculated[:ei] += 1
-      calculated[:ei] -= 1 unless sn == "S"
-        calculated[:ei] += 1
-      calculated[:ei] -= 1 unless tf == "T"
-        calculated[:ei] += 1
-      calculated[:ei] -= 1 unless jp == "J"
-        calculated[:ei] += 1
+      ei == "E" ? calculated[:ei] += 1 : calculated[:ei] -= 1
+      sn == "S" ? calculated[:sn] += 1 : calculated[:sn] -= 1
+      tf == "T" ? calculated[:tf] += 1 : calculated[:tf] -= 1
+      jp == "J" ? calculated[:jp] += 1 : calculated[:jp] -= 1
+
 
     else
       params.each do |key,value|
@@ -57,26 +54,13 @@ class Survey < ActiveRecord::Base
       end
       @@last_test_result = user_responses
     end
-    if(calculated[:ei] >= 0)
-      calculated[:personality_type] = 'E'
-    else
-      calculated[:personality_type] = 'I'
-    end
-    if(calculated[:sn] >= 0)
-      calculated[:personality_type] << 'S'
-    else
-      calculated[:personality_type] << 'N'
-    end
-    if(calculated[:tf] >= 0)
-      calculated[:personality_type] << 'T'
-    else
-      calculated[:personality_type] << 'F'
-    end
-    if(calculated[:jp] >= 0)
-      calculated[:personality_type] << 'J'
-    else
-      calculated[:personality_type] << 'P'
-    end
+    #########
+
+    calculated[:ei] <= 0 ? calculated[:personality_type] = "I" : calculated[:personality_type] = "E"
+    calculated[:sn] <= 0 ? calculated[:personality_type] << "N" : calculated[:personality_type] << "S"
+    calculated[:tf] <= 0 ? calculated[:personality_type] << "F" : calculated[:personality_type] << "T"
+    calculated[:jp] <= 0 ? calculated[:personality_type] << "P" : calculated[:personality_type] << "J"
+
     return calculated
   end
 
