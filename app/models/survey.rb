@@ -24,30 +24,18 @@ class Survey < ActiveRecord::Base
     calculated[:sn] = 0
     calculated[:jp] = 0
     if params.has_key? :type
-      ei = params[:type].split("")[0]
-      sn = params[:type].split("")[1]
-      tf = params[:type].split("")[2]
-      jp = params[:type].split("")[3]
-      if ei == "E" || ei == "e"
-        calculated[:ei] += 1
-      else
-        calculated[:ei] -= 1
-      end
-      if tf == "T" || tf == "t"
-        calculated[:tf] += 1
-      else
-        calculated[:tf] -= 1
-      end
-      if sn == "S" || sn == "s"
-        calculated[:sn] += 1
-      else
-        calculated[:sn] -= 1
-      end
-      if jp == "J" || jp == "j"
-        calculated[:jp] += 1
-      else
-        calculated[:jp] -= 1
-      end
+      type = params[:type].split("").upcase
+      ei = type[0]
+      sn = type[1]
+      tf = type[2]
+      jp = type[3]
+
+      ei == "E" ? calculated[:ei] += 1 : calculated[:ei] -= 1
+      sn == "S" ? calculated[:sn] += 1 : calculated[:sn] -= 1
+      tf == "T" ? calculated[:tf] += 1 : calculated[:tf] -= 1
+      jp == "J" ? calculated[:jp] += 1 : calculated[:jp] -= 1
+
+
     else
       params.each do |key,value|
         if( /EI-\d*/.match(key))
@@ -66,26 +54,13 @@ class Survey < ActiveRecord::Base
       end
       @@last_test_result = user_responses
     end
-    if(calculated[:ei] >= 0)
-      calculated[:personality_type] = 'E'
-    else
-      calculated[:personality_type] = 'I'
-    end
-    if(calculated[:sn] >= 0)
-      calculated[:personality_type] << 'S'
-    else
-      calculated[:personality_type] << 'N'
-    end
-    if(calculated[:tf] >= 0)
-      calculated[:personality_type] << 'T'
-    else
-      calculated[:personality_type] << 'F'
-    end
-    if(calculated[:jp] >= 0)
-      calculated[:personality_type] << 'J'
-    else
-      calculated[:personality_type] << 'P'
-    end
+    #########
+
+    calculated[:ei] <= 0 ? calculated[:personality_type] = "I" : calculated[:personality_type] = "E"
+    calculated[:sn] <= 0 ? calculated[:personality_type] << "N" : calculated[:personality_type] << "S"
+    calculated[:tf] <= 0 ? calculated[:personality_type] << "F" : calculated[:personality_type] << "T"
+    calculated[:jp] <= 0 ? calculated[:personality_type] << "P" : calculated[:personality_type] << "J"
+
     return calculated
   end
 
