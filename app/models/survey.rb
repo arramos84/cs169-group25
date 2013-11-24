@@ -56,10 +56,10 @@ class Survey < ActiveRecord::Base
     end
     #########
 
-    calculated[:ei] <= 0 ? calculated[:personality_type] = "I" : calculated[:personality_type] = "E"
-    calculated[:sn] <= 0 ? calculated[:personality_type] << "N" : calculated[:personality_type] << "S"
-    calculated[:tf] <= 0 ? calculated[:personality_type] << "F" : calculated[:personality_type] << "T"
-    calculated[:jp] <= 0 ? calculated[:personality_type] << "P" : calculated[:personality_type] << "J"
+    calculated[:ei] >= 0 ? calculated[:personality_type] = "E" : calculated[:personality_type] = "I"
+    calculated[:sn] >= 0 ? calculated[:personality_type] << "S" : calculated[:personality_type] << "N"
+    calculated[:tf] >= 0 ? calculated[:personality_type] << "T" : calculated[:personality_type] << "F"
+    calculated[:jp] >= 0 ? calculated[:personality_type] << "J" : calculated[:personality_type] << "P"
 
     return calculated
   end
