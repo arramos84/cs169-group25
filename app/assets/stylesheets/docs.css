@@ -18,12 +18,16 @@ Special styles for presenting Bootstrap's documentation and examples
   margin-bottom: 0;
 }
 
-.aboutDan p span {
+.staticPage {
   font-family: arial, helvetica, sans-serif;
-  font-size: 18px;
-  text-indent: 100px;
+  font-size: 14px;
+
   margin: 0;
   padding: 0;
+  color: #ffffff;
+}
+.staticPage p {
+  text-indent: 50px;
 }
 #logout{
   vertical-align: center;

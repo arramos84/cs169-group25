@@ -1,4 +1,22 @@
-%a#logout.navbar.pull-right{:href=>'/logout'} Logout
-= link_to image_tag( 'facebook.png', :width=> '35', :align=>'right'), 'http://www.facebook.com/sharer/sharer.php?u=http://leadermatch.herokuapp.com&t=I discovered my personality at LEADU!'
-= link_to image_tag( 'twitter.png', :width=> '35', :align=>'right'), ' https://twitter.com/intent/tweet?text=Learn to be a better leader @ http://leadermatch.herokuapp.com @danmulhern'
-= link_to image_tag( 'linkedin.png', :width=> '35', :align=>'right'), 'http://www.linkedin.com/shareArticle?mini=true&url=http://leadermatch.herokuapp.com&title=LEADU - Leading with your best self&summary=Become a better leader at your business today!&source=<source>'
+/%a#logout.navbar.pull-right{:href=>'/logout'} Logout
+%div.btn-group.pull-right
+	%a.btn.btn-primary.btn-small{:href=>"#"}
+		%i.icon-user.icon-white &#8194 #{current_user.first_name.titleize}
+	%a.btn.btn-primary.btn-small.dropdown-toggle{"data-toggle"=>"dropdown", :href=>"#"}
+		%b.caret
+	%ul.dropdown-menu
+		%li
+			%a{:href=>''} 
+				&#8194 Edit Profile
+		%li
+			%a{:href=>"/logout"}
+				&#8194 Logout &#8194
+		%li.divider
+		%li
+			%a{:href=>"/admin"} 
+				&#8194 Login as Admin
+-#				
+	%div.btn-group.pull-right
+		= link_to image_tag( 'facebook.png', :width=> '35', :align=>'right', 'margin-right'=>'50'), 'http://www.facebook.com/sharer/sharer.php?u=http://leadermatch.herokuapp.com&t=I discovered my personality at LEADU!'
+		= link_to image_tag( 'twitter.png', :width=> '35', :align=>'right'), ' https://twitter.com/intent/tweet?text=Learn to be a better leader @ http://leadermatch.herokuapp.com @danmulhern'
+		= link_to image_tag( 'linkedin.png', :width=> '35', :align=>'right'), 'http://www.linkedin.com/shareArticle?mini=true&url=http://leadermatch.herokuapp.com&title=LEADU - Leading with your best self&summary=Become a better leader at your business today!&source=<source>'
