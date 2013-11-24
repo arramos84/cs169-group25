@@ -72,17 +72,7 @@ class Survey < ActiveRecord::Base
         end
         user_responses[key] = value
     end
-<<<<<<< Updated upstream
     return calculated, user_responses
-=======
-
-    calculated[:ei] <= 0 ? calculated[:personality_type] = "I" : calculated[:personality_type] = "E"
-    calculated[:sn] <= 0 ? calculated[:personality_type] << "N" : calculated[:personality_type] << "S"
-    calculated[:tf] <= 0 ? calculated[:personality_type] << "F" : calculated[:personality_type] << "T"
-    calculated[:jp] <= 0 ? calculated[:personality_type] << "P" : calculated[:personality_type] << "J"
-
-    return calculated
->>>>>>> Stashed changes
   end
 
 
