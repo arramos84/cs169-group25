@@ -78,12 +78,10 @@ ActiveRecord::Schema.define(:version => 20131124040114) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "question"
-    t.string   "target"
     t.string   "name"
     t.integer  "total"
-    t.integer  "score"
+    t.integer  "hits"
     t.float    "accuracy"
-    t.string   "answer"
   end
 
   create_table "surveys", :force => true do |t|

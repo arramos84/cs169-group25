@@ -31,7 +31,7 @@ Feature: Ability Network with friends on Facebook
     Then I should see "Facebook User Restricts Invitations!"
 
   @omniauth_test
-  Scenario: See friends list but can't invite (sad path)
+  Scenario: See friends (successful)
     When I login with provider "Facebook"
     Then I should be on the survey page
     And I should see "Jeremy Rios"

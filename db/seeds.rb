@@ -26,12 +26,12 @@ student4.follow(professor)
 student5.follow(professor)
 
 ## Creates surveys
-survey = Survey.create! :user_id => 1, :ei => -1, :sn => 1, :tf => -1, :jp => 1, :personality_type => "ENTP"
-survey = Survey.create! :user_id => 2, :ei => -1, :sn => -1, :tf => 1, :jp => 1, :personality_type => "ESFP"
-survey = Survey.create! :user_id => 3, :ei => 1, :sn => -1, :tf => 1, :jp => -1, :personality_type => "ISFJ"
-survey = Survey.create! :user_id => 4, :ei => -1, :sn => 1, :tf => 1, :jp => -1, :personality_type => "ENFJ"
-survey = Survey.create! :user_id => 5, :ei => 1, :sn => -1, :tf => 1, :jp => 1, :personality_type => "ISFP"
-survey = Survey.create! :user_id => 6, :ei => 1, :sn => -1, :tf => 1, :jp => -1, :personality_type => "ISFJ"
+survey = Survey.create! :user_id => 1, :ei => 1, :sn => -1, :tf => 1, :jp => -1, :personality_type => "ENTP"
+survey = Survey.create! :user_id => 2, :ei => 1, :sn => 1, :tf => -1, :jp => -1, :personality_type => "ESFP"
+survey = Survey.create! :user_id => 3, :ei => -1, :sn => 1, :tf => -1, :jp => 1, :personality_type => "ISFJ"
+survey = Survey.create! :user_id => 4, :ei => 1, :sn => -1, :tf => -1, :jp => 1, :personality_type => "ENFJ"
+survey = Survey.create! :user_id => 5, :ei => -1, :sn => 1, :tf => -1, :jp => -1, :personality_type => "ISFP"
+survey = Survey.create! :user_id => 6, :ei => -1, :sn => 1, :tf => -1, :jp => 1, :personality_type => "ISFJ"
 
 ## Create profiles
 body_text = body_text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum. Suspendisse vulputate aliquam dui. Nulla elementum dui ut augue. Aliquam vehicula mi at mauris. Maecenas placerat, nisl at consequat rhoncus, sem nunc gravida justo, quis eleifend arcu velit quis lacus. Morbi magna magna, tincidunt a, mattis non, imperdiet vitae, tellus. Sed odio est, auctor ac, sollicitudin in, consequat vitae, orci. Fusce id felis. Vivamus sollicitudin metus eget eros."
@@ -219,16 +219,18 @@ survey_questions = {'EI-1-E' => ['Groups need people to get things going; and I\
   some_name = 'JP-' + i.to_s # + '-J'
   question_key = some_name + '-J'
   some_question = 'The question for ' + some_name
-  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'J',
-                        :total => some_total, :score => some_score, :answer => survey_questions[question_key][1],
+  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0],
+                        :total => some_total, :hits => some_score,
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
-                       
+              
+=begin         
   some_name = 'JP-' + i.to_s # + '-P'
   question_key = some_name + '-P'  
   some_question = 'The question for ' + some_name                       
   SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'P',
                         :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
+=end
 end
 
 1.upto(10) do |i| #EI
@@ -237,16 +239,18 @@ end
   some_name = 'EI-' + i.to_s # + '-E'
   question_key = some_name + '-E'
   some_question = 'The question for ' + some_name
-  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'E',
-                        :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
+  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0],
+                        :total => some_total, :hits => some_score,
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
-                       
+         
+=begin              
   some_name = 'EI-' + i.to_s # + '-I'
   question_key = some_name + '-I'
   some_question = 'The question for ' + some_name                       
   SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'I',
                         :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
+=end
 end
 
 1.upto(21) do |i| #SN
@@ -255,16 +259,18 @@ end
   some_name = 'SN-' + i.to_s # + '-S'
   question_key = some_name + '-S'
   some_question = 'The question for ' + some_name
-  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'S',
-                        :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
+  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0],
+                        :total => some_total, :hits => some_score,
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
                        
+=begin
   some_name = 'SN-' + i.to_s # + '-N'
   question_key = some_name + '-N'
   some_question = 'The question for ' + some_name                       
   SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'N',
                         :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
+=end
 end
 
 1.upto(19) do |i| #TF
@@ -273,9 +279,10 @@ end
   some_name = 'TF-' + i.to_s # + '-T'
   question_key = some_name + '-T'
   some_question = 'The question for ' + some_name
-  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'T',
-                        :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
+  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0],
+                        :total => some_total, :hits => some_score,
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
+=begin
                        
   some_name = 'TF-' + i.to_s # + '-F'
   question_key = some_name + '-F'
@@ -283,6 +290,7 @@ end
   SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'F',
                         :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
+=end
 end
 
 
