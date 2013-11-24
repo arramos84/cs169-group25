@@ -98,9 +98,6 @@ class UsersController < ApplicationController
     
     
     @friends = @graph.get_connections("me", "friends")
-    # logger.debug("maxim_")
-    # logger.debug(profile)
-    # logger.debug(@friends)
     @friends_on_leadu = Hash.new
     @friends_not_on_leadu = Hash.new
     
@@ -114,10 +111,6 @@ class UsersController < ApplicationController
         @friends_on_leadu[name] = url
       end
     end
-    # logger.debug("maxim_2")
-    # logger.debug(@friends_on_leadu)
-    # logger.debug("maxim_2_not")
-    # logger.debug(@friends_not_on_leadu)
         
     # @graph.put_connections("me", "feed", :message => "I am writing on my wall!")
     
