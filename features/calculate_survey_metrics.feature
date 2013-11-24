@@ -18,35 +18,31 @@ Background:  Get to the survey page
 Scenario: Make sure Survey Metrics Model correctly counts total responses
   And I give the first set of canned survey responses
   And I press "Submit"
-  Then the Survey Metrics Model for question EI-1 should have measured 1 total questions for types E and I
-  And the Survey Metrics Model for question JP-1 should have measured 1 total questions for types J and P
-  And the Survey Metrics Model for question SN-1 should have measured 1 total questions for types N and S
-  And the Survey Metrics Model for question TF-1 should have measured 1 total questions for types T and F
+  Then the Survey Metrics Model for question EI-1 should have measured 1 total questions
+  And the Survey Metrics Model for question JP-1 should have measured 1 total questions
+  And the Survey Metrics Model for question SN-1 should have measured 1 total questions
+  And the Survey Metrics Model for question TF-1 should have measured 1 total questions
   
 Scenario: Make sure Survey Metrics Model correctly tallies scores
   And I give the first set of canned survey responses
   And I press "Submit"
-  Then the Survey Metrics Model for question EI-1 should have measured a score of 1 for type E
-  And the Survey Metrics Model for question EI-1 should have measured a score of 1 for type I
-  And the Survey Metrics Model for question JP-5 should have measured a score of 1 for type J
-  And the Survey Metrics Model for question JP-5 should have measured a score of 1 for type P
-  And the Survey Metrics Model for question TF-10 should have measured a score of 1 for type T
-  And the Survey Metrics Model for question TF-10 should have measured a score of 1 for type F
-  And the Survey Metrics Model for question SN-6 should have measured a score of 1 for type S
-  And the Survey Metrics Model for question SN-6 should have measured a score of 1 for type N
+  Then the Survey Metrics Model for question EI-1 should have measured a score of 1
+  And the Survey Metrics Model for question EI-1 should have measured a score of 1
+  And the Survey Metrics Model for question JP-5 should have measured a score of 1
+  And the Survey Metrics Model for question JP-5 should have measured a score of 1
+  And the Survey Metrics Model for question TF-10 should have measured a score of 1
+  And the Survey Metrics Model for question TF-10 should have measured a score of 1
+  And the Survey Metrics Model for question SN-6 should have measured a score of 1
+  And the Survey Metrics Model for question SN-6 should have measured a score of 1
   
 Scenario: Make sure Survey Metrics Model correctly tallies accuracy for one test
   And I give the first set of canned survey responses
   And I press "Submit"
   Then the user type for john@johnson.com should be ESTJ
-  Then the Survey Metrics Model for question EI-1 should have measured an accuracy of 1 for type E
-  And the Survey Metrics Model for question EI-1 should have measured an accuracy of 1 for type I
-  And the Survey Metrics Model for question JP-5 should have measured an accuracy of 1 for type J
-  And the Survey Metrics Model for question JP-5 should have measured an accuracy of 1 for type P
-  And the Survey Metrics Model for question TF-10 should have measured an accuracy of 1 for type T
-  And the Survey Metrics Model for question TF-10 should have measured an accuracy of 1 for type F
-  And the Survey Metrics Model for question SN-6 should have measured an accuracy of 1 for type S
-  And the Survey Metrics Model for question SN-6 should have measured an accuracy of 1 for type N
+  Then the Survey Metrics Model for question EI-1 should have measured an accuracy of 1
+  And the Survey Metrics Model for question JP-5 should have measured an accuracy of 1
+  And the Survey Metrics Model for question TF-10 should have measured an accuracy of 1
+  And the Survey Metrics Model for question SN-6 should have measured an accuracy of 1
   
 Scenario: Check for ESTJ Sad Path (Not all accurate responses)
   And I give the first set of canned survey responses
@@ -61,14 +57,11 @@ Scenario: Check for ESTJ Sad Path (Not all accurate responses)
   And I give the second set of canned survey responses
   And I press "Submit"
   Then the user type for bill@billson.com should be ENTJ
-  And the Survey Metrics Model for question EI-6 should have measured an accuracy of 0.5 for type E
-  And the Survey Metrics Model for question EI-1 should have measured an accuracy of 1 for type I
-  And the Survey Metrics Model for question JP-5 should have measured an accuracy of 0.5 for type J
-  And the Survey Metrics Model for question JP-5 should have measured an accuracy of 1 for type P
-  And the Survey Metrics Model for question TF-10 should have measured an accuracy of 1 for type T
-  And the Survey Metrics Model for question TF-10 should have measured an accuracy of 1 for type F
-  And the Survey Metrics Model for question SN-6 should have measured an accuracy of 1 for type S
-  And the Survey Metrics Model for question SN-6 should have measured an accuracy of 0.5 for type N
+  And the Survey Metrics Model for question EI-6 should have measured an accuracy of 0.5
+  And the Survey Metrics Model for question EI-1 should have measured an accuracy of 1
+  And the Survey Metrics Model for question JP-5 should have measured an accuracy of 0.5
+  And the Survey Metrics Model for question TF-10 should have measured an accuracy of 1
+  And the Survey Metrics Model for question SN-6 should have measured an accuracy of 0.5
   
 Scenario: Check for INFP Sad Path (Not all accurate responses)
   And I give the third set of canned survey responses
@@ -82,13 +75,10 @@ Scenario: Check for INFP Sad Path (Not all accurate responses)
   Then I should be on the survey page
   And I give the second set of canned survey responses
   And I press "Submit"
-  Then the Survey Metrics Model for question EI-6 should have measured an accuracy of 1 for type I
-  And the Survey Metrics Model for question EI-1 should have measured an accuracy of 1 for type E
-  And the Survey Metrics Model for question JP-5 should have measured an accuracy of 0.5 for type J
-  And the Survey Metrics Model for question JP-5 should have measured an accuracy of 1 for type P
-  And the Survey Metrics Model for question TF-10 should have measured an accuracy of 1 for type T
-  And the Survey Metrics Model for question TF-10 should have measured an accuracy of 1 for type F
-  And the Survey Metrics Model for question SN-6 should have measured an accuracy of 1 for type S
-  And the Survey Metrics Model for question SN-6 should have measured an accuracy of 0.5 for type N
+  Then the Survey Metrics Model for question EI-6 should have measured an accuracy of 0.5
+  And the Survey Metrics Model for question EI-1 should have measured an accuracy of 1
+  And the Survey Metrics Model for question JP-5 should have measured an accuracy of 0.5
+  And the Survey Metrics Model for question TF-10 should have measured an accuracy of 1
+  And the Survey Metrics Model for question SN-6 should have measured an accuracy of 0.5
   
 

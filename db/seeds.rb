@@ -219,16 +219,18 @@ survey_questions = {'EI-1-E' => ['Groups need people to get things going; and I\
   some_name = 'JP-' + i.to_s # + '-J'
   question_key = some_name + '-J'
   some_question = 'The question for ' + some_name
-  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'J',
-                        :total => some_total, :score => some_score, :answer => survey_questions[question_key][1],
+  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0],
+                        :total => some_total, :hits => some_score,
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
-                       
+              
+=begin         
   some_name = 'JP-' + i.to_s # + '-P'
   question_key = some_name + '-P'  
   some_question = 'The question for ' + some_name                       
   SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'P',
                         :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
+=end
 end
 
 1.upto(10) do |i| #EI
@@ -237,16 +239,18 @@ end
   some_name = 'EI-' + i.to_s # + '-E'
   question_key = some_name + '-E'
   some_question = 'The question for ' + some_name
-  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'E',
-                        :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
+  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0],
+                        :total => some_total, :hits => some_score,
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
-                       
+         
+=begin              
   some_name = 'EI-' + i.to_s # + '-I'
   question_key = some_name + '-I'
   some_question = 'The question for ' + some_name                       
   SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'I',
                         :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
+=end
 end
 
 1.upto(21) do |i| #SN
@@ -255,16 +259,18 @@ end
   some_name = 'SN-' + i.to_s # + '-S'
   question_key = some_name + '-S'
   some_question = 'The question for ' + some_name
-  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'S',
-                        :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
+  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0],
+                        :total => some_total, :hits => some_score,
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
                        
+=begin
   some_name = 'SN-' + i.to_s # + '-N'
   question_key = some_name + '-N'
   some_question = 'The question for ' + some_name                       
   SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'N',
                         :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
+=end
 end
 
 1.upto(19) do |i| #TF
@@ -273,9 +279,10 @@ end
   some_name = 'TF-' + i.to_s # + '-T'
   question_key = some_name + '-T'
   some_question = 'The question for ' + some_name
-  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'T',
-                        :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
+  SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0],
+                        :total => some_total, :hits => some_score,
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
+=begin
                        
   some_name = 'TF-' + i.to_s # + '-F'
   question_key = some_name + '-F'
@@ -283,6 +290,7 @@ end
   SurveyMetrics.create!(:name => some_name, :question => survey_questions[question_key][0], :target => 'F',
                         :total => some_total, :score => some_score, :answer => survey_questions[question_key][1], 
                         :accuracy => some_total == 0 ? 0 : some_score/some_total)
+=end
 end
 
 

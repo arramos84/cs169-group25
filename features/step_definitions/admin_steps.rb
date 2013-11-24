@@ -84,17 +84,16 @@ Then /^the survey response for user (.*) question (.*) should be (.*)$/ do |emai
   User.find_by_email(email).survey.responses[elt1].should == elt2
 end
 
-Then /^the Survey Metrics Model for question (.*) should have measured (.*) total questions for types (.*) and (.*)$/ do |question, total, type1, type2|
-  SurveyMetrics.find_by_name_and_target(question, type1).total.should == total.to_i
-  SurveyMetrics.find_by_name_and_target(question, type2).total.should == total.to_i
+Then /^the Survey Metrics Model for question (.*) should have measured (.*) total questions$/ do |question, total|
+  SurveyMetrics.find_by_name(question).total.should == total.to_i
 end
 
-Then /^the Survey Metrics Model for question (.*) should have measured a score of (.*) for type (.*)$/ do |question, score, type|
-  SurveyMetrics.find_by_name_and_target(question, type).score.should == score.to_i
+Then /^the Survey Metrics Model for question (.*) should have measured a score of (.*)$/ do |question, score|
+  SurveyMetrics.find_by_name(question).hits.should == score.to_i
 end
 
-Then /^the Survey Metrics Model for question (.*) should have measured an accuracy of (.*) for type (.*)$/ do |question, accuracy, type|
-  SurveyMetrics.find_by_name_and_target(question, type).accuracy.should == accuracy.to_f
+Then /^the Survey Metrics Model for question (.*) should have measured an accuracy of (.*)$/ do |question, accuracy|
+  SurveyMetrics.find_by_name(question).accuracy.should == accuracy.to_f
 end
 
 Then /^the user type for (.*) should be (.*)$/ do |email, type|
@@ -109,15 +108,10 @@ Given /^the survey metrics table has been populated$/ do
     some_score = 0
     some_name = 'JP-' + i.to_s # + '-J'
     some_question = 'The question for ' + some_name
-    SurveyMetrics.create!(:name => some_name, :question => some_question, :target => 'J',
-                          :total => some_total, :score => some_score, 
+    SurveyMetrics.create!(:name => some_name, :question => some_question,
+                          :total => some_total, :hits => some_score, 
                           :accuracy => some_total == 0 ? 0 : some_score/some_total)
-                       
-    some_name = 'JP-' + i.to_s # + '-P'
-    some_question = 'The question for ' + some_name                       
-    SurveyMetrics.create!(:name => some_name, :question => some_question, :target => 'P',
-                        :total => some_total, :score => some_score, 
-                        :accuracy => some_total == 0 ? 0 : some_score/some_total)
+
   end
 
   1.upto(10) do |i| #EI
@@ -125,15 +119,10 @@ Given /^the survey metrics table has been populated$/ do
     some_score = 0
     some_name = 'EI-' + i.to_s # + '-E'
     some_question = 'The question for ' + some_name
-    SurveyMetrics.create!(:name => some_name, :question => some_question, :target => 'E',
-                          :total => some_total, :score => some_score, 
+    SurveyMetrics.create!(:name => some_name, :question => some_question,
+                          :total => some_total, :hits => some_score, 
                           :accuracy => some_total == 0 ? 0 : some_score/some_total)
                         
-    some_name = 'EI-' + i.to_s # + '-I'
-    some_question = 'The question for ' + some_name                       
-    SurveyMetrics.create!(:name => some_name, :question => some_question, :target => 'I',
-                          :total => some_total, :score => some_score, 
-                          :accuracy => some_total == 0 ? 0 : some_score/some_total)
   end
 
   1.upto(21) do |i| #SN
@@ -141,15 +130,10 @@ Given /^the survey metrics table has been populated$/ do
     some_score = 0
     some_name = 'SN-' + i.to_s # + '-S'
     some_question = 'The question for ' + some_name
-    SurveyMetrics.create!(:name => some_name, :question => some_question, :target => 'S',
-                          :total => some_total, :score => some_score, 
+    SurveyMetrics.create!(:name => some_name, :question => some_question,
+                          :total => some_total, :hits => some_score, 
                           :accuracy => some_total == 0 ? 0 : some_score/some_total)
                        
-    some_name = 'SN-' + i.to_s # + '-N'
-    some_question = 'The question for ' + some_name                       
-    SurveyMetrics.create!(:name => some_name, :question => some_question, :target => 'N',
-                          :total => some_total, :score => some_score, 
-                          :accuracy => some_total == 0 ? 0 : some_score/some_total)
   end
 
   1.upto(19) do |i| #TF
@@ -157,15 +141,10 @@ Given /^the survey metrics table has been populated$/ do
     some_score = 0
     some_name = 'TF-' + i.to_s # + '-T'
     some_question = 'The question for ' + some_name
-    SurveyMetrics.create!(:name => some_name, :question => some_question, :target => 'T',
-                          :total => some_total, :score => some_score, 
+    SurveyMetrics.create!(:name => some_name, :question => some_question,
+                          :total => some_total, :hits => some_score, 
                           :accuracy => some_total == 0 ? 0 : some_score/some_total)
                        
-    some_name = 'TF-' + i.to_s # + '-F'
-    some_question = 'The question for ' + some_name                       
-    SurveyMetrics.create!(:name => some_name, :question => some_question, :target => 'F',
-                          :total => some_total, :score => some_score, 
-                          :accuracy => some_total == 0 ? 0 : some_score/some_total)
   end
 
 end
