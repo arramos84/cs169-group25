@@ -18,26 +18,46 @@ class Survey < ActiveRecord::Base
 
   def self.organize(params)
     calculated = {}
-    user_responses = {}
     calculated[:ei] = 0
     calculated[:tf] = 0
     calculated[:sn] = 0
     calculated[:jp] = 0
     if params.has_key? :type
       type = params[:type].split("").upcase
-      ei = type[0]
-      sn = type[1]
-      tf = type[2]
-      jp = type[3]
-
-      ei == "E" ? calculated[:ei] += 1 : calculated[:ei] -= 1
-      sn == "S" ? calculated[:sn] += 1 : calculated[:sn] -= 1
-      tf == "T" ? calculated[:tf] += 1 : calculated[:tf] -= 1
-      jp == "J" ? calculated[:jp] += 1 : calculated[:jp] -= 1
-
+      calculated = calculate_entered_type(type)
 
     else
-      params.each do |key,value|
+      calculated, @@last_test_result = grab_responses(params, calculated)
+    end
+    #########
+
+    calculated[:ei] >= 0 ? calculated[:personality_type] = "E" : calculated[:personality_type] = "I"
+    calculated[:sn] >= 0 ? calculated[:personality_type] << "S" : calculated[:personality_type] << "N"
+    calculated[:tf] >= 0 ? calculated[:personality_type] << "T" : calculated[:personality_type] << "F"
+    calculated[:jp] >= 0 ? calculated[:personality_type] << "J" : calculated[:personality_type] << "P"
+
+    return calculated
+  end
+
+
+  def self.calculate_entered_type(type)
+    calculated = {}
+    ei = type[0]
+    sn = type[1]
+    tf = type[2]
+    jp = type[3]
+
+    ei == "E" ? calculated[:ei] = 1 : calculated[:ei] = 1
+    sn == "S" ? calculated[:sn] = 1 : calculated[:sn] = 1
+    tf == "T" ? calculated[:tf] = 1 : calculated[:tf] = 1
+    jp == "J" ? calculated[:jp] = 1 : calculated[:jp] = 1
+
+    return calculated
+  end
+
+  def self.grab_responses(params, calculated)
+    user_responses = {}
+    params.each do |key,value|
         if( /EI-\d*/.match(key))
           calculated[:ei] = calculated[:ei]+value.to_i
         end
@@ -51,17 +71,9 @@ class Survey < ActiveRecord::Base
           calculated[:jp] = calculated[:jp]+value.to_i
         end
         user_responses[key] = value
-      end
-      @@last_test_result = user_responses
     end
-    #########
-
-    calculated[:ei] >= 0 ? calculated[:personality_type] = "E" : calculated[:personality_type] = "I"
-    calculated[:sn] >= 0 ? calculated[:personality_type] << "S" : calculated[:personality_type] << "N"
-    calculated[:tf] >= 0 ? calculated[:personality_type] << "T" : calculated[:personality_type] << "F"
-    calculated[:jp] >= 0 ? calculated[:personality_type] << "J" : calculated[:personality_type] << "P"
-
-    return calculated
+    return calculated, user_responses
   end
+
 
 end
