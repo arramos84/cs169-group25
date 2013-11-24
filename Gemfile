@@ -14,7 +14,7 @@ gem 'simple_form'
 gem 'newrelic_rpm'
 gem "google_visualr", ">= 2.1"
 gem 'omniauth-facebook', '1.4.0'
-
+gem "koala", "~> 1.8.0rc1"
 group :development, :test do
   gem 'debugger'
   gem 'sqlite3', '1.3.5'

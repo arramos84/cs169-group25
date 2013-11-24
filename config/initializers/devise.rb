@@ -9,6 +9,7 @@ Devise.setup do |config|
   config.default_scope = :user
   config.sign_out_via = :get
 
+  config.secret_key = '51cae90c216e9b80f94c153a6ed5ef31005e3a2e727b35271b84c2a13b3783a1c29274dbb048adcf08d0ac809760fcbe653144f47209492c102341c40c32ee46'
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
