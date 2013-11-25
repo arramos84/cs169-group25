@@ -8,7 +8,7 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'haml'
-gem 'twitter-bootstrap-rails'
+gem "twitter-bootstrap-rails", '2.1.4'
 gem "acts_as_follower"
 gem 'simple_form'
 gem 'newrelic_rpm'
@@ -31,6 +31,8 @@ group :assets do
   gem 'sass-rails',   '3.2.4'
   gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.3'
+  gem "therubyracer"
+  gem "less-rails"
 end
 
 gem 'jquery-rails', '2.0.2'
