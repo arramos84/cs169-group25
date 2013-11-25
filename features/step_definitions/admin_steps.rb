@@ -8,10 +8,10 @@ end
 
 Then /^the User Model for "(.*)" should have a blank survey attached to it$/ do |name|
  #pending # express the regexp above with the code you wish you had 
-  puts name
-  puts User.all
+  #puts name
+  #puts User.all
   user = User.find_by_first_name(name)
-  puts user
+  #puts user
   #user = User.find_by_first_name(%Q{#{name}})
   survey = user.survey 
   responses = survey.responses 
@@ -22,10 +22,10 @@ end
 
 Then /^the User Model for "(.*)" should not have a blank survey attached to it$/ do |name|
   #pending # express the regexp above with the code you wish you had
-  puts name
-  puts User.all
+  #puts name
+  #puts User.all
   user = User.find_by_first_name(name)
-  puts user
+  #puts user
   #user = User.find_by_first_name(%Q{#{name}})
   user.survey.should_not == nil
 end
@@ -33,10 +33,10 @@ end
 Then /^the User Model for "(.*)" should not have a filled\-in survey attached to it$/ do |name|
   #pending # express the regexp above with the code you wish you had
   #user = User.find_by_first_name(%Q{#{name}})
-  puts name
-  puts User.all
+  #puts name
+  #puts User.all
   user = User.find_by_first_name(name)
-  puts user
+  #puts user
   user.survey.should == nil
 end
 
