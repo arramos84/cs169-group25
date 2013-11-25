@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   
   has_one :survey, :dependent => :destroy #surveys?
   
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :code, :professor, :fbid #codestuffs
+  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :code, :professor, :fbid, :fb_token #codestuffs
   #magic to require a password, make sure passwords match, authenticate
   has_secure_password
 
@@ -41,6 +41,26 @@ class User < ActiveRecord::Base
     save!
     UserMailer.password_reset(self).deliver
   end
+
+   def get_friends
+    @graph = Koala::Facebook::API.new(self.fb_token)
+    profile = @graph.get_object("me")
+
+    @friends = @graph.get_connections("me", "friends")
+    @friends_on_leadu = Hash.new
+    @friends_not_on_leadu = Hash.new
+    
+    @friends.each do |friend|
+      name = friend["name"]
+      first_last = name.split
+      url = "https://graph.facebook.com/" + first_last[0] + "." + first_last[1] + "/picture"
+      if User.where(:fbid => friend[:id])
+        @friends_not_on_leadu[name] = url 
+      else
+        @friends_on_leadu[name] = url
+      end
+     end
+    end
   
   private
 

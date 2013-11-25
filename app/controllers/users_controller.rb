@@ -89,34 +89,11 @@ class UsersController < ApplicationController
   def create_with_third_party_auth
     
     auth_hash = request.env['omniauth.auth']
-    @graph = Koala::Facebook::API.new(auth_hash['credentials']['token'])
-    profile = @graph.get_object("me")
-    
+      
     user_hash = {:email => auth_hash['info']['email'], :first_name => auth_hash['info']['first_name'],\
       :last_name => auth_hash['info']['last_name'], :password => auth_hash['credentials']['token'],\
-      :password_confirmation => auth_hash['credentials']['token'], :code => nil, :professor => false, :fb_uid => profile["id"]}
+      :password_confirmation => auth_hash['credentials']['token'], :code => nil, :professor => false}
     
-    
-    @friends = @graph.get_connections("me", "friends")
-    @friends_on_leadu = Hash.new
-    @friends_not_on_leadu = Hash.new
-    
-    @friends.each do |friend|
-      name = friend["name"]
-      first_last = name.split
-      url = "https://graph.facebook.com/" + first_last[0] + "." + first_last[1] + "/picture"
-      if User.where(:fbid => friend[:id])
-        @friends_not_on_leadu[name] = url 
-      else
-        @friends_on_leadu[name] = url
-      end
-    end
-        
-    # @graph.put_connections("me", "feed", :message => "I am writing on my wall!")
-    
-    # three-part queries are easy too!
-    # @graph.get_connections("me", "mutualfriends/#{friend_id}")
-
     user = User.where(email: user_hash[:email])[0]
     if user
       params[:user] = user
