@@ -70,7 +70,7 @@ entj = Profile.create!( :personality_type => 'ENTJ', :body => body_text, :video_
                 :step_4 => 'step 4 text', :step_5 => 'step 1 text')
 
 
-survey_questions = {'EI-1-E' => ['Groups need people to get things going; and I am pretty comfortable doing just that', 'me'],
+survey_questions = {'EI-1-E' => ['Groups need people to get things going and I am pretty comfortable doing just that', 'me'],
   'EI-1-I' => ['Groups need people to get things going; and I am pretty comfortable doing just that', 'not me'],
   'SN-1-S' => ['When in conversation with people if details are left out', 'I am eager to have them filled in'],
   'SN-1-N' => ['When in conversation with people if details are left out', 'I tend to get the picture without the detail'],
