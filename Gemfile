@@ -9,7 +9,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'haml'
 gem "twitter-bootstrap-rails", '2.1.4'
-gem "acts_as_follower"
+gem "acts_as_follower", '~> 0.1.1'
 gem 'simple_form'
 gem 'newrelic_rpm'
 gem "google_visualr", ">= 2.1"
