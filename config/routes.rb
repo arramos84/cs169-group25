@@ -31,6 +31,7 @@ CS169Group31::Application.routes.draw do
   match "mbinfo" => 'static_pages#mbinfo'
   match "wifm" => 'static_pages#wifm'
   match "about" => 'static_pages#about'
+  match "intp" => 'static_pages#intp'
 
   #routes for third party login
   match 'auth/:provider/callback', to: 'users#create_with_third_party_auth'

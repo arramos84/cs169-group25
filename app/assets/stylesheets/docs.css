@@ -33,6 +33,18 @@ Special styles for presenting Bootstrap's documentation and examples
   vertical-align: center;
 }
 
+.text1 {
+  color: #202020;
+}
+.text2 {
+  color: #D0D0D0;
+}
+.gray1{
+  background-color: #E0E0E0;
+}
+.gray2{
+  background-color: #D0D0D0;
+}
 /* Body and structure
 -------------------------------------------------- */
 
