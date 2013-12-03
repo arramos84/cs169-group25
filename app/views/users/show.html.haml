@@ -4,7 +4,7 @@
     - flash.each do |key,value|
       %div{:class => "alert alert-#{key}"}= value  
   .row-fluid.staticPage
-    .span8.offset1
+    %div{:class=>@user.fbid ? "span8 offset1" : "span8 offset2"}
       .page-header
         %center
           %h1.text-blue1 Welcome #{@user.first_name.titleize}! 
