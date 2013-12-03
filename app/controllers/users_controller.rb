@@ -15,19 +15,24 @@ class UsersController < ApplicationController
       puts "user has not completed survey"
       redirect_to :survey
     else
-    @personality_db = Profile.find_by_personality_type(@user.survey.personality_type)
-    #puts @personality_db.inspect
+      @personality_db = Profile.find_by_personality_type(@user.survey.personality_type)
+      #puts @personality_db.inspect
 
-    @video_url = /v=(.*)/.match(@personality_db.video_link)[1]
-    @body = @personality_db.body
-    @step_1 = @personality_db.step_1
-    @step_2 = @personality_db.step_2
-    @step_3 = @personality_db.step_3
-    @step_4 = @personality_db.step_4
-    @step_5 = @personality_db.step_5
-    #User survey bar chart
-    survey_data = user_survey_data(@user.survey)
-    create_survey_chart(survey_data)
+      @video_url = /v=(.*)/.match(@personality_db.video_link)[1]
+      @body = @personality_db.body
+      @step_1 = @personality_db.step_1
+      @step_2 = @personality_db.step_2
+      @step_3 = @personality_db.step_3
+      @step_4 = @personality_db.step_4
+      @step_5 = @personality_db.step_5
+      #User survey bar chart
+      survey_data = user_survey_data(@user.survey)
+      create_survey_chart(survey_data)
+
+      if @user.fbid
+        @leadU_friends = @user.get_friends[0]
+        @non_leadU_friends = @user.get_friends[1]
+      end
     end
 
   end
@@ -92,7 +97,8 @@ class UsersController < ApplicationController
       
     user_hash = {:email => auth_hash['info']['email'], :first_name => auth_hash['info']['first_name'],\
       :last_name => auth_hash['info']['last_name'], :password => auth_hash['credentials']['token'],\
-      :password_confirmation => auth_hash['credentials']['token'], :code => nil, :professor => false}
+      :password_confirmation => auth_hash['credentials']['token'], :code => nil, :professor => false,\
+      :fbid => auth_hash['uid'], :fb_token => auth_hash['credentials']['token']}
     
     user = User.where(email: user_hash[:email])[0]
     if user

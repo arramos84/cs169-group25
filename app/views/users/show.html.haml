@@ -4,7 +4,7 @@
     - flash.each do |key,value|
       %div{:class => "alert alert-#{key}"}= value  
   .row-fluid.staticPage
-    .span8.offset2
+    .span8.offset1
       .page-header
         %center
           %h1.text-blue1 Welcome #{@user.first_name.titleize}! 
@@ -28,6 +28,28 @@
           %center 
             %iframe{:width => "560", :height => "315",:frameborder => "0", :src =>"http://www.youtube.com/embed/#{@video_url}",:allowFullScreen => ""}
             %br
+    - if @user.fbid
+      .span3
+        %table.table.table-hover
+          - @leadU_friends.each do |name, photo|
+            %tr.gray1
+              %td
+                = image_tag(photo)
+              %td.text-blue2
+                #{name}
+                uses LeadU
+          - @non_leadU_friends.each do |name, photo|
+            %tr.gray1
+              %td
+                = image_tag(photo)
+              %td.text-blue2
+                #{name}
+
+          
+        
+        
+
+
                       
 #push
 

@@ -52,14 +52,14 @@ class User < ActiveRecord::Base
     
     @friends.each do |friend|
       name = friend["name"]
-      first_last = name.split
-      url = "https://graph.facebook.com/" + first_last[0] + "." + first_last[1] + "/picture"
-      if User.where(:fbid => friend[:id])
+      url = "https://graph.facebook.com/" + "#{friend["id"]}" + "/picture"
+      if User.where(:fbid => friend["id"]).blank?
         @friends_not_on_leadu[name] = url 
       else
         @friends_on_leadu[name] = url
       end
      end
+     return [@friends_on_leadu, @friends_not_on_leadu]
     end
   
   private
