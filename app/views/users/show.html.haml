@@ -5,12 +5,12 @@
       %div{:class => "alert alert-#{key}"}= value  
   .row-fluid.staticPage
     %div{:class=>@user.fbid ? "span8 offset1" : "span8 offset2"}
+      -#.span8.offset2
       .page-header
         %center
           %h1.text-blue1 Welcome #{@user.first_name.titleize}! 
           %h2.text-blue2 Your personality type is: #{@user.survey.personality_type}
           %h3.text-blue3 Let's learn more about your personality!
-
       
       .span10.offset1 
         .page-header  
@@ -29,28 +29,24 @@
             %iframe{:width => "560", :height => "315",:frameborder => "0", :src =>"http://www.youtube.com/embed/#{@video_url}",:allowFullScreen => ""}
             %br
     - if @user.fbid
-      .span3
+      .fbbox
         %table.table.table-hover
           - @leadU_friends.each do |name, photo|
-            %tr.gray1
-              %td
-                = image_tag(photo)
-              %td.text-blue2
+            %tr.gray3
+              %td                
+                %img{:src=>photo, :class=>"clear"}
+              %td.text-blue1.clear
                 #{name}
                 uses LeadU
           - @non_leadU_friends.each do |name, photo|
-            %tr.gray1
+            %tr.gray3
               %td
-                = image_tag(photo)
-              %td.text-blue2
+                %img{:src=>photo, :class=>"clear"}
+              %td.text-blue1.clear
                 #{name}
-
-          
-        
-        
-
-
-                      
+              %td
+                %button.btn.btn-mini.btn-success Invite
+             
 #push
 
 = render "static_pages/footer.html.haml"
