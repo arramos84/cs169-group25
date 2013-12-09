@@ -31,13 +31,17 @@
     - if @user.fbid
       .fbbox
         %table.table.table-hover
-          - @leadU_friends.each do |name, photo|
+          - @leadU_friends.each do |name, data|
             %tr.gray3
               %td                
-                %img{:src=>photo, :class=>"clear"}
+                %img{:src=>data[0], :class=>"clear"}
               %td.text-blue1.clear
                 #{name}
                 uses LeadU
+              %td.text-blue1.clear
+                %strong
+                #{data[1]}
+
           - @non_leadU_friends.each do |name, photo|
             %tr.gray3
               %td

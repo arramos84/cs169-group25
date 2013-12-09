@@ -43,8 +43,8 @@ CS169Group31::Application.configure do
   :address              => "smtp.gmail.com",
   :port                 => 587,
   :domain               => 'mydomain',
-  :user_name            => 'arramos84@gmail.com',
-  :password             => 'Beerbong2!@#',
+  :user_name            => 'leadu.pword.recovery@gmail.com',
+  :password             => 'leadupassword',
   :authentication       => 'plain',
   :enable_starttls_auto => true  }
 end

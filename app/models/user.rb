@@ -53,10 +53,11 @@ class User < ActiveRecord::Base
     @friends.each do |friend|
       name = friend["name"]
       url = "https://graph.facebook.com/" + "#{friend["id"]}" + "/picture"
-      if User.where(:fbid => friend["id"]).blank?
-        @friends_not_on_leadu[name] = url 
+      user = User.find_by_fbid(friend["id"])
+      if user.nil? or user.blank?
+        @friends_not_on_leadu[name] = url
       else
-        @friends_on_leadu[name] = url
+        @friends_on_leadu[name] = [url, user.survey.personality_type]
       end
      end
      return [@friends_on_leadu, @friends_not_on_leadu]
