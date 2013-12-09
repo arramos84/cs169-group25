@@ -26,7 +26,7 @@ Special styles for presenting Bootstrap's documentation and examples
   padding: 0;
   color: #ffffff;
 }
-.staticPage p {
+.indent {
   text-indent: 50px;
 }
 #logout{
@@ -60,11 +60,11 @@ Special styles for presenting Bootstrap's documentation and examples
   border: 1px solid black;
 }
 .fbbox{
-position:fixed;
-right:0%;
-height:100%;
-width: 20%;
-overflow:scroll;
+  position:fixed;
+  right:0%;
+  height:100%;
+  width: 20%;
+  overflow:scroll;
 }
 .clear{
   opacity:1.0;
