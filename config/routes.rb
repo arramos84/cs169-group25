@@ -28,8 +28,8 @@ CS169Group31::Application.routes.draw do
   match "follow_code" => "users#follow_code", :as => "follow_code", :via => 'get'
   match "follow_code" => 'users#followsubmit', :as => "follow_code", :via => 'post' #follow button route
   
-  match "edit_profile" => "users#edit_profile", :as => "edit_profile", :via => 'get'
-  match "update_profile" => "users#update_profile", :as => "update_profile", :via => 'post'
+  match "edit_profile/:id" => "users#edit_profile", :as => "edit_profile", :via => 'get'
+  match "update_profile/:id" => "users#update_profile", :as => "update_profile", :via => 'put'
 
   match "mbinfo" => 'static_pages#mbinfo'
   match "wifm" => 'static_pages#wifm'

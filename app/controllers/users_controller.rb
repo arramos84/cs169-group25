@@ -43,7 +43,10 @@ class UsersController < ApplicationController
   end
   
   def update_profile
-    @user = current_user
+    updated_user = current_user
+    @user = User.find(params[:id])
+    flash[:success] = "Profile updated."
+    redirect_to home_path
   end
   
   def edit_profile

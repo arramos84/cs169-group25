@@ -8,7 +8,7 @@
       .row-fluid
         .span4
           %h3 Edit Profile
-          = form_for @user, :url => update_profile_path do |f|
+          = form_for @user, :url => update_profile_path, params[:id] => @user.id do |f|
             %p
               = f.label :first_name, :caption => "First Name"
               = f.text_field :first_name
