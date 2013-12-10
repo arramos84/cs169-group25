@@ -41,6 +41,7 @@ class UsersController < ApplicationController
   end
   
   def update_profile
+    debugger
     user_id = params[:id]
     @user = User.update(user_id, params[:user])
     if @user.save

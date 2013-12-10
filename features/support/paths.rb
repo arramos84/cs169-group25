@@ -45,6 +45,10 @@ module NavigationHelpers
 
     when /^the user edit page$/
       '/follow_code'
+      
+    when /^the edit user profile page$/
+      @user = User.find_by_email("john@johnson.com")
+      "/edit_profile/#{@user.id}"
 
     when /^the admin page$/
       '/admin'
