@@ -7,28 +7,28 @@
     .marketing
       .row-fluid
         .span4
-          %h3 Edit Profile
+          %h3.text-blue1 Edit Profile
           = form_for @user, :url => update_profile_path, params[:id] => @user.id do |f|
-            %p
+            %p.text-blue3
               = f.label :first_name, :caption => "First Name"
               = f.text_field :first_name
-            %p
+            %p.text-blue3
               = f.label :last_name, :caption => "Last Name"
               = f.text_field :last_name
-            %p
+            %p.text-blue3
               = f.label :email, :caption => "Email"
               = f.text_field :email
-            %p
+            %p.text-blue3
               = f.label :professor_code
               = f.password_field :code
-            %p
+            %p.text-blue3
               = f.label :password
               = f.password_field :password
-            %p
+            %p.text-blue3
               = f.label :password_confirmation
               = f.password_field :password_confirmation
-            %p
-              = f.submit "Submit", :class => 'btn btn-primary'
+            %p.text-blue3
+              = f.submit "Submit", :class => 'btn btn-primary btn-small'
           <div>
           <table>
           <tr>
@@ -41,7 +41,7 @@
           <input type="hidden" name="m" value="1104000134982">
           <input type="hidden" name="p" value="oi">
           <input type="text" name="ea" size="20" value=""">
-          <input type="submit" name="go" value="Go" class="submit">
+          <input type="submit" name="go" value="Go" class="btn btn-primary btn-mini">
           </form>
           </td>
           </tr>
@@ -51,7 +51,7 @@
         %div{:class => 'span4 offset1'}
           %div{:class => 'quotes'}
             %br
-            %h1
+            %h1.text-blue2
               &#8220 Leadership is not the private reserve of a few charismatic men and women. &#8221 - kouzes & posner
 #push
 = render "static_pages/footer.html.haml"
