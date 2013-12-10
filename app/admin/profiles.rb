@@ -10,6 +10,6 @@ ActiveAdmin.register Profile do
       f.input :video_link
       f.input :personality_type
     end
-    f.buttons
+    f.actions
   end
 end

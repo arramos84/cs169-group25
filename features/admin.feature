@@ -36,7 +36,8 @@ Scenario: Test Surveys
     When I follow "Surveys"
     When I follow "Created At"
 
-    When I follow "View"
+    When I follow "Edit"
+    When I press "Update Survey"
 
 Scenario: Test Users
     Given all the profiles exist
@@ -57,7 +58,8 @@ Scenario: Test Users
     When I follow "Users"
     When I follow "Last Name" 
 
-    When I follow "View"
+    When I follow "Edit"
+    When I press "Update User"
 
 Scenario: Test Admin_Users
     Given all the profiles exist

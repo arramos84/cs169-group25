@@ -46,6 +46,6 @@ ActiveAdmin.register Survey do
       f.input :personality_type
       f.input :user_id
     end
-    f.buttons
+    f.actions
   end
 end
