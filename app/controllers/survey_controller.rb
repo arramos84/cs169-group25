@@ -5,9 +5,14 @@ class SurveyController < ApplicationController
   def new
 
   end
-  
+
   def create
-    if params.has_key?(:type) && !Survey.personality_types.include?(params[:type][:type].upcase)
+    majority_answered = params[:input].length >= 50
+    entered = params[:entered_type]
+    if entered
+      correct_type = entered.upcase.in? Survey.personality_types
+    end
+    if params.has_key?(:type) && !Survey.personality_types.include?(params[:type][:type].upcase) || (!correct_type && !majority_answered)
       flash[:notice] = "That is not a correct personality type"
       redirect_to :survey and return
     elsif params.has_key?(:type)
@@ -16,7 +21,7 @@ class SurveyController < ApplicationController
     elsif params.has_key?(:entered_type)
       @survey_params = {:ei => 0, :tf => 0, :sn => 0, :jp => 0, :personality_type => params[:entered_type], :user_id => current_user.id}
     else
-      if !params[:input] or params[:input].length < 50 #or params[:input][:manual] == nil
+      if !params[:input] or !majority_answered #or params[:input][:manual] == nil
         flash[:notice] = "Please complete the majority of the survey to generate an accurate personality match for you!"
         redirect_to :survey and return
       end
