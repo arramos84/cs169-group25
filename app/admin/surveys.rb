@@ -16,7 +16,7 @@ ActiveAdmin.register Survey do
     column :id
     column :user
     column :first_name do |resource|
-      resource.user.first_name
+     resource.user.first_name
     end
     column :last_name do |resource|
       resource.user.last_name

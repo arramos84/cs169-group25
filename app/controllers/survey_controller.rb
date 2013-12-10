@@ -18,8 +18,8 @@ class SurveyController < ApplicationController
     elsif params.has_key?(:type)
       @survey_params = Survey.organize(params[:type])
       @survey_params[:user_id] = current_user.id
-    elsif params.has_key?(:entered_type)
-      @survey_params = {:ei => 0, :tf => 0, :sn => 0, :jp => 0, :personality_type => params[:entered_type], :user_id => current_user.id}
+    elsif correct_type
+      @survey_params = {:ei => 0, :tf => 0, :sn => 0, :jp => 0, :personality_type => params[:entered_type].upcase, :user_id => current_user.id}
     else
       if !params[:input] or !majority_answered #or params[:input][:manual] == nil
         flash[:notice] = "Please complete the majority of the survey to generate an accurate personality match for you!"
@@ -30,7 +30,7 @@ class SurveyController < ApplicationController
     end
 
     @survey = Survey.new(@survey_params)
-    current_user.survey = @survey
+    #current_user.survey = @survey
 
     # Kludgy way of getting survey responses
     if Survey.last_test_result != nil
