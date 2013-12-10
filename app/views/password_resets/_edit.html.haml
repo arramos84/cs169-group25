@@ -1,4 +1,4 @@
-%h4 Please Chose a New
+%h4 Please Choose a New Password
 = form_for @user, :url => password_reset_path(params[:id]) do |f| 
   - if @user.errors.any?
     %div.error_messages
