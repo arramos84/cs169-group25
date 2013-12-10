@@ -41,6 +41,10 @@ class UsersController < ApplicationController
     @user = current_user
     @followers = @user.user_followers#array of users that follow current_user
   end
+  
+  def edit_profile
+    @user = current_user
+  end
 
   def update
     @user = current_user
