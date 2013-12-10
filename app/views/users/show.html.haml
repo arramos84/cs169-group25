@@ -25,6 +25,17 @@
           %center 
             %iframe{:width => "560", :height => "315",:frameborder => "0", :src =>"http://www.youtube.com/embed/#{@video_url}",:allowFullScreen => ""}
             %br
+      .span10.offset1
+        .btn-group.pull-right
+          = link_to image_tag( 'facebook.png', :width=> '35', :align=>'right', 'margin-right'=>'50'), 'http://www.facebook.com/sharer/sharer.php?u=https://personality-types.herokuapp.com/&t=I discovered my personality at LEADU!'
+          -# Original facebook link:  'http://www.facebook.com/sharer/sharer.php?u=http://leadermatch.herokuapp.com&t=I discovered my personality at LEADU!'
+
+          = link_to image_tag( 'twitter.png', :width=> '35', :align=>'right'), ' https://twitter.com/intent/tweet?text=Learn to be a better leader @ https://personality-types.herokuapp.com/'
+          -# Original twitter link: ' https://twitter.com/intent/tweet?text=Learn to be a better leader @ http://leadermatch.herokuapp.com @danmulhern'
+
+          = link_to image_tag( 'linkedin.png', :width=> '35', :align=>'right'), 'http://www.linkedin.com/shareArticle?mini=true&url=http://leadermatch.herokuapp.com&title=LEADU - Leading with your best self&summary=Become a better leader at your business today!&source=<source>'
+          -# Original linkedin link: 'http://www.linkedin.com/shareArticle?mini=true&url=http://leadermatch.herokuapp.com&title=LEADU - Leading with your best self&summary=Become a better leader at your business today!&source=<source>'
+
     - if @user.fbid
       .fbbox
         %table.table.table-hover
