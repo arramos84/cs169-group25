@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "1.9.3"
 gem 'rails', '3.2.8'
 gem 'nokogiri','1.5.5'
 gem 'bootstrap-sass', '2.0.0'
@@ -20,7 +21,7 @@ group :development, :test do
   gem 'ZenTest'
 end
 
-gem "shelly-dependencies", :group => :production
+
 
 gem 'annotate', '2.5.0', group: :development
 
@@ -51,7 +52,6 @@ group :test do
 end
 
 group :production do
-  gem 'shelly-dependencies'
   gem 'pg', '0.12.2'
   gem 'rails_12factor', '0.0.2'
 end
