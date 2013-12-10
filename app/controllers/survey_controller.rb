@@ -7,7 +7,7 @@ class SurveyController < ApplicationController
   end
 
   def create
-    majority_answered = params[:input].length >= 50
+    majority_answered = params[:input]? params[:input].length >= 50 : false
     entered = params[:entered_type]
     if entered
       correct_type = entered.upcase.in? Survey.personality_types
