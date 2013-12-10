@@ -80,6 +80,19 @@ Scenario: Test Admin_Users
     When I follow "Admin Users"
     When I follow "Email" 
 
+Scenario: Test Profiles
+    Given all the profiles exist
+    And the survey metrics table has been populated
+
+    Given there is an admin
+    When I am on the admin login page
+    And I fill in "admin_user_email" with "admin@example.com"
+    And I fill in "admin_user_password" with "password"
+    And I press "Login"
+    Then I should be on the admin page
+    When I follow "Profiles"
+    When I follow "Edit" 
+
 
 
 
