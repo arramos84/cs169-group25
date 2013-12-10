@@ -45,6 +45,10 @@ class UsersController < ApplicationController
   def edit_profile
     @user = current_user
   end
+  
+  def edit_profile
+    @user = current_user
+  end
 
   def update
     @user = current_user
