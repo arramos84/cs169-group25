@@ -41,8 +41,10 @@ class UsersController < ApplicationController
   end
   
   def update_profile
-    debugger
     user_id = params[:id]
+    if params[:user]["code"].empty? 
+      params[:user].delete("code")
+    end
     @user = User.update(user_id, params[:user])
     if @user.save
       flash[:success] = 'User was successfully updated'
