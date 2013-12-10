@@ -15,20 +15,12 @@ Background:
 Scenario: Should have a blank survey when you enter type without taking survey (happy path)
 	When I fill in "entered_type" with "ESTJ"
     And I press "Enter"
-    #Then the User Model for "Molly" should have a blank survey attached to it
+    Then I should be on the home login page
 
 Scenario: Enter incorrect type (sad path)
 	When I fill in "entered_type" with "XXXX"
     And I press "Enter"
     Then I should see "That is not a correct personality type"
-    #And the User Model for "Molly" should not have a blank survey attached to it
+    And I should be on the survey page
 
-Scenario: Should not have a filled-in survey (happy path)
-	When I fill in "entered_type" with "ESTJ"
-    And I press "Enter"
-    Then the User Model for "Molly" should not have a filled-in survey attached to it
 
-Scenario: (sad path)
-	And  I answer a majority of the questions
-	And I press "Submit"
-    Then the User Model for "Molly" should not have a blank survey attached to it

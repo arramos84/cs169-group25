@@ -6,50 +6,31 @@ class SurveyController < ApplicationController
 
   end
 
-  def skip_survey
-    puts "params: "
-    puts params
-    if !params.has_key?(:entered_type) or !Survey.personality_types.include?(params[:entered_type].upcase)
-      flash[:notice] = "That is not a correct personality type"
-      redirect_to :survey and return
-    end
-    @user = current_user
-    current_user.entered_type = params[:entered_type]
-    current_user.entered_type
-    @personality_db = Profile.find_by_personality_type(current_user.entered_type) 
-    #puts @personality_db.inspect
-
-    @body = @personality_db.body
-    @step_1 = @personality_db.step_1
-    @step_2 = @personality_db.step_2
-    @step_3 = @personality_db.step_3
-    @step_4 = @personality_db.step_4
-    @step_5 = @personality_db.step_5
-
-  end
-
   def create
-    puts "params: "
-    puts params
-    if params.has_key?(:type) && !Survey.personality_types.include?(params[:type][:type].upcase)
+    majority_answered = params[:input]? params[:input].length >= 50 : false
+    entered = params[:entered_type]
+    if entered
+      correct_type = entered.upcase.in? Survey.personality_types
+    end
+    if params.has_key?(:type) && !Survey.personality_types.include?(params[:type][:type].upcase) || (!correct_type && !majority_answered)
       flash[:notice] = "That is not a correct personality type"
       redirect_to :survey and return
     elsif params.has_key?(:type)
-      puts "params.haskey(:type)"
       @survey_params = Survey.organize(params[:type])
       @survey_params[:user_id] = current_user.id
+    elsif correct_type
+      @survey_params = {:ei => 0, :tf => 0, :sn => 0, :jp => 0, :personality_type => params[:entered_type].upcase, :user_id => current_user.id}
     else
-      if !params[:input] or params[:input].length < 50 #or params[:input][:manual] == nil
+      if !params[:input] or !majority_answered #or params[:input][:manual] == nil
         flash[:notice] = "Please complete the majority of the survey to generate an accurate personality match for you!"
         redirect_to :survey and return
       end
-      puts "calling Survey.oraganize"
       @survey_params = Survey.organize(params[:input])
       @survey_params[:user_id] = current_user.id
     end
 
     @survey = Survey.new(@survey_params)
-    current_user.survey = @survey
+    #current_user.survey = @survey
 
     # Kludgy way of getting survey responses
     if Survey.last_test_result != nil

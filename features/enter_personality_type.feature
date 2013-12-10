@@ -23,7 +23,6 @@ Scenario: See mini-profile page after skipping the survey 2
     And I press "Enter"
     Then I should see "Welcome Molly"
     And I should see "Your personality type is: INFJ"
-    And I should see "Lorem ipsum"
 
 Scenario: Return to the :survey page after entering an incorrect type
     When I fill in "entered_type" with "INPQ"
