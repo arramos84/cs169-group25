@@ -5,45 +5,21 @@ class SurveyController < ApplicationController
   def new
 
   end
-
-  def skip_survey
-    puts "params: "
-    puts params
-    if !params.has_key?(:entered_type) or !Survey.personality_types.include?(params[:entered_type].upcase)
-      flash[:notice] = "That is not a correct personality type"
-      redirect_to :survey and return
-    end
-    @user = current_user
-    current_user.entered_type = params[:entered_type]
-    current_user.entered_type
-    @personality_db = Profile.find_by_personality_type(current_user.entered_type) 
-    #puts @personality_db.inspect
-
-    @body = @personality_db.body
-    @step_1 = @personality_db.step_1
-    @step_2 = @personality_db.step_2
-    @step_3 = @personality_db.step_3
-    @step_4 = @personality_db.step_4
-    @step_5 = @personality_db.step_5
-
-  end
-
+  
   def create
-    puts "params: "
-    puts params
     if params.has_key?(:type) && !Survey.personality_types.include?(params[:type][:type].upcase)
       flash[:notice] = "That is not a correct personality type"
       redirect_to :survey and return
     elsif params.has_key?(:type)
-      puts "params.haskey(:type)"
       @survey_params = Survey.organize(params[:type])
       @survey_params[:user_id] = current_user.id
+    elsif params.has_key?(:entered_type)
+      @survey_params = {:ei => 0, :tf => 0, :sn => 0, :jp => 0, :personality_type => params[:entered_type], :user_id => current_user.id}
     else
       if !params[:input] or params[:input].length < 50 #or params[:input][:manual] == nil
         flash[:notice] = "Please complete the majority of the survey to generate an accurate personality match for you!"
         redirect_to :survey and return
       end
-      puts "calling Survey.oraganize"
       @survey_params = Survey.organize(params[:input])
       @survey_params[:user_id] = current_user.id
     end

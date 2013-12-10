@@ -16,7 +16,6 @@ class UsersController < ApplicationController
       redirect_to :survey
     else
       @personality_db = Profile.find_by_personality_type(@user.survey.personality_type)
-      #puts @personality_db.inspect
 
       @video_url = /v=(.*)/.match(@personality_db.video_link)[1]
       @body = @personality_db.body
