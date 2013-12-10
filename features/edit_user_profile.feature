@@ -20,57 +20,36 @@ Background: Complete a survey
 #  Given I am on the login page
 #  Then I should not be able to go to the Edit User Profile page
 
-Scenario: cannot update password because original pw is incorrect (sad path)
-  When I go to the user edit page
-  And I put a wrong password into the current password field
-  And I enter a new password
-  Then I should be on the Edit User Profile page
-  And I should see "You entered an incorrect password"
+Scenario: cannot update password because passwords dont match (sad path)
+  When I go to the edit user profile page
+  And I fill in "user_password" with "boyz"
+  And I fill in "user_password_confirmation" with "2men"
+  And I press "Submit"
+  Then I should be on the edit user profile page
+  And I should see "Account could not successfully be updated because: Password doesn't match confirmation."
 
-Scenario: change password
-  Given I am logged in
-  When I go to the Edit User Profile page
-  And I enter the correct current password
-  And I enter a new password
-  And I press "Update"
-  Then I should be on the home page
-  And I should see "Your updates have been recorded"
+Scenario: Successfully change password (happy path)
+  When I go to the edit user profile page
+  And I fill in "user_password" with "12345"
+  And I fill in "user_password_confirmation" with "12345"
+  And I press "Submit"
+  Then I should be on the home login page
+  And I should see "User was successfully updated"
 
 Scenario: change email address
-  Given I am logged in
-  When I go to the Edit User Profile page
-  And I enter a new email address
-  And I press "Update"
-  Then I should be on the home page
-  And I should see "Your updates have been recorded"
-  And the user email should be "deez@nuts.com"
+  When I go to the edit user profile page
+  And I fill in "user_email" with "bill@billson.com"
+  And I press "Submit"
+  Then I should be on the home login page
+  And I should see "User was successfully updated"
     
-Scenario: go to the Edit Profile page
-  Given I am signed in
-  And I am on the home page
-  When I click "Edit Profile"
-  Then I should be on the Edit User Profile page
-  And I should see "email"
-  And I should see "current password"
-  And I should see "new password"
-  And I should see "Professor"
-    
-Scenario: Update Personality Type Button
-  Given I am signed in
-  And I am on the home page
-  When I click "Edit Profile"
-  Then I should be on the Edit User Profile page
-  And I should see "Retake Survey or Update Personality Type"
-    
-Scenario: Redo Survey
-  Scenario: Update Personality Type Button
-  Given I am signed in
-  And I am on the home page
-  When I click "Edit Profile"
-  Then I should be on the Edit User Profile page
-  When I follow "Retake Survey of Update Personality Type"
-  Then I should be on the survey page
-  And my previous survey should have been deleted
+Scenario: incorrectly change email (sad path)
+  When I go to the edit user profile page
+  And I fill in "user_email" with "deeznutz"
+  And I press "Submit"
+  Then I should be on the edit user profile page
+  And I should see "Account could not successfully be updated because: Email is invalid."
+
 
 
 
