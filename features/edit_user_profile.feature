@@ -6,7 +6,7 @@
 
   Scenario: not logged in (sad path)
     Given I am on the login page
-    I should not be able to go to the Edit User Profile page
+    Then I should not be able to go to the Edit User Profile page
 
   Scenario: cannot update password because original pw is incorrect (sad path)
     Given I am logged in

@@ -61,4 +61,4 @@ gem 'heroku-deflater', :group => :production
 
 gem 'simplecov'
 
-gem 'activeadmin'
+gem 'activeadmin', git: "https://github.com/gregbell/active_admin"
