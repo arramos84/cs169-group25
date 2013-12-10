@@ -26,7 +26,7 @@ Special styles for presenting Bootstrap's documentation and examples
   padding: 0;
   color: #ffffff;
 }
-.indent {
+.indent{
   text-indent: 50px;
 }
 #logout{
@@ -63,8 +63,9 @@ Special styles for presenting Bootstrap's documentation and examples
   position:fixed;
   right:0%;
   height:100%;
-  width: 20%;
+  width: 22%;
   overflow:scroll;
+  font-size: 11px;
 }
 .clear{
   opacity:1.0;

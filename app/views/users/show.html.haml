@@ -1,8 +1,5 @@
 #wrap
   = render("static_pages/navigation.html.haml")
-  .container-fluid
-    - flash.each do |key,value|
-      %div{:class => "alert alert-#{key}"}= value  
   .row-fluid.staticPage
     %div{:class=>@user.fbid ? "span8 offset1" : "span8 offset2"}
       -#.span8.offset2
