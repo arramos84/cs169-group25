@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
   def has_completed_survey?
     return !self.survey.nil?
   end
+  
+  def reset_survey
+    self.survey = nil
+  end
 
   def send_password_reset
     create_remember_token(:password_reset_token)
