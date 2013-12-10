@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     end
     @user = User.update(user_id, params[:user])
     if @user.save
-      flash[:success] = 'User was successfully updated'
+      flash[:success] = 'Successful update'
       redirect_to home_path
     else
       flash[:alert] = "Account could not successfully be updated because:\n"
