@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @followers = @user.user_followers#array of users that follow current_user
   end
   
-  def edit_profile
+  def update_profile
     @user = current_user
   end
   
