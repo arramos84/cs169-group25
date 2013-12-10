@@ -50,14 +50,15 @@
                 %strong
                 #{data[1]}
 
-          - @non_leadU_friends.each do |name, photo|
+          - @non_leadU_friends.each do |name, data|
             %tr.gray3
               %td
-                %img{:src=>photo, :class=>"clear"}
+                %img{:src=>data[0], :class=>"clear"}
               %td.text-blue1.clear
                 #{name}
               %td
-                %button.btn.btn-mini.btn-success Invite
+                =link_to "Invite", "https://www.facebook.com/messages/" + data[1], class: "button btn btn-mini btn-success"
+                
              
 #push
 
