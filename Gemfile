@@ -20,7 +20,7 @@ group :development, :test do
   gem 'ZenTest'
 end
 
-
+gem "shelly-dependencies", :group => :production
 
 gem 'annotate', '2.5.0', group: :development
 
