@@ -43,10 +43,16 @@ class UsersController < ApplicationController
   end
   
   def update_profile
-    updated_user = current_user
-    @user = User.find(params[:id])
-    flash[:success] = "Profile updated."
-    redirect_to home_path
+    user_id = params[:id]
+    @user = User.update(user_id, params[:user])
+    if @user.save
+      flash[:success] = 'User was successfully updated'
+      redirect_to home_path
+    else
+      flash[:alert] = "Account could not successfully be updated because:\n"
+      @user.errors.full_messages.each { |x| flash[:alert] << x + ",\n" }
+      redirect_to edit_profile_path(user_id)
+    end    
   end
   
   def edit_profile

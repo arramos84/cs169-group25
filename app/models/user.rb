@@ -20,8 +20,8 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :first_name, presence: true, length: {maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
-  validates_presence_of :password, :on => :create, length: { minimum: 5 }
-  validates_presence_of :password_confirmation, :on => :create
+  validates_presence_of :password, :on => :create_or_update, length: { minimum: 5 }
+  validates_presence_of :password_confirmation, :on => :create_or_update
   
   #code is how professors are attached to students and can see their students types
   #validates :code, :uniqueness => true, :unless => nil
